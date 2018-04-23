@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'order/new' to: 'orders#new'
+  get 'order/new', to: 'orders#new'
 
-  get 'order/create' to: 'orders#create'
+  get 'order/create', to: 'orders#create'
 
   devise_for :users
   get 'users/:id', to: 'users#show', as: 'user'
