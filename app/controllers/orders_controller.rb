@@ -7,16 +7,12 @@ def new
 end
 
 def create
-  @order = Order.new(order_params)
+  @order = Order.new(status: "pending") #Damian's tecnique
   @order.meal = Meal.find(params[:meal_id])
   @order.user = current_user
+  @order.save
 
 end
-private
 
-def order_params
-  params.require(:order).permit(:status)
-
-end
 
 end
