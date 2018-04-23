@@ -3,6 +3,6 @@ class AddColumnsToUsers < ActiveRecord::Migration[5.1]
     add_column :users, :name, :string
     add_column :users, :age, :integer
     add_column :users, :gender, :integer
-    add_column :users, :radius_search, :integer
+    add_column :users, :radius_search, :integer, default: 2
   end
 end
