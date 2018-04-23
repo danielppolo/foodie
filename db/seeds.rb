@@ -1,44 +1,65 @@
- require 'faker'
+require 'open-uri'
 
-# User.destroy_all
-Order.destroy_all
-Restaurant.destroy_all
-Meal.destroy_all
+city = "milano"
+BASE = "https://www.foodora.it/en"
+city_url = "https://www.foodora.it/en/city/#{city}"
+n_restaurants = 3
+i = 0
 
-p "Creatinf Users"
-daniel = User.new(email: "daniel@gmail.com", password: 1234567, name: "Daniel", age: 24, gender: 1, radius_search: 3)
-fra = User.new(email: "francesco@gmail.com", password: 1234567, name: "Francesco", age: 25, gender: 1, radius_search: 5)
-juan = User.new(email: "juan@gmail.com", password: 1234567, name: "Juan", age: 20, gender: 0, radius_search: 1)
-daniel.save
-fra.save
-juan.save
-p "Creating restaurants"
-cust = [daniel, fra, juan]
-res1 = Restaurant.new(name: "Calizza", category: "italian", city: "Milan", address: "Via Aosta 4, Milan", description: "Small and cheap pizza")
-res2 = Restaurant.new(name: "Los Chupacabras", category: "mexican", city: "Milan", address: "Via Ampere 2, Milan", description: "Best tacos in town")
-res1.save
-res2.save
+city_file = open(city_url).read
+city_doc = Nokogiri::HTML(city_file)
+restaurants_links = []
+city_doc.search('.hreview-aggregate').each do |element|
+  r = element.attribute('href').value
+  restaurants_links << r
+end
 
-p "Creating food"
-uno = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res1)
-dos = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res1)
-tres = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res1)
-cuatro = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res2)
-cinco = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res2)
-seis = Meal.new(name: Faker::Food.dish, description: Faker::RickAndMorty.quote , price: rand(100..1000).round.to_i, restaurant: res2)
-uno.save
-dos.save
-tres.save
-cuatro.save
-cinco.save
-seis.save
-food = [uno, dos, tres, cuatro, cinco, seis]
-# p food
+restaurants_links.first(n_restaurants).each do |suffix|
+  url = BASE + suffix
+  puts "Restaurant"
+  rest_file = open(url).read
+  rest_doc = Nokogiri::HTML(rest_file)
+  restaurant = Restaurant.new
+  restaurant.city = "Milan"
+  # puts "Name"
+  rest_doc.search('.vendor-name').each do |element|
+    restaurant.name = element.text.strip
+  end
+  # puts "Price/Cuisines"
+  rest_doc.search('.vendor-cuisines li:last-child').each do |element|
+    # puts "First child is price. Needs to improve"
+    restaurant.category = element.text.strip
+  end
+  # puts "Address"
+  rest_doc.search('.vendor-location').each do |element|
+    restaurant.address = element.text.strip
+  end
+  # puts "Hours"
+  rest_doc.search('.vendor-delivery-times li').each do |element|
+    # puts element.text.strip
+  end
+  restaurant.save
 
-
-p "Creating orders"
-30.times do
-  Order.create(user: cust.sample, meal: food.sample, date: Date.today, status: 0)
+  rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
+  puts "Meal n.#{i}"
+    meal = Meal.new
+    meal.restaurant = restaurant
+    # puts "Name"
+    meal.name = element.search('.dish-name span').text.strip
+    # puts "Price"
+    meal.price = element.search('.price').text.strip.to_f
+    # puts "Description"
+    meal.description = element.search('.dish-description').text.strip
+    # puts "Photo"
+    if element.xpath("picture").any?
+      photo_values = element.search('.photo').attribute('data-src').value
+      photo_url = photo_values.match(/(http:.+)/)[1]
+      meal.photo = photo_url
+    end
+    meal.save
+    i += 1
+  end
+  puts "----------------------------------------"
 end
 
 puts "SEEDS are done!"
