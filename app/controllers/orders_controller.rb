@@ -1,5 +1,9 @@
 class OrdersController < ApplicationController
 
+def index
+@order = Order.all
+end
+
 def new
   @order = Order.new
   @meal = Meal.find(params[:meal_id])
