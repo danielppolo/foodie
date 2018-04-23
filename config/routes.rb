@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'order/new'
+  get 'order/new' to: 'orders#new'
 
-  get 'order/create'
+  get 'order/create' to: 'orders#create'
 
   devise_for :users
   root to: 'pages#home'
