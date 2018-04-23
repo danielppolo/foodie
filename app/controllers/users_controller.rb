@@ -6,10 +6,19 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit
+  end
 
+  def update
+    @user.update(user_params)
+    redirect_to user_path
+  end
 
+  def destroy
+    @user.destroy
+    redirect_to new_user_registration_path
+  end
 
- # PRIVATE METHODS
 
   private
 
@@ -18,7 +27,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :age, :gender, :)
+    params.require(:user).permit(:name, :email, :age, :gender, :radius_search)
   end
 
 end
+

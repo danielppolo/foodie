@@ -25,3 +25,5 @@ end
 30.times do
   Order.create(user: cust.sample, meal: food.sample, date: Date.today, status: 0)
 end
+
+puts "SEEDS are done!"

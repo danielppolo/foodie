@@ -1,0 +1,14 @@
+<%= simple_form_for @user, url: user_path, method: :put do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :age %>
+  <%= f.input :gender %>
+  <%= f.input :radius_search %>
+  <%= f.submit "Update your profile!", class: "btn btn-primary" %>
+<% end %>
+
+
+
+<%= link_to "Destroy your account", destroy_user_path,
+      method: :delete,
+      data: { confirm: "Are you sure you want to delete your account?" } %>
