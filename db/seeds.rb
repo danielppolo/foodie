@@ -7,7 +7,7 @@ Restaurant.delete_all
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
-n_restaurants = 3
+n_restaurants = 5
 i = 0
 
 Meal.delete_all
@@ -29,22 +29,24 @@ restaurants_links.first(n_restaurants).each do |suffix|
   restaurant = Restaurant.new
   restaurant.city = "Milan"
   # puts "Name"
+  restaurant_name = ""
   rest_doc.search('.vendor-name').each do |element|
-    restaurant.name = element.text.strip
+    restaurant_name = element.text.strip
+    restaurant.name = element.text.match(/^([^-]*)/)[0].strip
   end
   # puts "Price/Cuisines"
-  rest_doc.search('.vendor-cuisines li:last-child').each do |element|
+  rest_doc.search('.vendor-cuisines').each do |element|
     # puts "First child is price. Needs to improve"
-    restaurant.category = element.text.strip
+    restaurant.category = element.text.strip.gsub(/ {2,}/, "").delete("€").gsub(/\n{2,}/, "").gsub("\n", ",")
   end
   # puts "Address"
   rest_doc.search('.vendor-location').each do |element|
     restaurant.address = element.text.strip
   end
-  # puts "Hours"
-  rest_doc.search('.vendor-delivery-times li').each do |element|
-    # puts element.text.strip
-  end
+  # # puts "Hours"
+  # rest_doc.search('.vendor-delivery-times li').each do |element|
+  #   puts element.text.strip
+  # end
   restaurant.save
 
   rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
@@ -69,5 +71,3 @@ restaurants_links.first(n_restaurants).each do |suffix|
   end
   puts "----------------------------------------"
 end
-
-puts "SEEDS are done!"
