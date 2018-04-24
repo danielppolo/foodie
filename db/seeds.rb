@@ -7,7 +7,7 @@ Restaurant.delete_all
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
-n_restaurants = 10
+n_restaurants = 5
 i = 0
 
 Meal.delete_all
@@ -29,6 +29,7 @@ restaurants_links.first(n_restaurants).each do |suffix|
   restaurant = Restaurant.new
   restaurant.city = "Milan"
   # puts "Name"
+  restaurant_name = ""
   rest_doc.search('.vendor-name').each do |element|
     restaurant.name = element.text.match(/^([^-]*)/)[0].strip
   end

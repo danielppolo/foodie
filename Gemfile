@@ -4,6 +4,7 @@ ruby '2.4.3'
 # Temp
 gem 'faker'
 
+gem 'pry'
 
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 gem 'devise'
