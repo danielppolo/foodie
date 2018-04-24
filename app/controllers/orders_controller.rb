@@ -7,7 +7,6 @@ end
 def new
   @order = Order.new
   @meal = Meal.find(params[:meal_id])
-
 end
 
 def create
