@@ -5,4 +5,5 @@ class Meal < ApplicationRecord
   validates :description, presence: true
 
   monetize :price_cents
+  validates :photo, presence: true
 end
