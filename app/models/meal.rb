@@ -3,7 +3,7 @@ class Meal < ApplicationRecord
   validates :price_cents, presence: true
   validates :name, presence: true, uniqueness: { scope: :restaurant }
   validates :description, presence: true
-
+  validates :photo, presence: true
   monetize :price_cents
 
   def self.filter(filter_params)
@@ -34,29 +34,4 @@ class Meal < ApplicationRecord
 
     self.all
   end
-
-
-  # def self.filter(filter_params)
-  #   if filter_params[:min_price] && filter_params[:max_price]
-  #     min_price = (filter_params[:min_price].to_i)*100
-  #     max_price = (filter_params[:max_price].to_i)*100
-  #     range = (min_price..max_price)
-  #     return Meal.where(price_cents: range)
-  #   end
-
-  #   if filter_params[:randomize]
-  #     array_all_meals = []
-  #     randomized_array_all_meals = []
-  #     all_meals = Meal.all
-  #     all_meals.each do |one_meal|
-  #       array_all_meals << one_meal
-  #     end
-  #     randomized_array_all_meals = array_all_meals.shuffle
-  #     return randomized_array_all_meals
-  #   end
-
-  #   self.all
-  # end
-
-
 end
