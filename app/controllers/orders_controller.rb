@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
 def index
-@order = Order.all
+@order = current_user.orders.where(state: 1).find(params[:id])
 end
 
 def new
@@ -11,7 +11,7 @@ def new
 end
 
 def create
-  @order = Order.new(status: "pending") #Damian's tecnique
+  @order = Order.new #Damian's tecnique
   @order.meal = Meal.find(params[:meal_id])
   @order.user = current_user
   @order.save

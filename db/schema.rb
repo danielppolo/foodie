@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424072101) do
+ActiveRecord::Schema.define(version: 20180424100733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,13 @@ ActiveRecord::Schema.define(version: 20180424072101) do
 
   create_table "orders", force: :cascade do |t|
     t.date "date"
-    t.integer "status"
+    t.integer "order_status", default: 0, null: false
     t.bigint "user_id"
     t.bigint "meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "payment"
+    t.integer "payment_status", default: 0, null: false
     t.index ["meal_id"], name: "index_orders_on_meal_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

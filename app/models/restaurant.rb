@@ -1,6 +1,6 @@
 class Restaurant < ApplicationRecord
   has_many :meals, dependent: :destroy
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :restaurant }
   validates :address, presence: true
 
   geocoded_by :address
