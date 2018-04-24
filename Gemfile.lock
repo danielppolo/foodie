@@ -215,6 +215,7 @@ DEPENDENCIES
   money-rails
   nokogiri (~> 1.8, >= 1.8.2)
   pg (~> 0.21)
+  pry
   pry-byebug
   pry-rails
   puma
