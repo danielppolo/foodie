@@ -3,13 +3,18 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"],
+    scope: 'email',
+    infoe_fields: 'emial, first_name, last_name',
+    image_size: 'square',
+    secure_image_url: true
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0ca120807e598cf9016da98d799d3ee0589e838af8ea4f238b1b27e0cf54adfeadbb201d8d5c8648621d52038ab325c12f47462a5101ecdd53a0ad3e8897ed15'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'

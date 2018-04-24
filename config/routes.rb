@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: 'user/omniauth_callbacks'}
   get 'users/:id', to: 'users#show', as: 'user'
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   put 'users/:id', to: 'users#update'
