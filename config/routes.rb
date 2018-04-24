@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  resources :meals, only: [:show] do
-    resources :orders
-  end
+
+  get "filters", to: "meals#search"
 
   devise_for :users, controllers: {omniauth_callbacks: 'user/omniauth_callbacks'}
-  get 'users/:id', to: 'users#show', as: 'user'
-  get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
-  put 'users/:id', to: 'users#update'
-  delete 'users/:id/destroy', to: 'users#destroy', as: 'destroy_user'
+
+  resources :users, only: [:show, :edit, :update, :destroy]
+
+  resources :meals, only: [:index, :show] do
+    resources :orders, only: [:new, :create] do
+        resources :payments, only: [:new, :create]
+    end
+  end
 
   root to: 'pages#home'
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

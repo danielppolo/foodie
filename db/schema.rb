@@ -28,11 +28,13 @@ ActiveRecord::Schema.define(version: 20180424151316) do
 
   create_table "orders", force: :cascade do |t|
     t.date "date"
-    t.integer "status"
+    t.integer "order_status", default: 0, null: false
     t.bigint "user_id"
     t.bigint "meal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.jsonb "payment"
+    t.integer "payment_status", default: 0, null: false
     t.index ["meal_id"], name: "index_orders_on_meal_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

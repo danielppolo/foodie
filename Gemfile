@@ -4,6 +4,7 @@ ruby '2.4.3'
 # Temp
 gem 'faker'
 
+gem 'pry'
 
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 gem 'devise'
@@ -15,6 +16,7 @@ gem 'rails', '5.1.6'
 gem 'redis'
 gem 'geocoder'
 gem 'money-rails'
+gem 'stripe'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 4.7'
