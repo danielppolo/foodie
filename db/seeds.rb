@@ -10,6 +10,9 @@ city_url = "https://www.foodora.it/en/city/#{city}"
 n_restaurants = 3
 i = 0
 
+Meal.delete_all
+Restaurant.delete_all
+
 city_file = open(city_url).read
 city_doc = Nokogiri::HTML(city_file)
 restaurants_links = []
@@ -52,6 +55,7 @@ restaurants_links.first(n_restaurants).each do |suffix|
     meal.name = element.search('.dish-name span').text.strip
     # puts "Price"
     meal.price = element.search('.price').text.strip.to_f
+    puts meal.price
     # puts "Description"
     meal.description = element.search('.dish-description').text.strip
     # puts "Photo"

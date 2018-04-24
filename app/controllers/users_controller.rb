@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
   def show
   end
 
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
     redirect_to new_user_registration_path
   end
 
-
   private
 
   def set_user
@@ -29,6 +27,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :age, :gender, :radius_search)
   end
-
 end
 
