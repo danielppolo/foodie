@@ -1,5 +1,9 @@
 require 'open-uri'
 
+
+Meal.delete_all
+Restaurant.delete_all
+
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
