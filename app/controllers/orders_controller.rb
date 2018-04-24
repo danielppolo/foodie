@@ -1,16 +1,16 @@
 class OrdersController < ApplicationController
 
-def index
-@order = Order.all
-end
+  def index
+    @order = Order.all
+  end
 
-def new
-  @order = Order.new
-  @meal = Meal.find(params[:meal_id])
+  def new
+    @order = Order.new
+    @meal = Meal.find(params[:meal_id])
 
-end
+  end
 
-def create
+  def create
   @order = Order.new(status: "pending") #Damian's tecnique
   @order.meal = Meal.find(params[:meal_id])
   @order.user = current_user
