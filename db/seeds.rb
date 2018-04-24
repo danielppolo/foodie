@@ -45,12 +45,12 @@ restaurants_links.first(n_restaurants).each do |suffix|
   query = restaurant.name.strip.delete("-").split(" ").join("+")
   query = URI::encode(query)
   p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyDoryFcD6_-LPUr-gvCctTp8sRLHRmf8Ik"
+  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
   place_serialized = open(place_url).read
   place = JSON.parse(place_serialized)
   if place.key?("results")
     place_id = place["results"][0]["place_id"]
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyDoryFcD6_-LPUr-gvCctTp8sRLHRmf8Ik"
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
     details_serialized = open(details_url).read
     details = JSON.parse(details_serialized)
     if details["result"].key?("opening_hours")
@@ -58,8 +58,20 @@ restaurants_links.first(n_restaurants).each do |suffix|
       openings = []
       periods.each do |day|
       temp_containter = []
-      day_preffix = day["open"]["day"]+1
-      openings << "#{day_preffix.to_s + day["open"]["time"].to_s}-#{day_preffix.to_s + day["close"]["time"].to_s}"
+      pfx_open = (day["open"]["day"]+1).to_s
+      pfx_close = (day["close"]["day"]+1).to_s
+      opening = day["open"]["time"].to_s
+      closing = day["close"]["time"].to_s
+      # if closing[0] == 0
+      #   if day["open"]["day"] == 6
+      #     pfx_close = 1.to_s
+      #   else
+      #     pfx_close = (day["close"]["day"]+2).to_s
+      #   end
+      # else
+      #   pfx_close = (day["close"]["day"]+1).to_s
+      # end
+      openings << "#{pfx_open + opening}-#{pfx_close + closing}"
       restaurant.opening_hours = openings.join(",")
       end
     end
@@ -71,7 +83,7 @@ restaurants_links.first(n_restaurants).each do |suffix|
 
   # MEALS
   rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
-  puts "Meal n.#{i}"
+  # puts "Meal n.#{i}"
     meal = Meal.new
     meal.restaurant = restaurant
     # puts "Name"
@@ -91,6 +103,7 @@ restaurants_links.first(n_restaurants).each do |suffix|
       i += 1
     end
   end
+  p meal.count
   puts "----------------------------------------"
 end
 
