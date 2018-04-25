@@ -40,40 +40,52 @@
 
 <h4>FILTER BY CATEGORIES</h4>
 
+<% Meal.categories(10).each do |tag_meal| %>
 <form action="/meals" method="get">
-  <div style="display:none;", id="div-filter-category">
-    <input type="text" name="category" value="Hamburger">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value=<%= tag_meal %>>
   </div>
-  <input type="submit" value="Hamburger">
+  <input type="submit" value=<%= tag_meal %>>
 </form>
 
-<form action="/meals" method="get">
-  <div style="display:none;", id="div-filter-category">
+<% end %>
+
+
+
+<!-- <form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
     <input type="text" name="category" value="Sushi">
   </div>
   <input type="submit" value="Sushi">
 </form>
 
 <form action="/meals" method="get">
-  <div style="display:none;", id="div-filter-category">
+  <div style="display:none;", class="div-filter-category">
     <input type="text" name="category" value="Street Food">
   </div>
   <input type="submit" value="Street Food">
 </form>
 
 <form action="/meals" method="get">
-  <div style="display:none;", id="div-filter-category">
+  <div style="display:none;", class="div-filter-category">
     <input type="text" name="category" value="Panini">
   </div>
   <input type="submit" value="Panini">
 </form>
 
 <form action="/meals" method="get">
-  <div style="display:none;", id="div-filter-category">
+  <div style="display:none;", class="div-filter-category">
     <input type="text" name="category" value="Kebab">
   </div>
   <input type="submit" value="Kebab">
 </form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Pesce">
+  </div>
+  <input type="submit" value="Fish">
+</form> -->
 
 
 
