@@ -109,3 +109,31 @@ restaurants_links.first(n_restaurants).each do |suffix|
 end
 
 puts "Seeds are done!"
+
+
+
+#   # MEALS
+#   rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
+#   # puts "Meal n.#{i}"
+#     meal = Meal.new
+#     meal.restaurant = restaurant
+#     # puts "Name"
+#     meal.name = element.search('.dish-name span').text.strip
+#     # puts "Price"
+#     meal.price = element.search('.price').text.strip.to_f
+#     # puts meal.price
+#     # puts "Description"
+#     meal.description = element.search('.dish-description').text.strip
+#     # puts "Photo"
+#     if element.xpath("picture").any?
+#       photo_values = element.search('.photo').attribute('data-src').value
+#       photo_url = photo_values.match(/(http:.+)/)[1]
+#       meal.photo = photo_url
+#     end
+#     if meal.save
+#       i += 1
+#     end
+#   end
+#   p Meal.count
+#   puts "----------------------------------------"
+# end
