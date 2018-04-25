@@ -1,10 +1,8 @@
 class OrdersController < ApplicationController
 
-
   def index
     @order = current_user.orders.where(state: 1).find(params[:id])
   end
-
 
   def new
     @order = Order.new
@@ -16,6 +14,14 @@ class OrdersController < ApplicationController
   @order.meal = Meal.find(params[:meal_id])
   @order.user = current_user
   @order.save
+end
+def edit
+  @order = Order.find(params[:id])
+
+end
+def update
+  @order = Order.find(params[:id])
+
 end
 
 
