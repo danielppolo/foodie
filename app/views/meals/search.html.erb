@@ -36,6 +36,47 @@
 
 <br>
 
+
+
+<h4>FILTER BY CATEGORIES</h4>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-filter-category">
+    <input type="text" name="category" value="Hamburger">
+  </div>
+  <input type="submit" value="Hamburger">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-filter-category">
+    <input type="text" name="category" value="Sushi">
+  </div>
+  <input type="submit" value="Sushi">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-filter-category">
+    <input type="text" name="category" value="Street Food">
+  </div>
+  <input type="submit" value="Street Food">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-filter-category">
+    <input type="text" name="category" value="Panini">
+  </div>
+  <input type="submit" value="Panini">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-filter-category">
+    <input type="text" name="category" value="Kebab">
+  </div>
+  <input type="submit" value="Kebab">
+</form>
+
+
+
 <h4>RANDOMIZE</h4>
 
 <form action="/meals" method="get">
@@ -48,36 +89,4 @@
 
 
 
-<!--
-<form action="/meals" method="get">
-  <div style="display:none;", id="div-price-filter-zero-four">
-    <input type="text" name="min_price" value=0>
-    <input type="text" name="max_price" value=4>
-  </div>
-  <input type="submit" value="Budget">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", id="div-price-filter-four-seven">
-    <input type="text" name="min_price" value=4.01>
-    <input type="text" name="max_price" value=7>
-  </div>
-  <input type="submit" value="Popular">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", id="div-price-filter-seven-ten">
-    <input type="text" name="min_price" value=7.01>
-    <input type="text" name="max_price" value=10>
-  </div>
-  <input type="submit" value="Gourmet">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", id="div-price-filter-ten-infinity">
-    <input type="text" name="min_price" value=10.01>
-    <input type="text" name="max_price" value= <%= ten_or_above %>>
-  </div>
-  <input type="submit" value="Luxe">
-</form> -->
-
+<%= javascript_pack_tag 'positioning' %>

@@ -7,27 +7,31 @@ class Meal < ApplicationRecord
   monetize :price_cents
 
   def self.filter(filter_params)
+    not_shuffled_meals = []
     meals = []
     if filter_params[:min_price] && filter_params[:max_price]
       min_price = (filter_params[:min_price].to_i)*100
       max_price = (filter_params[:max_price].to_i)*100
       range = (min_price..max_price)
-      meals_by_price = Meal.where(price_cents: range)
+      meals_by_price = Meal.where(price_cents: range).shuffle
       meals_by_price.each do |one_meal_by_price|
         meals << one_meal_by_price
       end
     end
 
-    if filter_params[:randomize] == true
+    if filter_params[:randomize]
       Meal.all.shuffle.each { |meal| meals << meal }
     end
 
     if filter_params[:category]
       query = filter_params[:category]
-      restaurants = Restaurant.all.each do |r|
+      restaurants = Restaurant.all.shuffle.each do |r|
         if r.category.include?(query)
-          r.meals.each { |m| meals << m }
+          r.meals.each do |m|
+            not_shuffled_meals << m
+          end
         end
+        meals = not_shuffled_meals.shuffle
       end
     end
 
