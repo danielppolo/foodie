@@ -1,27 +1,16 @@
-  <h1><%= "#{@lat}, #{@lng}" %></h1>
-
-
-  <ul>
-  <% @meals.each do |meal| %>
+<ul>
+  <% @meals.each do |m| %>
   <li>
-    <%= link_to meal_path(meal) do %>
-    <p><%= meal.restaurant.name %></p>
-    <p><%= meal.restaurant.address %></p>
-    <p><%= meal.name %></p>
-    <p><%=humanized_money_with_symbol(meal.price) %></p>
-    <p><%= image_tag(meal.photo, size: "250x200") %></p>
-   <% end %>
+    <p><%= m.restaurant.name %></p>
+    <p><%= m.restaurant.address %></p>
+    <p><%= m.restaurant.distance_from([@lat, @lng]).round(2) %> km </p>
+    <p><%= m.name %></p>
+    <p><%= m.description %></p>
+    <p><%=humanized_money_with_symbol(m.price) %></p>
+    <p><%= image_tag(m.photo, size: "250x200") %></p>
   </li>
   <% end %>
 </ul>
 
-
-<% else %>
-
-
 <!-- ADD OTHER FILTERS HERE -->
-
-<% end %>
-
-
 

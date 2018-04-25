@@ -40,7 +40,7 @@
 
 <h4>FILTER BY CATEGORIES</h4>
 
-<% Meal.categories(10).each do |tag_meal| %>
+<% Meal.nearby_categories(10, cookies).each do |tag_meal| %>
 <form action="/meals" method="get">
   <div style="display:none;", class="div-filter-category">
     <input type="text" name="category" value=<%= tag_meal %>>

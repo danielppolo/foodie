@@ -6,6 +6,7 @@ class Meal < ApplicationRecord
   validates :photo, presence: true
   monetize :price_cents
 
+  @search_radius = 10
 
   def self.filter(params, cookies) # => Returns array of Display Meals
     available = by_time(by_location(cookies))
@@ -23,7 +24,7 @@ class Meal < ApplicationRecord
 
   def self.by_location(cookies) # => Returns array of nearby Meals
     nearby_meals = []
-    r = Restaurant.near([cookies[:lat].to_f, cookies[:lng].to_f], 6)
+    r = Restaurant.near([cookies[:lat].to_f, cookies[:lng].to_f], @search_radius)
     r.each { |r| r.meals.each { |m| nearby_meals << m } }
     nearby_meals
   end
@@ -48,21 +49,27 @@ class Meal < ApplicationRecord
     end
   end
 
+  def self.by_other(meal_array, params)
+    meal_array.select do |m|
+      m.description.include?(params[:category])
+    end
+  end
+
 
   def self.categories(number_of_results)
     categories = []
     Restaurant.all.each {|r| r.category.split(",").each { |c| categories << c } }
-    counts = Hash.new 0
+    counts = Hash.new(0)
     categories.each { |word| counts[word] += 1 }
     counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
   end
 
-  def self.nearby_categories(number_of_results)
+  def self.nearby_categories(number_of_results, cookies)
     categories = []
-    Restaurant.near([cookies[:lat].to_f, cookies[:lng].to_f], 6).each do |r|
+    Restaurant.near([cookies[:lat].to_f, cookies[:lng].to_f], @search_radius).each do |r|
       r.category.split(",").each { |c| categories << c }
     end
-    counts = Hash.new 0
+    counts = Hash.new(0)
     categories.each { |word| counts[word] += 1 }
     counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
   end

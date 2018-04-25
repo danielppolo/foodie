@@ -17,6 +17,7 @@ class MealsController < ApplicationController
 
   def search
 
+
   end
 
   private
