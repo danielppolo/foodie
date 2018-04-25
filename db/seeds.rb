@@ -7,7 +7,7 @@ Restaurant.delete_all
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
-n_restaurants = 5
+n_restaurants = 50
 i = 0
 
 Meal.delete_all
