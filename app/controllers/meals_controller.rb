@@ -4,11 +4,16 @@ class MealsController < ApplicationController
 	before_action :set_meal, only: [:show]
 
   def index
+    @categories = Meal.categories(10)
+    @params = params.present?
+    @lat = params[:lat]
+    @lng = params[:lng]
     @meals = Meal.filter(params)
     # binding.pry
   end
 
   def show
+    # @meal = Meal.find(params[:meal_id])
   end
 
   def search

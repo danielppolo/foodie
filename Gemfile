@@ -3,7 +3,8 @@ ruby '2.4.3'
 
 # Temp
 gem 'faker'
-
+gem 'better_errors'
+gem 'binding_of_caller'
 gem 'pry'
 
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'

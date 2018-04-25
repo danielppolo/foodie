@@ -1,8 +1,40 @@
-<% @meals.each do |meal| %>
-  <p>-------------------------------------------------</p>
-  <h2><%= meal.name %></h2>
-  <%= link_to "Explore this meal", meal_path(meal) %>
-  <p>-------------------------------------------------</p>
+<% if @params %>
+  <h1><%= "#{@lat}, #{@lng}" %></h1>
+
+
+  <ul>
+  <% @meals.each do |m| %>
+  <li>
+    <p><%= m.name %></p>
+    <p><%=humanized_money_with_symbol(m.price) %></p>
+    <p><%= image_tag(m.photo, size: "250x200") %></p>
+  </li>
+  <% end %>
+</ul>
+
+<% else %>
+  <h4>PRICE FILTER</h4>
+
+  <form action="/meals" method="get">
+    <input type="text" name="min_price">
+    <input type="text" name="max_price">
+    <input type="submit">
+  </form>
+
   <br>
-  <br>
+
+  <h4>RANDOMIZE</h4>
+
+  <form action="/meals" method="get">
+    <input type="text" name="randomize" placeholder="Just press the random button">
+    <input type="hidden" name="position" value="<%= request.location.coordinates %>">
+    <input type="submit">
+  </form>
+
 <% end %>
+
+<%= javascript_pack_tag 'positioning' %>
+
+
+
+
