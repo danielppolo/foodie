@@ -42,41 +42,41 @@ restaurants_links.first(n_restaurants).each do |suffix|
   rest_doc.search('.vendor-location').each do |element|
     restaurant.address = element.text.strip
   end
-  # # puts "Hours"
-  query = restaurant.name.strip.delete("-").split(" ").join("+")
-  query = URI::encode(query)
-  p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
-  place_serialized = open(place_url).read
-  place = JSON.parse(place_serialized)
-  if place.key?("results")
-    place_id = place["results"][0]["place_id"]
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
-    details_serialized = open(details_url).read
-    details = JSON.parse(details_serialized)
-    if details["result"].key?("opening_hours")
-      periods =  details["result"]["opening_hours"]["periods"]
-      openings = []
-      periods.each do |day|
-      temp_containter = []
-      pfx_open = (day["open"]["day"]+1).to_s
-      pfx_close = (day["close"]["day"]+1).to_s
-      opening = day["open"]["time"].to_s
-      closing = day["close"]["time"].to_s
-      # if closing[0] == 0
-      #   if day["open"]["day"] == 6
-      #     pfx_close = 1.to_s
-      #   else
-      #     pfx_close = (day["close"]["day"]+2).to_s
-      #   end
-      # else
-      #   pfx_close = (day["close"]["day"]+1).to_s
-      # end
-      openings << "#{pfx_open + opening}-#{pfx_close + closing}"
-      restaurant.opening_hours = openings.join(",")
-      end
-    end
-  end
+  # # # puts "Hours"
+  # query = restaurant.name.strip.delete("-").split(" ").join("+")
+  # query = URI::encode(query)
+  # p query
+  # place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
+  # place_serialized = open(place_url).read
+  # place = JSON.parse(place_serialized)
+  # if place.key?("results")
+  #   place_id = place["results"][0]["place_id"]
+  #   details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8"
+  #   details_serialized = open(details_url).read
+  #   details = JSON.parse(details_serialized)
+  #   if details["result"].key?("opening_hours")
+  #     periods =  details["result"]["opening_hours"]["periods"]
+  #     openings = []
+  #     periods.each do |day|
+  #     temp_containter = []
+  #     pfx_open = (day["open"]["day"]+1).to_s
+  #     pfx_close = (day["close"]["day"]+1).to_s
+  #     opening = day["open"]["time"].to_s
+  #     closing = day["close"]["time"].to_s
+  #     # if closing[0] == 0
+  #     #   if day["open"]["day"] == 6
+  #     #     pfx_close = 1.to_s
+  #     #   else
+  #     #     pfx_close = (day["close"]["day"]+2).to_s
+  #     #   end
+  #     # else
+  #     #   pfx_close = (day["close"]["day"]+1).to_s
+  #     # end
+  #     openings << "#{pfx_open + opening}-#{pfx_close + closing}"
+  #     restaurant.opening_hours = openings.join(",")
+  #     end
+  #   end
+  # end
   # rest_doc.search('.vendor-delivery-times li').each do |element|
   #   puts element.text.strip
   # end

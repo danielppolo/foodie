@@ -1,30 +1,101 @@
+<% ten_or_above = 1000000 %>
+
 <h4>PRICE FILTER</h4>
 
 <form action="/meals" method="get">
-  <input type="text" name="min_price">
-  <input type="text" name="max_price">
-  <input type="submit">
+  <div style="display:none;", id="div-price-filter-zero-four">
+    <input type="text" name="min_price" value=0>
+    <input type="text" name="max_price" value=3.99>
+  </div>
+  <input type="submit" value="< &euro;4">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-price-filter-four-seven">
+    <input type="text" name="min_price" value=4>
+    <input type="text" name="max_price" value=7>
+  </div>
+  <input type="submit" value="&euro;4 - &euro;7">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-price-filter-seven-ten">
+    <input type="text" name="min_price" value=7.01>
+    <input type="text" name="max_price" value=10>
+  </div>
+  <input type="submit" value="&euro;7 - &euro;10">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", id="div-price-filter-ten-infinity">
+    <input type="text" name="min_price" value=10.01>
+    <input type="text" name="max_price" value= <%= ten_or_above %>>
+  </div>
+  <input type="submit" value="&euro;10 <">
 </form>
 
 <br>
 
-<h4>RANDOMIZE</h4>
 
+
+<h4>FILTER BY CATEGORIES</h4>
+
+<% Meal.categories(10).each do |tag_meal| %>
 <form action="/meals" method="get">
-  <input type="text" name="randomize" placeholder="Just press the random button">
-  <input type="hidden" name="position" value="<%= request.location.coordinates %>">
-  <input type="submit">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value=<%= tag_meal %>>
+  </div>
+  <input type="submit" value=<%= tag_meal %>>
 </form>
 
-
-
+<% end %>
 
 
 
 <!-- <form action="/meals" method="get">
-  <input type="text" name="min_price">
-  <input type="text" name="max_price">
-  <input type="submit">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Sushi">
+  </div>
+  <input type="submit" value="Sushi">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Street Food">
+  </div>
+  <input type="submit" value="Street Food">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Panini">
+  </div>
+  <input type="submit" value="Panini">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Kebab">
+  </div>
+  <input type="submit" value="Kebab">
+</form>
+
+<form action="/meals" method="get">
+  <div style="display:none;", class="div-filter-category">
+    <input type="text" name="category" value="Pesce">
+  </div>
+  <input type="submit" value="Fish">
 </form> -->
+
+
+<h4>RANDOMIZE</h4>
+
+<form action="/meals" method="get">
+
+  <div style="display:none;", id="div-filter-random">
+    <input type="text" name="randomize" placeholder="Just press the random button">
+  </div>
+  <input type="submit" value="Random">
+</form>
 
 <%= javascript_pack_tag 'positioning' %>
