@@ -3,13 +3,15 @@
 
 
   <ul>
-  <% @meals.each do |m| %>
+  <% @meals.each do |meal| %>
   <li>
-    <p><%= m.restaurant.name %></p>
-    <p><%= m.restaurant.address %></p>
-    <p><%= m.name %></p>
-    <p><%=humanized_money_with_symbol(m.price) %></p>
-    <p><%= image_tag(m.photo, size: "250x200") %></p>
+    <%= link_to meal_path(meal) do %>
+    <p><%= meal.restaurant.name %></p>
+    <p><%= meal.restaurant.address %></p>
+    <p><%= meal.name %></p>
+    <p><%=humanized_money_with_symbol(meal.price) %></p>
+    <p><%= image_tag(meal.photo, size: "250x200") %></p>
+   <% end %>
   </li>
   <% end %>
 </ul>
