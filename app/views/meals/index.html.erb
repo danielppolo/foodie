@@ -5,6 +5,8 @@
   <ul>
   <% @meals.each do |m| %>
   <li>
+    <p><%= m.restaurant.name %></p>
+    <p><%= m.restaurant.address %></p>
     <p><%= m.name %></p>
     <p><%=humanized_money_with_symbol(m.price) %></p>
     <p><%= image_tag(m.photo, size: "250x200") %></p>

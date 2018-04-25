@@ -32,9 +32,8 @@ class Meal < ApplicationRecord
     end
 
     if filter_params[:lat] && filter_params[:lng]
-      restaurants = Restaurant.near([filter_params[:lat].to_f, filter_params[:lng].to_f], 3)
+      restaurants = Restaurant.near([filter_params[:lat].to_f, filter_params[:lng].to_f], 2)
       restaurants.each { |r| r.meals.each { |m| meals << m } }
-      raise
     end
     meals.uniq
   end
