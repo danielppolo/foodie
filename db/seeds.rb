@@ -7,7 +7,7 @@ Restaurant.delete_all
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
-n_restaurants = 5
+n_restaurants = 50
 i = 0
 
 Meal.delete_all
@@ -104,7 +104,7 @@ restaurants_links.first(n_restaurants).each do |suffix|
       i += 1
     end
   end
-  p meal.count
+  p Meal.count
   puts "----------------------------------------"
 end
 

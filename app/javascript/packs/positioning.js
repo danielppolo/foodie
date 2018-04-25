@@ -6,17 +6,11 @@ var options = {
 
 function success(pos) {
   var crd = pos.coords;
+  setCookie("lat", pos.coords.latitude);
+  setCookie("lng", pos.coords.longitude);
+  console.log("Cookie saved.");
 
-  // console.log('Your current position is:');
-  // console.log('Latitude : ' + crd.latitude);
-  // console.log('Longitude: ' + crd.longitude);
-  // console.log('More or less ' + crd.accuracy + ' meters.');
-
-  var url = window.location.href;
-  if (url.indexOf('?lat=') === -1) {
-    document.location.href = "/meals?lat=" + crd.latitude + "&lng=" + crd.longitude;
-  }
-
+  //CLOSE POPUP
 };
 
 function error(err) {
@@ -24,3 +18,15 @@ function error(err) {
 };
 
 window.navigator.geolocation.getCurrentPosition(success, error, options);
+
+//OPEN POPUP
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
