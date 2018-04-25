@@ -6,8 +6,8 @@ class MealsController < ApplicationController
   def index
     @categories = Meal.categories(10)
     @params = params.present?
-    @lat = params[:lat]
-    @lng = params[:lng]
+    @lat = cookies[:lat]
+    @lng = cookies[:lng]
     @meals = Meal.filter(params)
     # binding.pry
   end
