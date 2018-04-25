@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180424151316) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180424151316) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "opening_hours"
   end
 
   create_table "users", force: :cascade do |t|
