@@ -17,8 +17,7 @@ class Meal < ApplicationRecord
       meals_by_price.each do |one_meal_by_price|
         price_filter_array << one_meal_by_price
       end
-      randomized_price_all_meals = price_filter_array.shuffle
-      return randomized_price_all_meals
+      price_filter_array.shuffle
     end
 
     if filter_params[:randomize]
@@ -28,10 +27,25 @@ class Meal < ApplicationRecord
       all_meals.each do |one_meal_random|
         array_all_meals << one_meal_random
       end
-      randomized_array_all_meals = array_all_meals.shuffle
-      return randomized_array_all_meals
+      array_all_meals.shuffle
     end
 
+    if filter_params[:category]
+      query = filter_params[:category]
+      restaurants = Restaurant.all.select do |r|
+        r.category.include?(query)
+      end
+      restaurants.shuffle
+    end
     self.all
   end
+
+  def self.categories(number_of_results)
+    categories = []
+    Restaurant.all.each {|r| r.category.split(",").each { |c| categories << c } }
+    counts = Hash.new 0
+    categories.each { |word| counts[word] += 1 }
+    counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
+  end
+
 end

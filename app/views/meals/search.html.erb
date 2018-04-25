@@ -12,6 +12,7 @@
 
 <form action="/meals" method="get">
   <input type="text" name="randomize" placeholder="Just press the random button">
+  <input type="hidden" name="position" value="<%= request.location.coordinates %>">
   <input type="submit">
 </form>
 
