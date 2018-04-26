@@ -1,19 +1,48 @@
-<ul>
-  <% @meals.each do |m| %>
-  <li>
-    <p><%= m.restaurant.name %></p>
-    <p><%= m.restaurant.address %></p>
-    <% if m.restaurant.latitude && m.restaurant.longitude%>
-    <p><%= m.restaurant.distance_from([@lat, @lng]).round(2) %> km </p>
+<<<<<<< HEAD
+<div id="viewport">
+  <ul class="stack">
+    <% @meals.each do |m| %>
+    <li class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="card-photo" style= "background-image: url('<%= m.photo %>'); "></div>
+          <div class="card-header">
+            <p class="card-meal-name"><%= m.name %></p>
+            <p class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></p>
+          </div>
+        </div>
+        <div class="back">
+            <p><%= @meal.name %></p>
+             <p><%=humanized_money_with_symbol(@meal.price) %></p>
+             <p><%= image_tag(@meal.photo, size: "250x200") %></p>
+             <div
+              id="map"
+              style="width: 250px;
+              height: 250px;"
+              data-markers="<%= @user_to_restaurant_marker.to_json %>"
+            ></div>
+            <%#= raise %>
+
+             <p>User coordinates: <%= @user_to_restaurant_marker %> </p>
+             <p>Restaurant coordinates: <%= @restaurant_marker %> </p>
+            <p><%= @user_marker.class %></p>
+        </div>
+      </div>
+    </li>
     <% end %>
-    <p><%= m.name %></p>
-    <p><%= m.description %></p>
-    <p><%=humanized_money_with_symbol(m.price) %></p>
-    <p><%= image_tag(m.photo, size: "250x200") %></p>
-    <p><%= link_to "Show more details", meal_path(m) %></p>
-  </li>
-  <% end %>
-</ul>
+  </ul>
+</div>
 
-<!-- ADD OTHER FILTERS HERE -->
 
+<%= javascript_pack_tag 'card-stack' %>
+<%= javascript_pack_tag 'swing' %>
+
+      <!--
+      <p> m.restaurant.name </p>
+      <p> m.restaurant.address </p>
+
+      if m.restaurant.latitude
+        <p> m.restaurant.distance_from([@lat.to_f,@lng.to_f]).round(2) km </p>
+      end
+      <p>m.description </p>
+    -->

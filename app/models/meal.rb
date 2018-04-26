@@ -78,5 +78,12 @@ class Meal < ApplicationRecord
     self.restaurant.open?
   end
 
+  def self.categories_description(number_of_results)
+    categories = []
+    Restaurant.all.each {|r| r.category.split(",").each { |c| categories << c } }
+    counts = Hash.new(0)
+    categories.each { |word| counts[word] += 1 }
+    counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
+  end
 end
 
