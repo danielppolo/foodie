@@ -1,3 +1,10 @@
 <p><%= @meal.name %></p>
 <p><%=humanized_money_with_symbol(@meal.price) %></p>
 <p><%= image_tag(@meal.photo, size: "250x200") %></p>
+
+<!-- undo action -->
+<%= flash[:notice] %>
+<% if id = response.headers['X-Memento-Session-Id'] %>
+  <%= link_to '(Undo)', undo_path(id), method: :post %>
+<% end %>
+

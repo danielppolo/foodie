@@ -6,7 +6,8 @@ gem 'faker'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'pry'
-
+#undo
+gem 'memento'
 gem 'nokogiri', '~> 1.8', '>= 1.8.2'
 gem 'devise'
 gem 'figaro'

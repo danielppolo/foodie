@@ -5,9 +5,21 @@ class Meal < ApplicationRecord
   validates :description, presence: true
   validates :photo, presence: true
   monetize :price_cents
+  #undo
+  memento_changes :destroy
+  #trying likes history
+  has_many :likes
 
   @search_radius = 10
-
+  #trying likes user
+   def like(user)
+    likes << Like.new(user: user)
+  end
+  # unlike the post
+  def unlike(user)
+    likes.where(user_id: user.id).first.destroy
+  end
+#codigo anterior a likes, buen code
   def self.filter(params, cookies) # => Returns array of Display Meals
     available = by_time(by_location(cookies))
     if params[:min_price] && params[:max_price]

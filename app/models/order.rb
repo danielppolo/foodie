@@ -4,4 +4,6 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :meal
   validates :name, uniqueness: :true
+  #undo
+  memento_changes :destroy
 end
