@@ -1,6 +1,6 @@
 require 'pry'
 class MealsController < ApplicationController
-
+  before_action :authenticate_user!, except: [ :index, :show ]
 	before_action :set_meal, only: [:show]
 
   def index
