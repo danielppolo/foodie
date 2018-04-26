@@ -11,17 +11,37 @@ class MealsController < ApplicationController
   end
 
   def show
-    # @meal = Meal.find(params[:meal_id])
-  end
+ # USER COORDINATES
+ @user_to_restaurant_marker = [{
+   lat: cookies[:lat],
+   lng: cookies[:lng]
+ },
+ {
+     lat: "#{@meal.restaurant.latitude}",
+     lng: "#{@meal.restaurant.longitude}"
+  }
 
-  def search
+
+  ]
+
+   # RESTURANT COORDINATES
+
+   @restaurant_marker =
+   [{
+     lat: @meal.restaurant.latitude.to_s,
+     lng: @meal.restaurant.longitude.to_s,
+   }]
+   # @meal = Meal.find(params[:meal_id])  end
+ end
+
+ def search
 
 
-  end
+ end
 
-  private
+ private
 
-  def set_meal
-    @meal = Meal.find(params[:id])
-  end
+ def set_meal
+  @meal = Meal.find(params[:id])
+end
 end

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="viewport">
   <ul class="stack">
     <% @meals.each do |m| %>
@@ -11,7 +12,20 @@
           </div>
         </div>
         <div class="back">
+            <p><%= @meal.name %></p>
+             <p><%=humanized_money_with_symbol(@meal.price) %></p>
+             <p><%= image_tag(@meal.photo, size: "250x200") %></p>
+             <div
+              id="map"
+              style="width: 250px;
+              height: 250px;"
+              data-markers="<%= @user_to_restaurant_marker.to_json %>"
+            ></div>
+            <%#= raise %>
 
+             <p>User coordinates: <%= @user_to_restaurant_marker %> </p>
+             <p>Restaurant coordinates: <%= @restaurant_marker %> </p>
+            <p><%= @user_marker.class %></p>
         </div>
       </div>
     </li>
