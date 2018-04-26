@@ -7,7 +7,7 @@ class MealsController < ApplicationController
     @categories = Meal.categories(10)
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-    @meals = Meal.filter(params, cookies)
+    @meals = Meal.all.first(5)
     # binding.pry
   end
 

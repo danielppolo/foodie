@@ -1,5 +1,5 @@
 require 'open-uri'
-
+require 'pry'
 
 Meal.delete_all
 Restaurant.delete_all
@@ -7,7 +7,7 @@ Restaurant.delete_all
 city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
-n_restaurants = 50
+n_restaurants = 20
 i = 0
 
 Meal.delete_all
@@ -82,6 +82,23 @@ restaurants_links.first(n_restaurants).each do |suffix|
   # end
   restaurant.save
 
+
+#   # MEALS
+#   rest_doc.xpath("//div[contains(@class, 'menu__items')]").each do |element|
+#     binding.pry
+#     element.xpath("//div[contains(@class, 'dish-category-header')]").each do |daniel|
+#       p daniel.xpath("//div[contains(@class, 'dish-category-title')]")
+#       binding.pry
+#     end
+#   end
+#   p Meal.count
+#   puts "----------------------------------------"
+# end
+
+# puts "Seeds are done!"
+#
+
+
   # MEALS
   rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
   # puts "Meal n.#{i}"
@@ -107,33 +124,3 @@ restaurants_links.first(n_restaurants).each do |suffix|
   p Meal.count
   puts "----------------------------------------"
 end
-
-puts "Seeds are done!"
-
-
-
-#   # MEALS
-#   rest_doc.xpath("//div[contains(@class, 'dish-card')]").each do |element|
-#   # puts "Meal n.#{i}"
-#     meal = Meal.new
-#     meal.restaurant = restaurant
-#     # puts "Name"
-#     meal.name = element.search('.dish-name span').text.strip
-#     # puts "Price"
-#     meal.price = element.search('.price').text.strip.to_f
-#     # puts meal.price
-#     # puts "Description"
-#     meal.description = element.search('.dish-description').text.strip
-#     # puts "Photo"
-#     if element.xpath("picture").any?
-#       photo_values = element.search('.photo').attribute('data-src').value
-#       photo_url = photo_values.match(/(http:.+)/)[1]
-#       meal.photo = photo_url
-#     end
-#     if meal.save
-#       i += 1
-#     end
-#   end
-#   p Meal.count
-#   puts "----------------------------------------"
-# end
