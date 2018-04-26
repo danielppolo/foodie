@@ -5,7 +5,7 @@ var options = {
 };
 
 function success(pos) {
-  var crd = pos.coords;
+  alert("lat: " + pos.coords.latitude + " lng: " + pos.coords.longitude);
   setCookie("lat", pos.coords.latitude);
   setCookie("lng", pos.coords.longitude);
   console.log("Cookie saved.");
