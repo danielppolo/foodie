@@ -3,11 +3,14 @@
   <li>
     <p><%= m.restaurant.name %></p>
     <p><%= m.restaurant.address %></p>
+    <% if m.restaurant.latitude && m.restaurant.longitude%>
     <p><%= m.restaurant.distance_from([@lat, @lng]).round(2) %> km </p>
+    <% end %>
     <p><%= m.name %></p>
     <p><%= m.description %></p>
     <p><%=humanized_money_with_symbol(m.price) %></p>
     <p><%= image_tag(m.photo, size: "250x200") %></p>
+    <p><%= link_to "Show more details", meal_path(m) %></p>
   </li>
   <% end %>
 </ul>
