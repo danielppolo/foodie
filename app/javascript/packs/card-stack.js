@@ -1,13 +1,13 @@
-// var cardsContainers = document.querySelectorAll(".flipper");
+var cardsContainers = document.querySelectorAll(".flipper");
 
-// cardsContainers.forEach(function(element) {
+cardsContainers.forEach(function(element) {
 
-// element.addEventListener("click", function( event ) {
-//     event.preventDefault();
-//     event.currentTarget.classList.toggle("hover-active");
+element.addEventListener("click", function( event ) {
+    event.preventDefault();
+    event.currentTarget.classList.toggle("hover-active");
 
-//   });
-// });
+  });
+});
 
 const config = {
   /**
