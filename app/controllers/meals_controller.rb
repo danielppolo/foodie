@@ -1,13 +1,12 @@
-require 'pry'
 class MealsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index, :search]
 	before_action :set_meal, only: [:show]
 
   def index
     @categories = Meal.categories(10)
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-    @meals = Meal.all.first(5)
+    @meals = Meal.filter(params, cookies).first(20)
     # binding.pry
   end
 

@@ -1,11 +1,18 @@
 <div id="viewport">
   <ul class="stack">
     <% @meals.each do |m| %>
-    <li>
-      <div class="card-photo" style= "background-image: url('<%= m.photo %>'); "></div>
-      <div class="card-header">
-        <p class="card-meal-name"><%= m.name %></p>
-        <p class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></p>
+    <li class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <div class="card-photo" style= "background-image: url('<%= m.photo %>'); "></div>
+          <div class="card-header">
+            <p class="card-meal-name"><%= m.name %></p>
+            <p class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></p>
+          </div>
+        </div>
+        <div class="back">
+
+        </div>
       </div>
     </li>
     <% end %>
@@ -24,4 +31,4 @@
         <p> m.restaurant.distance_from([@lat.to_f,@lng.to_f]).round(2) km </p>
       end
       <p>m.description </p>
-      -->
+    -->
