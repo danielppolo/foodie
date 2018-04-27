@@ -1,3 +1,5 @@
+// FLIP
+
 var cardsContainers = document.querySelectorAll(".flipper");
 
 cardsContainers.forEach(function(element) {
@@ -9,6 +11,8 @@ element.addEventListener("click", function( event ) {
   });
 });
 
+
+// SWING
 const config = {
   /**
    * Invoked in the event of dragmove.

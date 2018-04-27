@@ -1,12 +1,12 @@
 class MealsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :search]
+  before_action :authenticate_user!, except: [:index, :filter]
 	before_action :set_meal, only: [:show]
 
   def index
     @categories = Meal.categories(10)
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-    @meals = Meal.filter(params, cookies).first(20)
+    @meals = Meal.filter(params, cookies).first(3)
     # binding.pry
   end
 
@@ -34,7 +34,7 @@ class MealsController < ApplicationController
    # @meal = Meal.find(params[:meal_id])  end
  end
 
- def search
+ def filter
 
 
  end
