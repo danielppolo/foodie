@@ -1,0 +1,71 @@
+.search-container {
+  width: 80%;
+  margin: 0 auto;
+
+  .price-container {
+    display: flex;
+    justify-content: space-between;
+
+
+  .cat-container {
+    display: flex;
+    justify-content: space-between;
+    }
+  }
+}
+
+.cat-btn {
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+}
+
+#randomize {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  background-color: $secondary;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  // border: 2px solid $white;
+  border-radius: 50%;
+  color: $white;
+  font-weight: 600;
+  font-size:30px;
+}
+
+input[type="checkbox"] {
+  background-color:red;
+}
+
+
+// RADIO BUTTON
+
+input[type="radio"] {
+  display: none;
+  &:not(:disabled) ~ label {
+    cursor: pointer;
+  }
+  &:disabled ~ label {
+    color: $white;
+    cursor: not-allowed;
+  }
+}
+label {
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+}
+input[type="radio"]:checked + label {
+  background: $white;
+  color: $primary;
+  font-weight: 700;
+
+}
