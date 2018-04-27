@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
 
   resources :meals, only: [:index, :show] do
-    resources :orders, only: [:new, :create] do
-        resources :payments, only: [:new, :create]
-    end
+    resources :orders, only: [:show, :create]
   end
 
   root to: 'pages#home'
