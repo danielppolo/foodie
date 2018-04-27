@@ -14,15 +14,15 @@ function success(pos) {
   //CLOSE POPUP
 };
 
-// function error(err) {
-// 	console.warn('ERROR(' + err.code + '): ' + err.message);
-// 	  console.log("porco dio")
-//  document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
-//    $(".spinner").hide();
-//   $(".navbar").hide();
+function error(err) {
+	console.warn('ERROR(' + err.code + '): ' + err.message);
+	  console.log("porco dio")
+ document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
+   $(".spinner").hide();
+  $(".navbar").hide();
 
 
-// };
+};
 
 window.navigator.geolocation.getCurrentPosition(success, error, options);
 

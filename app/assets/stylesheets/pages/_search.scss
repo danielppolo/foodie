@@ -23,10 +23,10 @@
   }
 
   .price-container {
-
+    text-align: center;
     .price-btns {
-      display: flex;
-      justify-content: space-between;
+      display: inline-block;
+      align-content: center;
 
       button {
         margin: 3em;
