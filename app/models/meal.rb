@@ -10,7 +10,7 @@ class Meal < ApplicationRecord
 
   def self.filter(params, cookies) # => Returns array of Display Meals
     available = by_location(cookies)
-    if params[:min_price] && params[:max_price]
+    if params[:max_price]
       available = by_price(available, params)
     end
     if params[:randomize]
@@ -39,7 +39,7 @@ class Meal < ApplicationRecord
 
   def self.by_price(meal_array, params)
     meal_array.select do |m|
-      m.price.to_i.between?(params[:min_price].to_i, params[:max_price].to_i)
+      m.price.to_i.between?(0, params[:max_price].to_i)
     end
   end
 
