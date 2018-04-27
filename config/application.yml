@@ -2,3 +2,6 @@ production:
   FB_ID: "212169366043011"
   FB_SECRET: "719fdbcce2f46dbf64a10573ea2c2309"
 
+development:
+  STRIPE_PUBLISHABLE_KEY: "pk_test_LE2sFUPuGOnxsuQXTU1Qrs2v"
+  STRIPE_SECRET_KEY: "sk_test_rkDpjxAzkk25bjFfUHJV6aY7"
