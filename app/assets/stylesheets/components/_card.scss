@@ -4,7 +4,8 @@
   height: 95vh;
     // border: 5px dashed $secondary-light;
     margin: 0 auto ;
-    position: relative;}
+    position: relative;
+  }
 
     .stack {
       width: 100% ;
@@ -147,9 +148,10 @@
 .hover-active {
   transform: rotateY(180deg);
   transform-style: preserve-3d;
+  z-index: 999 !important;
 }
   /* flip the pane when hovered */
-  /* .flip-container:hover .flipper, .flip-container.hover .flipper {
+  /*.flip-container:hover .flipper, .flip-container.hover .flipper {
     transform: rotateY(180deg);
   } */
 
@@ -167,11 +169,11 @@
 
 /* hide back of pane during swap */
 .front, .back {
-  backface-visibility: hidden;
+	backface-visibility: hidden;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 /* front pane, placed above back */
