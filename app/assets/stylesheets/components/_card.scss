@@ -171,7 +171,7 @@
 }
 
 
-
+// BANANA
 
 #viewport li.in-deck:nth-child(3) {
   top: 2px;
@@ -266,11 +266,11 @@
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
+  backface-visibility: hidden;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* front pane, placed above back */
@@ -285,6 +285,7 @@
   z-index: 2;
   transform: rotateY(180deg);
 }
+
 
 
 
