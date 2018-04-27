@@ -8,9 +8,26 @@
           <div class="card-header">
             <p class="card-meal-name"><%= m.name %></p>
             <p class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></p>
+
+            <div class="col-md-6">
+
+            <%= form_tag meal_orders_path(m, Order.new) do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-label="Book table"
+                data-name="My Table for <%= m.name %>"
+                data-email="<%= current_user.email %>"
+                data-description="Booking the table for meal with id: <%= m.id %>"
+                data-amount="<%= m.price_cents %>"
+                data-currency="EUR"></script>
+            <% end %>
+            </div>
+
+
           </div>
         </div>
         <div class="back">
+
         	<div class="intheback">
             <p><%= m.name %></p>
              <p><%=humanized_money_with_symbol(m.price) %></p>
@@ -22,6 +39,7 @@
               data-markers="<%= @user_to_restaurant_marker.to_json %>"
             ></div>
           </div>
+
         </div>
       </div>
     </li>
