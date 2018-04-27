@@ -27,14 +27,19 @@
           </div>
         </div>
         <div class="back">
-          <p><%= m.name %></p>
-          <p><%=humanized_money_with_symbol(m.price) %></p>
-          <div
-          id="map"
-          style="width: 250px;
-          height: 250px;"
-          data-markers="<%= @user_to_restaurant_marker.to_json %>"
-          ></div>
+
+        	<div class="intheback">
+            <p><%= m.name %></p>
+             <p><%=humanized_money_with_symbol(m.price) %></p>
+             <div
+             class ="map"
+              id="map-<%= m.id %>"
+              style="width: 250px;
+              height: 250px;"
+              data-markers="<%= @user_to_restaurant_marker.to_json %>"
+            ></div>
+          </div>
+
         </div>
       </div>
     </li>
