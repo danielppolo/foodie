@@ -1,36 +1,21 @@
 <form action="/meals" method="get">
-    <div class="price-container">
-      <input type="range" class="form-control-range" id="formControlRange" name="max_price" min="3" max="20">
-    </div>
+  <div class="price-container">
+    <input type="range" class="form-control-range" id="formControlRange" name="max_price" min="0" max="20">
+  </div>
 
-    <div class="cat-container">
-      <!-- CATEGORIES -->
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Italiana</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Carne</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Hamburger</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Street Food</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Cucina Sana</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Insalata</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Mediterranea</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Americano</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Panini</label>
-      <input type="radio" id="tag" name="test" value="unicorn">
-      <label for="tag">Piccante</label>
-    </div>
+  <div class="cat-container">
+    <!-- CATEGORIES -->
+    <% Meal.nearby_categories(10, cookies).each do |tag| %>
+    <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
+    <label for="<%= tag %>"><%= tag %></label>
+    <% end %>
+  </div>
 
-    <!-- RANDOM -->
-    <div>
-      <button type="submit" id="randomize" value="randomize">
-       <i class="fas fa-magic"></i>
-     </button>
-   </div>
- </form>
+  <!-- RANDOM -->
+  <div>
+    <button type="submit" id="randomize" value="randomize">
+     <i class="fas fa-magic"></i>
+   </button>
+ </div>
+</form>
+
