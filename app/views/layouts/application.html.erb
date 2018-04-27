@@ -11,12 +11,12 @@
   </head>
   <body>
 
-
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'preloader' %>
 
     <!-- BY Francesco -->
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8" %>
