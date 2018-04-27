@@ -1,22 +1,32 @@
 <form action="/meals" method="get">
-  <div class="price-container">
-    <input type="range" class="form-control-range" id="formControlRange" name="max_price" min="0" max="20">
-  </div>
 
+
+  <!-- CATEGORIES -->
   <div class="cat-container">
-    <!-- CATEGORIES -->
-    <% Meal.nearby_categories(10, cookies).each do |tag| %>
-    <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
-    <label for="<%= tag %>"><%= tag %></label>
-    <% end %>
-  </div>
-
+   <h1>What do you want to eat?</h1>
+   <% Meal.nearby_categories(10, cookies).each do |tag| %>
+   <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
+   <label for="<%= tag %>"><%= tag %></label>
+   <% end %>
+ </div>
+ <!-- PRICE -->
+ <h1>How much you want to spend?</h1>
+ <div>
+  <button class="cat-btn" type="submit" name="max_price" value="3">3€</button>
+  <button class="cat-btn" type="submit" name="max_price" value="5">5€</button>
+  <button class="cat-btn" type="submit" name="max_price" value="7">7€</button>
+  <button class="cat-btn" type="submit" name="max_price" value="10">10€</button>
+</div>
+</form>
+<form action="/meals" method="get">
   <!-- RANDOM -->
   <div>
-    <button type="submit" id="randomize" value="randomize">
+    <button type="submit" id="randomize" name="randomize" value="true">
      <i class="fas fa-magic"></i>
    </button>
+   <p>Feeling lucky?</p>
  </div>
 </form>
+
 
 <%= javascript_pack_tag 'positioning' %>
