@@ -11,21 +11,23 @@
           </div>
         </div>
         <div class="back">
+        	<div class="intheback">
             <p><%= m.name %></p>
              <p><%=humanized_money_with_symbol(m.price) %></p>
              <div
+             class ="map"
               id="map-<%= m.id %>"
               style="width: 250px;
               height: 250px;"
               data-markers="<%= @user_to_restaurant_marker.to_json %>"
             ></div>
+          </div>
         </div>
       </div>
     </li>
     <% end %>
   </ul>
 </div>
-
 
 <%= javascript_pack_tag 'card-stack' %>
 <%= javascript_pack_tag 'swing' %>
