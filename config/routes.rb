@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root to: 'meals#filter'
   resources :users, only: [:show, :edit, :update, :destroy]
 
-  resources :meals, only: [:index, :show] do
+  resources :meals, only: [:index] do
     resources :orders, only: [:show, :create]
   end
 
