@@ -1,6 +1,6 @@
 
 #viewport {
-  width: 25vw;
+  width: 50vh;
   height: 95vh;
     // border: 5px dashed $secondary-light;
     margin: 0 auto ;
@@ -123,13 +123,13 @@
       color: #C7433E;
     }
 
-
 @media only screen and (max-width: 720px) {
     #viewport {
         width: 85vw;
         height: 80vh;
     }
 }
+
 
 
 
