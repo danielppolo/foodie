@@ -26,26 +26,5 @@
   </ul>
 </div>
 
-<script>
-  <% @meals.each do |m| %>
-const mapElement = document.getElementById('map-<%= m.id %>
-');
-if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
-  const markers = JSON.parse(mapElement.dataset.markers) || [];
-  if (markers.length === 0) {
-    map.setZoom(2);
-  } else if (markers.length === 2) {
-    map.addMarkers(markers);
-
-    map.setCenter(markers[0].lat, markers[0].lng);
-    map.setZoom(12);
-  } else {
-    map.addMarkers(markers);
-    map.fitLatLngBounds(markers);
-  }
-  <% end %>
-}</script>
-
 <%= javascript_pack_tag 'card-stack' %>
 <%= javascript_pack_tag 'swing' %>
