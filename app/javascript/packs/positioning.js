@@ -1,20 +1,27 @@
 var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
+	enableHighAccuracy: true,
+	timeout: 5000,
+	maximumAge: 0
 };
 
 function success(pos) {
   // alert("lat: " + pos.coords.latitude + " lng: " + pos.coords.longitude);
   setCookie("lat", pos.coords.latitude);
   setCookie("lng", pos.coords.longitude);
-  console.log("Cookie saved.");
+  $(".navbar").show();
+  $(".spinnerdiv").hide();
 
   //CLOSE POPUP
 };
 
 function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
+	console.warn('ERROR(' + err.code + '): ' + err.message);
+	  console.log("porco dio")
+ document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
+   $(".spinner").hide();
+  $(".navbar").hide();
+
+
 };
 
 window.navigator.geolocation.getCurrentPosition(success, error, options);
@@ -22,11 +29,11 @@ window.navigator.geolocation.getCurrentPosition(success, error, options);
 //OPEN POPUP
 
 function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+	var expires = "";
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime() + (days*24*60*60*1000));
+		expires = "; expires=" + date.toUTCString();
+	}
+	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
