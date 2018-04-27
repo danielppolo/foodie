@@ -3,5 +3,7 @@ class Order < ApplicationRecord
   enum order_status: [ :active, :canceled ]
   belongs_to :user
   belongs_to :meal
-  validates :name, uniqueness: :true
+  # monetize :amount_cents
+  monetize :price_cents
+
 end
