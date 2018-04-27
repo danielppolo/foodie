@@ -4,7 +4,7 @@ class MealsController < ApplicationController
   def index
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-    @meals = Meal.filter(params, cookies).first(3)
+    @meals = Meal.all
   end
 
  def filter

@@ -11,7 +11,7 @@
       <div class="cat-container">
        <h1>What do you want to eat?</h1>
        <div class="cat-btns">
-        <% Meal.nearby_categories(10, cookies).each do |tag| %>
+        <% Meal.categories(10).each do |tag| %>
         <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
         <label for="<%= tag %>"><%= tag %></label>
         <% end %>
