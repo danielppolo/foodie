@@ -1,6 +1,6 @@
 
 #viewport {
-  width: 25vw;
+  width: 50vh;
   height: 95vh;
     // border: 5px dashed $secondary-light;
     margin: 0 auto ;
@@ -124,13 +124,13 @@
       color: #C7433E;
     }
 
-
 @media only screen and (max-width: 720px) {
     #viewport {
         width: 85vw;
         height: 80vh;
     }
 }
+
 
 
 
@@ -169,11 +169,11 @@
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
+  backface-visibility: hidden;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* front pane, placed above back */
@@ -188,6 +188,7 @@
   z-index: 2;
   transform: rotateY(180deg);
 }
+
 
 
 
