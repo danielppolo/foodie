@@ -8,8 +8,8 @@ class Meal < ApplicationRecord
   @search_radius = 10
   
   def self.filter(params, cookies) # => Returns array of Display Meals
-    available = by_time(by_location(cookies))
-    if params[:min_price] && params[:max_price]
+    available = by_location(cookies)
+    if params[:max_price]
       available = by_price(available, params)
     end
     if params[:randomize]
@@ -38,7 +38,7 @@ class Meal < ApplicationRecord
 
   def self.by_price(meal_array, params)
     meal_array.select do |m|
-      m.price.to_i.between?(params[:min_price].to_i, params[:max_price].to_i)
+      m.price.to_i.between?(0, params[:max_price].to_i)
     end
   end
 
@@ -77,5 +77,12 @@ class Meal < ApplicationRecord
     self.restaurant.open?
   end
 
+  def self.categories_description(number_of_results)
+    categories = []
+    Restaurant.all.each {|r| r.category.split(",").each { |c| categories << c } }
+    counts = Hash.new(0)
+    categories.each { |word| counts[word] += 1 }
+    counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
+  end
 end
 

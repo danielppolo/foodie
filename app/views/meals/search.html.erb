@@ -37,7 +37,6 @@
 <br>
 
 
-
 <h4>FILTER BY CATEGORIES</h4>
 
 <% Meal.nearby_categories(10, cookies).each do |tag_meal| %>
@@ -49,53 +48,3 @@
 </form>
 
 <% end %>
-
-
-
-<!-- <form action="/meals" method="get">
-  <div style="display:none;", class="div-filter-category">
-    <input type="text" name="category" value="Sushi">
-  </div>
-  <input type="submit" value="Sushi">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", class="div-filter-category">
-    <input type="text" name="category" value="Street Food">
-  </div>
-  <input type="submit" value="Street Food">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", class="div-filter-category">
-    <input type="text" name="category" value="Panini">
-  </div>
-  <input type="submit" value="Panini">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", class="div-filter-category">
-    <input type="text" name="category" value="Kebab">
-  </div>
-  <input type="submit" value="Kebab">
-</form>
-
-<form action="/meals" method="get">
-  <div style="display:none;", class="div-filter-category">
-    <input type="text" name="category" value="Pesce">
-  </div>
-  <input type="submit" value="Fish">
-</form> -->
-
-
-<h4>RANDOMIZE</h4>
-
-<form action="/meals" method="get">
-
-  <div style="display:none;", id="div-filter-random">
-    <input type="text" name="randomize" placeholder="Just press the random button">
-  </div>
-  <input type="submit" value="Random">
-</form>
-
-<%= javascript_pack_tag 'positioning' %>
