@@ -23,11 +23,8 @@ def update
   @order = Order.find(params[:id])
 
 end
-#undo
+
 def destroy
-  memento do
-    @order.destroy
-  end
   flash[:notice] = 'order deleted'
 end
 
