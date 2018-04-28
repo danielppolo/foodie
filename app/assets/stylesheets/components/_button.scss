@@ -82,7 +82,6 @@ input[type="radio"]:checked + label {
 
 // TIME BUTTON
 
-
 .time-buttons {
   padding: 10px;
   width: auto;
@@ -104,3 +103,66 @@ input[type="radio"]:checked + label {
   font-weight: 600;
   width: 75px;
 }
+
+
+// EDIT PROFILE AND DELETE PROFILE BUTTON
+
+.edit-delete-profile-buttons {
+
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+}
+
+.edit-delete-profile-buttons:hover {
+  padding: 10px;
+  width: auto;
+  background-color: $white;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: $primary;
+  font-weight: 600;
+  width: 75px;
+}
+
+// SEARCH BUTTON
+
+.search-link-to-buttons {
+  padding: 10px;
+  width: auto;
+  background-color: $secondary;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: $primary;
+  font-weight: 600;
+  width: 75px;
+}
+
+.search-link-to-buttons:hover {
+  padding: 10px;
+  width: auto;
+  background-color: $secondary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+
+
+// DIV for SEARCH BUTTONS at the bottom of the USER page
+
+.buttons-edit-logout-search {
+  border: 0px solid;
+  width: auto;
+  padding: 10px 0px;
+  margin-top: 20px
+}
+

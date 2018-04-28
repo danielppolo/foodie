@@ -1,4 +1,6 @@
-  <div class="spinnerdiv">
+
+	<div class="spinnerdiv">
+
     <div class="spinner">
       <div class="dot1"></div>
       <div class="dot2"></div>
@@ -6,6 +8,7 @@
     <p id="positiontext">Retrieving your position...</p>
   </div>
   <form action="/meals" method="get">
+
     <div class="search-container">
       <!-- CATEGORIES -->
       <div class="cat-container">
@@ -22,11 +25,13 @@
     <div class="price-container">
      <h1>How much you want to spend?</h1>
      <div class="price-btns">
+
       <button class="cat-btn" type="submit" name="max_price" value="3">3€</button>
       <button class="cat-btn" type="submit" name="max_price" value="5">5€</button>
       <button class="cat-btn" type="submit" name="max_price" value="7">7€</button>
       <button class="cat-btn" type="submit" name="max_price" value="10">10€</button>
     </div>
+
   </div>
 </form>
 
@@ -42,3 +47,4 @@
 </form>
 </div>
 <%= javascript_pack_tag 'positioning' %>
+

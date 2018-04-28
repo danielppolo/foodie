@@ -1,1 +1,25 @@
-<h1>HOMEPAGE/LANDING PAGE</h1>
+<div class="banner-home">
+  <div class="banner-content">
+
+
+    <h1 class="slogan">Foodie</h1>
+
+
+    <p class="sub-slogan">Now you know what you get</p>
+<% if not current_user %>
+
+  <div class="link-to">
+   <div class="btn btn-primary "> <%= link_to "login with Facebook", user_facebook_omniauth_callback_path  %> </div>
+  </div>
+  <div class="email">
+  <%= link_to "sign in with email", user_session_path %>
+
+  </div>
+  <div class="sign up">
+    <%= link_to "sign up", new_user_registration_path %>
+  </div>
+<% end %>
+
+  </div>
+
+</div>
