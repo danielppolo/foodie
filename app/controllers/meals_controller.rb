@@ -12,7 +12,8 @@ class MealsController < ApplicationController
   def index
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-    @meals = Meal.filter(params, cookies).first(10)
+    # @meals = Meal.filter(params, cookies).first(10)
+    @meals = Meal.all.first(10)
   end
 
 

@@ -1,14 +1,35 @@
 // FLIP
 
+// var cardsContainers = document.querySelectorAll(".flipper");
+
+// cardsContainers.forEach(function(element) {
+
+// element.addEventListener("click", function( event ) {
+//     event.preventDefault();
+//     event.currentTarget.classList.toggle("hover-active");
+
+//   });
+// });
+
+
+
 var cardsContainers = document.querySelectorAll(".flipper");
 
 cardsContainers.forEach(function(element) {
-
-element.addEventListener("click", function( event ) {
+element.querySelectorAll(".touchable-front").forEach(function(toucharea){
+toucharea.addEventListener("click", function( event ) {
     event.preventDefault();
-    event.currentTarget.classList.toggle("hover-active");
-
+    element.classList.toggle("turn");
+    console.log("Clicked")
   });
+});
+element.querySelectorAll(".touchable-back").forEach(function(toucharea){
+toucharea.addEventListener("click", function( event ) {
+    event.preventDefault();
+    element.classList.toggle("turn");
+    console.log("Clicked")
+  });
+});
 });
 
 
