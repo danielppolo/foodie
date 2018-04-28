@@ -1,31 +1,36 @@
-
-.search-container {
-  width: 80%;
-  margin: 0 auto;
-
-  .price-container {
-    display: flex;
-    justify-content: space-between;
-
-
-  .cat-container {
-    display: flex;
-    justify-content: space-between;
-    }
-  }
-}
-
 .cat-btn {
   padding: 10px;
   width: auto;
-  background-color: $primary;
+  background-color: $primary !important;
   border: 2px solid $white;
   border-radius: 5px;
   color: $white;
   font-weight: 600;
+  transition: 0.5s ease;
 }
 
+.cat-btn:hover {
+  background-color: $white;
+  color: $primary;
+  border: 2px solid $primary;
+}
+
+
 #randomize {
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  background-color: $secondary;
+  box-shadow: 0 0 8px rgba(0,0,0,0.0);
+  // border: 2px solid $white;
+  border-radius: 50%;
+  color: $white;
+  font-weight: 600;
+  font-size:30px;
+  transition: 0.5s ease;
+}
+
+#randomize:hover {
   padding: 10px;
   width: 80px;
   height: 80px;
@@ -36,10 +41,6 @@
   color: $white;
   font-weight: 600;
   font-size:30px;
-}
-
-input[type="checkbox"] {
-  background-color:red;
 }
 
 
@@ -63,13 +64,21 @@ label {
   border-radius: 5px;
   color: $white;
   font-weight: 600;
+  transition: 0.5s ease;
 }
+
+label:hover {
+  background-color: $white;
+  color: $primary;
+  border: 2px solid $primary;
+}
+
 input[type="radio"]:checked + label {
   background: $white;
   color: $primary;
-  font-weight: 700;
-
+  border: 2px solid $white;
 }
+
 
 // TIME BUTTON
 
