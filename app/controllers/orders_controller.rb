@@ -33,9 +33,9 @@ class OrdersController < ApplicationController
     # @order.order_status = :pending
     # @order.payment_status =
     @order.save
-
     redirect_to user_path(current_user)
   end
+
 
 
     # create_table "orders", force: :cascade do |t|

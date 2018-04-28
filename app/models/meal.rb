@@ -5,9 +5,8 @@ class Meal < ApplicationRecord
   validates :description, presence: true
   validates :photo, presence: true
   monetize :price_cents
-
   @search_radius = 10
-
+  
   def self.filter(params, cookies) # => Returns array of Display Meals
     available = by_location(cookies)
     # available = by_time(by_location(cookies))

@@ -253,5 +253,25 @@
 
 
 
+// HISTORY OF ORDERS FOR USERS
+
+.current-user-orders-summary {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 30px;
+
+}
+
+.current-user-without-order {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 30px;
+}
+
+
 
 
