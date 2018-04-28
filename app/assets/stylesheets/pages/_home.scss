@@ -1,1 +1,36 @@
-// Specific CSS for your home-page
+// Specific CSS for your home-pag
+
+.banner-home{
+  background-image: -webkit-linear-gradient(rgba(250, 250, 51, 0.4) 100%, rgba(0, 0, 100, 0.4) 50%), url(/assets/food4.jpg);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.btn{
+  background-color: rgba(0,0,250,0.9);
+  border-radius: 20px 20px;
+}
+
+.slogan{
+  color: white;
+  font-weight: bold;
+  font-size: 100px;
+  margin-bottom: 0;
+}
+
+.sub-slogan{
+  font-weight:bold;
+  color:white;
+  font-size:22px;
+}
+.email a {
+  color: black;
+}
+.btn a{
+  color:white;
+}
