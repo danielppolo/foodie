@@ -46,12 +46,12 @@ restaurants_links.first(n_restaurants).each do |suffix|
   query = restaurant.name.strip.delete("-").split(" ").join("+")
   query = URI::encode(query)
   p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyDoryFcD6_-LPUr-gvCctTp8sRLHRmf8Ik"
+  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk"
   place_serialized = open(place_url).read
   place = JSON.parse(place_serialized)
   if place.key?("results")
     place_id = place["results"][0]["place_id"]
-    details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyDoryFcD6_-LPUr-gvCctTp8sRLHRmf8Ik"
+    details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk"
     details_serialized = open(details_url).read
     details = JSON.parse(details_serialized)
     if details["result"].key?("opening_hours")
