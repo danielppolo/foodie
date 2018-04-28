@@ -7,52 +7,55 @@
   <p id="positiontext">Retrieving your position...</p>
 </div>
 
-<form action="/meals" method="get">
-
+<div class="foodie-wrapper">
   <div class="search-container">
     <!-- CATEGORIES -->
     <div class="cat-container">
      <h1 class="search-header">I want some...</h1>
-     <div class="cat-btns">
-      <% if @lat && @lng %>
-      <% @nearby_categories.each do |tag| %>
-      <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
-      <label for="<%= tag %>"><%= tag %></label>
-      <% end %>
-      <% else %>
-      <% @categories.each do |tag| %>
-      <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
-      <label for="<%= tag %>"><%= tag %></label>
-      <% end %>
-      <% end %>
+     <form action="/meals" method="get">
+       <div class="cat-btns">
+        <% if @lat && @lng %>
+        <% @nearby_categories.each do |tag| %>
+        <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
+        <label for="<%= tag %>"><%= tag %></label>
+        <% end %>
+        <% else %>
+        <% @categories.each do |tag| %>
+        <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
+        <label for="<%= tag %>"><%= tag %></label>
+        <% end %>
+        <% end %>
+      </div>
     </div>
+
+    <!-- PRICE -->
+    <div class="price-container">
+     <h1 class="search-header">up to...</h1>
+     <div class="price-btns">
+      <input type="radio" id="low" name="max_price" value="10">
+      <label for="low">3€</label>
+      <input type="radio" id="med" name="max_price" value="10">
+      <label for="med">5€</label>
+      <input type="radio" id="med-high" name="max_price" value="10">
+      <label for="med-high">10€</label>
+      <input type="radio" id="high" name="max_price" value="10">
+      <label for="high">20€</label>
+      </div>
+    </div>
+
+
+    <!-- RANDOM -->
+    <div class="lucky-container">
+      <button type="submit" id="randomize" name="randomize" value="true">
+       <i class="fas fa-magic"></i>
+     </button>
+     <!-- <p>Feeling lucky?</p> -->
+    </div>
+    </form>
   </div>
-
-  <!-- PRICE -->
-  <div class="price-container">
-   <h1 class="search-header">up to...</h1>
-   <div class="price-btns">
-    <input type="radio" id="low" name="max_price" value="10">
-    <label for="low">3€</label>
-    <input type="radio" id="med" name="max_price" value="10">
-    <label for="med">5€</label>
-    <input type="radio" id="med-high" name="max_price" value="10">
-    <label for="med-high">10€</label>
-    <input type="radio" id="high" name="max_price" value="10">
-    <label for="high">20€</label>
-  </div>
-
 </div>
+<div class="foodie-wrapper" id="home">
 
-
-<!-- RANDOM -->
-<div class="lucky-container">
-  <button type="submit" id="randomize" name="randomize" value="true">
-   <i class="fas fa-magic"></i>
- </button>
- <!-- <p>Feeling lucky?</p> -->
-</div>
-</form>
 </div>
 <%= javascript_pack_tag 'positioning' %>
 

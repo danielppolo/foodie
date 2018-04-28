@@ -1,11 +1,12 @@
 .search-container {
   width: 50vw;
   margin: 0 auto;
+  align-self: center;
 
   .search-header {
     color: $white;
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 4vh;
     text-align: center;
     margin-bottom: 0.7em;
   }
