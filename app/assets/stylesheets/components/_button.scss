@@ -82,7 +82,6 @@ input[type="radio"]:checked + label {
 
 // TIME BUTTON
 
-
 .time-buttons {
   padding: 10px;
   width: auto;
@@ -95,6 +94,31 @@ input[type="radio"]:checked + label {
 }
 
 .time-buttons:hover {
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+}
+
+
+// EDIT PROFILE AND DELETE PROFILE BUTTON
+
+.edit-delete-profile-buttons {
+  padding: 10px;
+  width: auto;
+  background-color: $white;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: $primary;
+  font-weight: 600;
+  width: 75px;
+}
+
+.edit-delete-profile-buttons:hover {
   padding: 10px;
   width: auto;
   background-color: $primary;
