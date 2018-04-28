@@ -2,55 +2,54 @@
   <ul class="stack">
     <% @meals.each do |m| %>
     <li class="flip-container" >
-      <div class="flipper" ontouchend="this.classList.toggle('hover-active');">
+      <div class="flipper" ontouchstart="this.classList.toggle('hover-active');">
+
         <div class="front">
           <div class="card-photo" style= "background-image: url('<%= m.photo %>'); "></div>
           <div class="card-header">
             <h2 class="card-meal-name"><%= m.name %></h2>
-            <h2 class=" card-meal-h2rice"><%=humanized_money_with_symbol(m.price) %></p>
+            <h2 class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></h2>
             </div>
           </div>
 
           <div class="back">
-           <div class="card-display">
-            <div class ="map" id="map-<%= m.id %>"
-
-              data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
-              ></div>
+            <div class="card-display">
+              <div class ="map" id="map-<%= m.id %>"
+                data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
+                ></div>
+              </div>
               <div class="card-actions">
                 <h2><%= m.name %></h2>
                 <p><%= m.description %></p>
 
                 <div class="div-time-buttons">
                   <form action="">
-                    <input id="button-15-min" class="time-buttons" type="button" name="time" value="15min">
-                    <input id="button-30-min" class="time-buttons" type="button" name="time" value="30min">
-                    <input id="button-45-min" class="time-buttons" type="button" name="time" value="45min">
-                    <input id="button-60-min" class="time-buttons" type="button" name="time" value="1h">
+                    <input id="button-15-min" class="time-buttons" type="button" name="time" value="15">
+                    <input id="button-30-min" class="time-buttons" type="button" name="time" value="30">
+                    <input id="button-45-min" class="time-buttons" type="button" name="time" value="45">
+                    <input id="button-60-min" class="time-buttons" type="button" name="time" value="60">
                   </form>
                 </div>
+              </div>
 
+              <div class="card-pay">
                 <%= form_tag meal_orders_path(m, Order.new) do %>
-                <div class="card-pay">
-                  <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
-                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                  data-label="Book table"
-                  data-name="My Table for <%= m.name %>"
-                  data-email="<%= current_user.email %>"
-                  data-description="Booking the table for meal with id: <%= m.id %>"
-                  data-amount="<%= m.price_cents %>"
-                  data-currency="EUR"></script>
-                  <% end %>
-                </div>
+                <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-label="Book table"
+                data-name="My Table for <%= m.name %>"
+                data-email="<%= current_user.email %>"
+                data-description="Booking the table for meal with id: <%= m.id %>"
+                data-amount="<%= m.price_cents %>"
+                data-currency="EUR"></script>
+                <% end %>
               </div>
             </div>
-
           </div>
-        </div>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
 
-  <%= javascript_pack_tag 'card-stack' %>
-  <%= javascript_pack_tag 'swing' %>
+    <%= javascript_pack_tag 'card-stack' %>
+    <%= javascript_pack_tag 'swing' %>

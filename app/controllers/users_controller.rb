@@ -28,4 +28,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :age, :gender, :radius_search)
   end
 end
-

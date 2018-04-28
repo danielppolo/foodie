@@ -2,11 +2,12 @@
   width: 50vw;
   margin: 0 auto;
 
-  h1 {
+  .search-header {
     color: $white;
-    font-weight: 600;
-    font-size: 2em;
+    font-weight: 700;
+    font-size: 1.4em;
     text-align: center;
+    margin-bottom: 0.7em;
   }
 
   .cat-container {
@@ -14,10 +15,6 @@
     .cat-btns {
       display: inline-block;
       align-content: center;
-
-      button {
-        margin: 3em;
-      }
 
     }
   }
@@ -27,10 +24,13 @@
     .price-btns {
       display: inline-block;
       align-content: center;
-
-      button {
-      }
     }
+  }
+
+  .lucky-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
   }
 }
 

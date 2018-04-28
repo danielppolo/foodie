@@ -1,16 +1,13 @@
-<p><%= @user.name %></p>
-<p><%= @user.email %></p>
-<p><%= @user.radius_search %></p>
-<%= simple_form_for @user do |f| %>
-<%= f.input :radius_search %>
-<%= f.submit %>
-<% end %>
-<%= link_to "Edit your profile", edit_user_path(@user) %>
-<form action="">
-  <div class="price-container">
-    <input type="range" class="form-control-range" id="formControlRange" name="max_price" min="0" max="20">
-  </div>
-</form>
 <%= link_to destroy_user_session_path, method: :delete do %>
-<i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+  <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
 <% end %>
+
+
+
+
+
+
+
+
+
+
