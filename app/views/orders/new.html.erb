@@ -1,1 +1,19 @@
+<h2>your meal
+<%= @meal.name %>
+<br>
+<%= @meal.restaurant.name %>
+<br>
+<%= @meal.restaurant.address %>
+<br>
+ <%= @meal.restaurant.distance_to([@lat,@lng]) %>
+
+
+</h2>
+
+
+
+
+
+
+
 

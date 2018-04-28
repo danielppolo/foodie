@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+   before_action :authenticate_user!
 
   def index
     @order = current_user.orders.where(state: 1).find(params[:id])
@@ -7,6 +8,14 @@ class OrdersController < ApplicationController
   def new
     @meal = Meal.find(params[:meal_id])
     @order = Order.new
+    @lat = cookies[:lat]
+    @lng = cookies[:lng]
+  end
+
+  def show
+    @meal = Meal.find(params[:meal_id])
+    @order.meal = @meal
+
   end
 
   def create
@@ -34,7 +43,7 @@ class OrdersController < ApplicationController
     # @order.payment_status =
     @order.save
 
-    redirect_to user_path(current_user)
+    redirect_to meal_order_path(current_user)
   end
 
 
