@@ -4,8 +4,6 @@ class UsersController < ApplicationController
 
   def show
   end
-  #user likes history, trying
-
 
   def edit
   end
