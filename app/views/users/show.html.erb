@@ -11,29 +11,37 @@
       <% current_user_reversed_array = current_user.orders.reverse %>
       <% current_user_reversed_array.each_with_index do |current_user_order, i| %> </p>
       <div class="current-user-orders-summary">
-        <p>--------------------------------------------------------</p>
-
-          <p> <%= (i+1).ordinalize %> ORDER </p>
-          <li><%= current_user_order.meal.name %></li>
-          <img src=<%=current_user_order.meal.photo%> height="100" width="80">
-          <li><%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
-          <li><%= current_user_order.meal.restaurant.name %></li>
-          <li><%= current_user_order.meal.restaurant.address %></li>
-        <p>--------------------------------------------------------</p>
-        <% end %>
-      </ul>
-      <% else %>
-      <p>You have 0 orders, start ordering now with Foodie! </p>
+        <!-- CSS IS IN -CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
+        <strong> <%= (i+1).ordinalize %> ORDER </strong>
+        <li><%= current_user_order.meal.name %></li>
+        <img src=<%=current_user_order.meal.photo%> height="100" width="80">
+        <li><%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
+        <li><%= current_user_order.meal.restaurant.name %></li>
+        <li><%= current_user_order.meal.restaurant.address %></li>
+      </div>
       <% end %>
-    </div>
+    </ul>
+    <% else %>
 
-    <%= link_to "Edit your profile", edit_user_path(current_user) %>
+    <div class="current-user-without-order"></div>
+    <!-- CSS IS IN _CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
+    <p>You have 0 orders, start ordering now with Foodie! </p>
+  </div>
+
+  <% end %>
+
+  <div class="buttons-edit-logout-search">
+    <!-- DIV CSS IS IN _BUTTONS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
+
+    <%= link_to "Edit your profile", edit_user_path(current_user), class: "edit-delete-profile-buttons"%>
     <%= link_to destroy_user_session_path, method: :delete do %>
+
     <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
     <% end %>
-    <%= link_to "Go to search!", root_path %>
 
+    <%= link_to "Go to search!", root_path, class: "search-link-to-buttons" %>
   </div>
+</div>
 
 
 
