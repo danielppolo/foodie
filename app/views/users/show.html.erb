@@ -1,16 +1,39 @@
-<p><%= @user.name %></p>
-<p><%= @user.email %></p>
-<p><%= @user.radius_search %></p>
-<%= simple_form_for @user do |f| %>
-<%= f.input :radius_search %>
-<%= f.submit %>
-<% end %>
-<%= link_to "Edit your profile", edit_user_path(@user) %>
-<form action="">
-  <div class="price-container">
-    <input type="range" class="form-control-range" id="formControlRange" name="max_price" min="0" max="20">
+<div class="viewport">
+  <% if current_user.first_name %>
+  <p>Welcome to your profile <%=  current_user.first_name %></p>
+  <% else %>
+  <p>Welcome to your profile <%=  current_user.email %></p>
+  <% end %>
+
+  <% if current_user.orders != []%>
+  <p>Your orders are:
+    <ul>
+      <% current_user_reversed_array = current_user.orders.reverse %>
+      <% current_user_reversed_array.each_with_index do |current_user_order, i| %> </p>
+      <div class="current-user-orders-summary">
+        <p>--------------------------------------------------------</p>
+
+          <p> <%= (i+1).ordinalize %> ORDER </p>
+          <li><%= current_user_order.meal.name %></li>
+          <img src=<%=current_user_order.meal.photo%> height="100" width="80">
+          <li><%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
+          <li><%= current_user_order.meal.restaurant.name %></li>
+          <li><%= current_user_order.meal.restaurant.address %></li>
+        <p>--------------------------------------------------------</p>
+        <% end %>
+      </ul>
+      <% else %>
+      <p>You have 0 orders, start ordering now with Foodie! </p>
+      <% end %>
+    </div>
+
+    <%= link_to "Edit your profile", edit_user_path(current_user) %>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+    <% end %>
+    <%= link_to "Go to search!", root_path %>
+
   </div>
-</form>
-<%= link_to destroy_user_session_path, method: :delete do %>
-<i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-<% end %>
+
+
+
