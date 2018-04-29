@@ -53,8 +53,16 @@ input {
 
 .foodie-wrapper{
   display: flex;
-  width: 100vw;
   height: 100vh;
+}
+
+
+#viewport {
+  width: 50vh;
+  height: 75vh;
+  margin: 0 auto;
+  position: relative;
+  align-self: center;
 }
 
 ::-moz-selection { /* Code for Firefox */

@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :filter]
+  before_action :authenticate_user!, except: [:index, :search]
 
-  def filter
+  def search
     @cookies = cookies
     @categories = Meal.categories(12)
     radius_search = user_signed_in? ? current_user.radius_search : 10
