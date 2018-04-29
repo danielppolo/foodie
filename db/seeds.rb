@@ -10,7 +10,8 @@ city = "milano"
 BASE = "https://www.foodora.it/en"
 city_url = "https://www.foodora.it/en/city/#{city}"
 n_restaurants = 10
-counter = 0
+mcounter = 0
+rcounter = 0
 
 city_file = open(city_url).read
 city_doc = Nokogiri::HTML(city_file)
@@ -20,9 +21,10 @@ city_doc.search('.hreview-aggregate').each do |element|
   restaurants_links << r
 end
 
+p restaurants_links.count
 restaurants_links.each do |suffix|
   url = BASE + suffix
-  # puts "Restaurant"
+  puts "Restaurant#{rcounter}"
   rest_file = open(url).read
   rest_doc = Nokogiri::HTML(rest_file)
   restaurant = Restaurant.new
@@ -44,13 +46,13 @@ restaurants_links.each do |suffix|
   query = restaurant.name.strip.delete("-").split(" ").join("+")
   query = URI::encode(query)
   # p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk"
+  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUYAIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
   place_serialized = open(place_url).read
   place = JSON.parse(place_serialized)
   if place.key?("results")
     if place["results"] != []
       place_id = place["results"][0]["place_id"]
-      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk"
+      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUYAIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
       details_serialized = open(details_url).read
       details = JSON.parse(details_serialized)
       if details.key?("result")
@@ -114,14 +116,14 @@ restaurants_links.each do |suffix|
         end
 
         if meal_i.save
-          counter += 1
+          mcounter += 1
         end
 
       end
     end
     if restaurant.meals != []
-      restaurant.save
-      p "Restaurant + Meals Saved"
+      rcounter += 1 if restaurant.save
+      p "Restaurant Saved"
     end
     p Meal.count
     puts "----------------------------------------"
