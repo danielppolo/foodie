@@ -9,7 +9,9 @@
           <%= f.input :password, placeholder: 'password',  label: false,  required: false %>
           <%= f.button :submit, "Log in" %>
         </div>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-remember">
+          <!-- %= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %-->
+        </div>
         <% end %>
         <div class="login-links">
           <%= render "devise/shared/links" %>

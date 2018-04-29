@@ -43,6 +43,9 @@
       }
 
     }
+
+    .form-remember{
+      position: relative;
       .form-check-label{
         border: none;
         font-size: $mini;
@@ -53,9 +56,18 @@
           cursor: pointer;
         }
       }
-
+    }
     .login-links{
-      position:absolute;
+      position:relative;
+      top: 1vh;
+
+      a{
+        margin: 0 auto !important;
+        font-size: $mini;
+      }
+
+      .signup-btn{
+      }
     }
   }
 }

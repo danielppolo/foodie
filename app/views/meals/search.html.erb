@@ -12,7 +12,7 @@
     <!-- CATEGORIES -->
     <form action="/meals" method="get">
       <div class="cat-container">
-       <h1 class="search-header">I want some...</h1>
+       <h1 class="search-header">Select a category</h1>
        <div class="cat-btns">
         <% if @lat && @lng && @nearby_categories != []%>
           <% @nearby_categories.each do |tag| %>
@@ -30,7 +30,7 @@
 
     <!-- PRICE -->
     <div class="price-container">
-     <h1 class="search-header">up to...</h1>
+     <h1 class="search-header">Select your budget</h1>
      <div class="price-btns">
       <input type="radio" id="low" name="max_price" value="3">
       <label for="low">3€</label>
@@ -47,7 +47,7 @@
   <!-- RANDOM -->
   <div class="lucky-container">
     <button type="submit" id="randomize" name="randomize" value="true">
-     <i class="fas fa-magic"></i>
+    <i class="fas fa-magic"></i>
    </button>
    <!-- <p>Feeling lucky?</p> -->
  </div>
