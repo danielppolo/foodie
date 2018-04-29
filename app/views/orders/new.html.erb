@@ -1,1 +1,37 @@
+<div class="foodie-wrapper">
+  <div id="viewport">
+    <div class="order-box">
+      <div class="order-info">
+        <h1>Your order is:</h1>
+        <p class="order-meal"><%= @meal.name %></p>
+        <p class="order-price"><%=humanized_money_with_symbol(@meal.price) %></p>
+        <p class="order-restaurant"><%= @meal.restaurant.name %></p>
+        <p class="order-address"><%= @meal.restaurant.address %></p>
+        <p class="order-distance"><%= @distance_to %>km</p>
+        <p class="order-time"><%= @time_to %>min</p>
+<!--
+        <div class="div-time-buttons">
+          <form action="">
+            <input id="button-15-min" class="time-buttons" type="button" name="time" value="15">
+            <input id="button-30-min" class="time-buttons" type="button" name="time" value="30">
+            <input id="button-45-min" class="time-buttons" type="button" name="time" value="45">
+            <input id="button-60-min" class="time-buttons" type="button" name="time" value="60">
+          </form>
+        </div> -->
+      </div>
+      <div class="order-pay">
+        <%= form_tag meal_orders_path(@meal, @order) do %>
+        <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-label="Pay <%=humanized_money_with_symbol(@meal.price) %>"
+        data-name="My Table for <%= @meal.name %>"
+        data-email="<%= current_user.email %>"
+        data-description="Booking the table for meal with id: <%= @meal.id %>"
+        data-amount="<%= @meal.price_cents %>"
+        data-currency="EUR"></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 

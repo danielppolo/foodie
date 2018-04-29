@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/variables";
 
 // External libraries
 @import "bootstrap-sprockets";
@@ -27,7 +28,7 @@ li {
 
 body {
     background: $primary;
-    font: 'Helvetica Neue', Helvetica, Arial, freesans, sans-serif;
+    font: $body-font
 }
 
 button,
@@ -54,4 +55,14 @@ input {
   display: flex;
   width: 100vw;
   height: 100vh;
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: $white;
+    background: $secondary;
+}
+
+::selection {
+    color: $white;
+    background: $secondary;
 }

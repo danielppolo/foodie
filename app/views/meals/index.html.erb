@@ -37,6 +37,26 @@
 
       </li>
       <% end %>
+      <!-- TUTORIAL -->
+      <li class="flip-container" >
+        <div class="flipper" id="tutorial-card">
+          <div class="front">
+            <div class="touchable-front card-centered-content">
+              <div class="card-instructions">
+                <h2>Click to see details!</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="back">
+            <div class="touchable-front">
+              <div class="card-instructions">
+                <h2>Swipe to discard</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
@@ -44,22 +64,3 @@
   <%= javascript_pack_tag 'swing' %>
 
 
-
-<!-- <div class="div-time-buttons">
-  <form action="">
-    <input id="button-15-min" class="time-buttons" type="button" name="time" value="15">
-    <input id="button-30-min" class="time-buttons" type="button" name="time" value="30">
-    <input id="button-45-min" class="time-buttons" type="button" name="time" value="45">
-    <input id="button-60-min" class="time-buttons" type="button" name="time" value="60">
-  </form>
-</div> -->
-<!--  %= form_tag meal_orders_path(m, Order.new) do %>
-script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
-data-key="%= Rails.configuration.stripe[:publishable_key] %>"
-data-label="Book table"
-data-name="My Table for %= m.name %>"
-data-email="%= current_user.email %>"
-data-description="Booking the table for meal with id: %= m.id %>"
-data-amount="%= m.price_cents %>"
-data-currency="EUR"></script>
-% end %> -->

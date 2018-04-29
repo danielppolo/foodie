@@ -1,0 +1,46 @@
+.order-box{
+  background-color: $white;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.1);
+
+  * {
+    margin: 0;
+  }
+
+  .order-info{
+  padding: 4vh;
+  height:85%;
+  overflow: hidden;
+
+  h1 {
+    font-size: $headers;
+    font-weight: 400;
+  }
+  p{
+    font-size: 4vh;
+  }
+  .order-meal{
+
+  }
+  .order-price{
+
+  }
+  .order-restaurant{
+
+  }
+  .order-address{
+
+  }
+  .order-distance{
+
+  }
+  .order-time{
+
+  }
+  }
+
+  .order-pay{
+  height: 15%;
+  }
+}
