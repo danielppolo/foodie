@@ -20,7 +20,7 @@ city_doc.search('.hreview-aggregate').each do |element|
   restaurants_links << r
 end
 
-restaurants_links.all.each do |suffix|
+restaurants_links.each do |suffix|
   url = BASE + suffix
   # puts "Restaurant"
   rest_file = open(url).read
