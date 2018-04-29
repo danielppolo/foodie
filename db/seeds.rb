@@ -1,10 +1,10 @@
 require 'open-uri'
 require 'pry'
 
-# Order.delete_all
-# User.delete_all
-# Meal.delete_all
-# Restaurant.delete_all
+Order.delete_all
+User.delete_all
+Meal.delete_all
+Restaurant.delete_all
 
 city = "milano"
 BASE = "https://www.foodora.it/en"
