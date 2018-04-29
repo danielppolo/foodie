@@ -2,7 +2,7 @@
 // STRIPE PAY BUTTON
 form {
   width: 100%;
-  height: 100%;
+  height: 8vh;
 
   .stripe-button-el {
     width: 100% !important;
@@ -11,8 +11,8 @@ form {
     background: none;
     border: none;
     box-shadow: none;
-    // display: flex;
-    // align-items: center;
+    display: flex;
+    align-items: center;
 
     span  {
       // color: $white !important;
