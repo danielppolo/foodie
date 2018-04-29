@@ -53,28 +53,30 @@ restaurants_links.each do |suffix|
       details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk"
       details_serialized = open(details_url).read
       details = JSON.parse(details_serialized)
-      if details["result"].key?("opening_hours")
-        periods =  details["result"]["opening_hours"]["periods"]
-        openings = []
-        periods.each do |day|
-          temp_containter = []
-          pfx_open = (day["open"]["day"]+1).to_s
-          pfx_close = (day["close"]["day"]+1).to_s
-          opening = day["open"]["time"].to_s
-          closing = day["close"]["time"].to_s
-          #   if day["open"]["day"] == 6
-          #     pfx_close = 1.to_s
-          #   else
-          #     pfx_close = (day["close"]["day"]+2).to_s
-          #   end
-          # else
-          #   pfx_close = (day["close"]["day"]+1).to_s
-          # end
-          openings << "#{pfx_open + opening}-#{pfx_close + closing}"
-          # if closing[0] == 0
+      if details.key?("result")
+        if details["result"].key?("opening_hours")
+          periods =  details["result"]["opening_hours"]["periods"]
+          openings = []
+          periods.each do |day|
+            temp_containter = []
+            pfx_open = (day["open"]["day"]+1).to_s
+            pfx_close = (day["close"]["day"]+1).to_s
+            opening = day["open"]["time"].to_s
+            closing = day["close"]["time"].to_s
+            #   if day["open"]["day"] == 6
+            #     pfx_close = 1.to_s
+            #   else
+            #     pfx_close = (day["close"]["day"]+2).to_s
+            #   end
+            # else
+            #   pfx_close = (day["close"]["day"]+1).to_s
+            # end
+            openings << "#{pfx_open + opening}-#{pfx_close + closing}"
+            # if closing[0] == 0
+          end
+          p restaurant.opening_hours = openings
+          p "Google API Worked for opening hours!"
         end
-        p restaurant.opening_hours = openings
-        p "Google API Worked for opening hours!"
       end
     end
   end
