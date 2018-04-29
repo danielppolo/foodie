@@ -9,3 +9,9 @@ production:
 development:
   STRIPE_PUBLISHABLE_KEY: "pk_test_LE2sFUPuGOnxsuQXTU1Qrs2v"
   STRIPE_SECRET_KEY: "sk_test_rkDpjxAzkk25bjFfUHJV6aY7"
+
+production:
+  GOOGLE_PLACES_KEY: "AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUY"
+
+development:
+  GOOGLE_PLACES_KEY: "AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUY"

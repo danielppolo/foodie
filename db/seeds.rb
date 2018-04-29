@@ -1,10 +1,10 @@
 require 'open-uri'
 require 'pry'
 
-Order.delete_all
-User.delete_all
-Meal.delete_all
-Restaurant.delete_all
+# Order.delete_all
+# User.delete_all
+# Meal.delete_all
+# Restaurant.delete_all
 
 city = "milano"
 BASE = "https://www.foodora.it/en"
@@ -21,7 +21,7 @@ city_doc.search('.hreview-aggregate').each do |element|
   restaurants_links << r
 end
 
-p restaurants_links.count
+p "#{restaurants_links.count} to crack"
 restaurants_links.each do |suffix|
   url = BASE + suffix
   puts "Restaurant#{rcounter}"
@@ -30,9 +30,8 @@ restaurants_links.each do |suffix|
   restaurant = Restaurant.new
   restaurant.city = "Milan"
   # puts "Name"
-  restaurant_name = ""
   rest_doc.search('.vendor-name').each do |element|
-    restaurant.name = element.text.match(/^([^-]*)/)[0].strip
+    p restaurant.name = element.text.match(/^([^-]*)/)[0].strip
   end
   # puts "Price/Cuisines"
   rest_doc.search('.vendor-cuisines').each do |element|
@@ -46,13 +45,13 @@ restaurants_links.each do |suffix|
   query = restaurant.name.strip.delete("-").split(" ").join("+")
   query = URI::encode(query)
   # p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
+  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=#{ENV["GOOGLE_PLACES_KEY"]}"
   place_serialized = open(place_url).read
   place = JSON.parse(place_serialized)
   if place.key?("results")
     if place["results"] != []
       place_id = place["results"][0]["place_id"]
-      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
+      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=#{ENV["GOOGLE_PLACES_KEY"]}"
       details_serialized = open(details_url).read
       details = JSON.parse(details_serialized)
       if details.key?("result")
@@ -76,7 +75,7 @@ restaurants_links.each do |suffix|
             openings << "#{pfx_open + opening}-#{pfx_close + closing}"
             # if closing[0] == 0
           end
-          p restaurant.opening_hours = openings
+          restaurant.opening_hours = openings
           p "Google API Worked for opening hours!"
         end
       end
@@ -125,7 +124,10 @@ restaurants_links.each do |suffix|
       rcounter += 1 if restaurant.save
       p "Restaurant Saved"
     end
-    p Meal.count
+    p "#{Meal.count} meals scrapped "
     puts "----------------------------------------"
   end
 end
+
+p "#{rcounter}/#{restaurants_links.count} restaurants saved. "
+p "#{mcounter} meals saved."
