@@ -10,21 +10,21 @@
 <div class="foodie-wrapper">
   <div class="search-container">
     <!-- CATEGORIES -->
-   <form action="/meals" method="get">
-    <div class="cat-container">
+    <form action="/meals" method="get">
+      <div class="cat-container">
        <h1 class="search-header">I want some...</h1>
-         <div class="cat-btns">
-          <% if @lat && @lng%>
+       <div class="cat-btns">
+        <% if @lat && @lng && @nearby_categories != []%>
           <% @nearby_categories.each do |tag| %>
           <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
           <label for="<%= tag %>"><%= tag.capitalize %></label>
           <% end %>
-          <% else %>
+        <% else %>
           <% @categories.each do |tag| %>
           <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
           <label for="<%= tag %>"><%= tag.capitalize %></label>
           <% end %>
-          <% end %>
+        <% end %>
       </div>
     </div>
 
@@ -40,19 +40,19 @@
       <label for="med-high">10€</label>
       <input type="radio" id="high" name="max_price" value="20">
       <label for="high">20€</label>
-      </div>
     </div>
-
-
-    <!-- RANDOM -->
-    <div class="lucky-container">
-      <button type="submit" id="randomize" name="randomize" value="true">
-       <i class="fas fa-magic"></i>
-     </button>
-     <!-- <p>Feeling lucky?</p> -->
-    </div>
-    </form>
   </div>
+
+
+  <!-- RANDOM -->
+  <div class="lucky-container">
+    <button type="submit" id="randomize" name="randomize" value="true">
+     <i class="fas fa-magic"></i>
+   </button>
+   <!-- <p>Feeling lucky?</p> -->
+ </div>
+</form>
+</div>
 </div>
 <div class="foodie-wrapper" id="home">
 

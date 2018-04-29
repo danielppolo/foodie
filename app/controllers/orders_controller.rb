@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
     @lat = cookies[:lat]
     @lng = cookies[:lng]
     @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
-    @time_to = (@distance_to*60) / 4.5
+    @time_to = ((@distance_to*60) / 4.5).round(0)
   end
 
   def create

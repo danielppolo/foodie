@@ -14,8 +14,8 @@ class MealsController < ApplicationController
     @lat = cookies[:lat]
     @lng = cookies[:lng]
     radius_search = user_signed_in? ? current_user.radius_search : 10
-    @meals = Meal.filter(params, cookies, radius_search).first(10)
-    # @meals = Meal.all.shuffle.first(10)
+    # @meals = Meal.filter(params, cookies, radius_search).first(10)
+    @meals = Meal.all.shuffle.first(10)
   end
 
 

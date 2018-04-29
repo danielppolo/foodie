@@ -86,7 +86,7 @@ restaurants_links.each do |suffix|
 
     # MEAL CATEGORIES
     meal_categories = rest_doc.xpath("//div[contains(@class, 'dish-category-title')]").map do |element|
-      element.search('.dish-category-title').text.strip
+      element.search('.dish-category-title').text.gsub(/\W/,"").strip
     end
 
     # MEAL LISTS
