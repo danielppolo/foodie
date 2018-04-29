@@ -46,13 +46,13 @@ restaurants_links.each do |suffix|
   query = restaurant.name.strip.delete("-").split(" ").join("+")
   query = URI::encode(query)
   # p query
-  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUYAIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
+  place_url = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + query + "+" + city +"&key=AIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
   place_serialized = open(place_url).read
   place = JSON.parse(place_serialized)
   if place.key?("results")
     if place["results"] != []
       place_id = place["results"][0]["place_id"]
-      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyCGpNG33CbdsPUou2fE9iYeIDAPGZ8vwUYAIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
+      details_url = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyCFnDXN6G_8yyB0KjcfV4h0D-_LsnCCX5c"
       details_serialized = open(details_url).read
       details = JSON.parse(details_serialized)
       if details.key?("result")
