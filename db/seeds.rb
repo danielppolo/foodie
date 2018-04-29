@@ -1,6 +1,8 @@
 require 'open-uri'
 require 'pry'
 
+Order.delete_all
+User.delete_all
 Meal.delete_all
 Restaurant.delete_all
 
