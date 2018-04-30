@@ -125,7 +125,7 @@
             font-weight: 600;
             transition: 0.5s ease;
           }
-
+-webkit-
           button:hover{
             background-color: $secondary-dark;
           }
@@ -251,7 +251,7 @@
   perspective: 1000px;
 }
 .turn {
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   transform-style: preserve-3d;
 }
   /* flip the pane when hovered */
@@ -285,13 +285,13 @@
 .front {
   z-index: 2;
   /* for firefox 31 */
-  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
   z-index: 2;
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 
