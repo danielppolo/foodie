@@ -14,6 +14,8 @@ function success(pos) {
   setCookie("lng", pos.coords.longitude);
   $(".navbar-wagon").show();
   $(".spinnerdiv").hide();
+  console.log(pos.coords.latitude);
+  console.log(pos.coords.longitude);
 
   //CLOSE POPUP
 };
