@@ -1,3 +1,7 @@
+window.onload = function() {
+  $(".navbar-wagon").hide();
+}
+
 var options = {
 	enableHighAccuracy: true,
 	timeout: 5000,
@@ -8,7 +12,7 @@ function success(pos) {
   // alert("lat: " + pos.coords.latitude + " lng: " + pos.coords.longitude);
   setCookie("lat", pos.coords.latitude);
   setCookie("lng", pos.coords.longitude);
-  $(".navbar").show();
+  $(".navbar-wagon").show();
   $(".spinnerdiv").hide();
   console.log(pos.coords.latitude);
   console.log(pos.coords.longitude);
@@ -20,7 +24,7 @@ function error(err) {
 console.warn('ERROR(' + err.code + '): ' + err.message);
  document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
    $(".spinner").hide();
-  $(".navbar").hide();
+  $(".navbar-wagon").hide();
 
 
 };
