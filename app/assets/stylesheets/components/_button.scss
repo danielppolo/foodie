@@ -1,19 +1,22 @@
-.cat-btn {
-  padding: 10px;
-  width: auto;
-  background-color: $primary !important;
-  border: 2px solid $white;
-  border-radius: 5px;
-  color: $white;
-  font-weight: 600;
-  transition: 0.5s ease;
-}
+// .cat-btn {
+//   margin: 3px; ;
+//   padding: 10px 20px;
+//   width: auto;
+//   background-color: $primary !important;
+//   border: 2px solid $white;
+//   border-radius: 5px;
+//   color: $white;
+//   font-weight: 600;
+//   transition: 0.75s ease;
+// }
 
-.cat-btn:hover {
-  background-color: $white;
-  color: $primary;
-  border: 2px solid $primary;
-}
+// .cat-btn:hover {
+//   background-color: $white !important;
+//   color: $primary !important;
+//   border: 2px solid $primary !important;
+// }
+
+
 
 
 #randomize {
@@ -22,20 +25,19 @@
   height: 80px;
   background-color: $secondary;
   box-shadow: 0 0 8px rgba(0,0,0,0.0);
-  // border: 2px solid $white;
   border-radius: 50%;
   color: $white;
   font-weight: 600;
   font-size:30px;
-  transition: 0.5s ease;
+  transition: 0.75s ease;
 }
 
 #randomize:hover {
   padding: 10px;
   width: 80px;
   height: 80px;
-  background-color: $secondary;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+  background-color: $secondary-dark;
+  // box-shadow: 0 0 8px rgba(0,0,0,0.5);
   // border: 2px solid $white;
   border-radius: 50%;
   color: $white;
@@ -57,31 +59,75 @@ input[type="radio"] {
   }
 }
 label {
-  padding: 10px;
+  padding: 10px 20px;
+  margin: 6px 3px !important;
   width: auto;
   background-color: $primary;
   border: 2px solid $white;
   border-radius: 5px;
   color: $white;
   font-weight: 600;
-  transition: 0.5s ease;
+  font-size: 3vh;
+  transition: 0.75s ease;
 }
 
 label:hover {
   background-color: $white;
   color: $primary;
   border: 2px solid $primary;
+  border-radius: 5px;
 }
 
 input[type="radio"]:checked + label {
-  background: $white;
+  background-color: $white;
   color: $primary;
   border: 2px solid $white;
 }
 
 
-// TIME BUTTON
+// RANDOM RADIO BUTTON
+.lucky{
+  input[type="radio"] {
+    display: none;
+    &:not(:disabled) ~ label {
+      cursor: pointer;
+    }
+    &:disabled ~ label {
+      color: $white;
+      cursor: not-allowed;
+    }
+  }
+  label{
+    margin: 3px; ;
+    padding: 10px 20px;
+    width: auto;
+    background-color: $primary !important;
+    border: 2px solid $secondary;
+    border-radius: 5px;
+    color: $secondary;
+    font-weight: 600;
+    transition: 0.75s ease;
+  }
 
+
+  label:hover {
+    background-color: $secondary !important;
+    color: $white !important;
+    border: 2px solid $primary !important;
+  }
+  label:hover {
+    background-color: $secondary !important;
+    color: $white !important;
+    border: 2px solid $primary !important;
+  }
+  input[type="radio"]:checked + label {
+    background-color: $secondary;
+    color: $white;
+    border: 2px solid $secondary;
+  }
+}
+
+// TIME BUTTON
 
 .time-buttons {
   padding: 10px;
@@ -104,3 +150,66 @@ input[type="radio"]:checked + label {
   font-weight: 600;
   width: 75px;
 }
+
+
+// EDIT PROFILE AND DELETE PROFILE BUTTON
+
+.edit-delete-profile-buttons {
+
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+}
+
+.edit-delete-profile-buttons:hover {
+  padding: 10px;
+  width: auto;
+  background-color: $white;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: $primary;
+  font-weight: 600;
+  width: 75px;
+}
+
+// SEARCH BUTTON
+
+.search-link-to-buttons {
+  padding: 10px;
+  width: auto;
+  background-color: $secondary;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  color: $primary;
+  font-weight: 600;
+  width: 75px;
+}
+
+.search-link-to-buttons:hover {
+  padding: 10px;
+  width: auto;
+  background-color: $secondary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+
+
+// DIV for SEARCH BUTTONS at the bottom of the USER page
+
+.buttons-edit-logout-search {
+  border: 0px solid;
+  width: auto;
+  padding: 10px 0px;
+  margin-top: 20px
+}
+

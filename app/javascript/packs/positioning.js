@@ -15,8 +15,7 @@ function success(pos) {
 };
 
 function error(err) {
-	console.warn('ERROR(' + err.code + '): ' + err.message);
-	  console.log("porco dio")
+console.warn('ERROR(' + err.code + '): ' + err.message);
  document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
    $(".spinner").hide();
   $(".navbar").hide();

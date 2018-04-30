@@ -1,14 +1,6 @@
-
-#viewport {
-  width: 50vh;
-  height: 75vh;
-  margin: 0 auto ;
-  position: relative;
-}
-
 .stack {
   width: 100% ;
-  height: 75vh;
+  height: 100%;
   background: $primary-dark;
   border-radius: 5px;
   position:absolute;
@@ -20,154 +12,170 @@
 
     .flipper  {
       width: 100%;
-      height: 75vh;
+      height: 100%;
       list-style: none;
-      background: #fff;
+      background: $white;
       border-radius: 5px;
       position: absolute;
       top: 0;
       left: 0;
       box-shadow: 0 0 5px rgba(0,0,0,.1);
       text-align: center;
-      border: 10px solid #fff;
+      border: 10px solid $white;
       box-sizing: border-box;
       cursor: default;
 
       .front {
-
-        .card-photo {
-          height: 90%;
+        .touchable-front {
+          height: 100%;
           width: 100%;
           margin: 0 auto;
-          background-size: cover;
-          border-radius: 3px;
-        }
 
-        .card-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          height:10%;
-          padding: 0 3px;
+          .card-photo {
+            height: 90%;
+            width: 100%;
+            margin: 0 auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            border-radius: 3px;
+          }
 
-          * {
-            font-size: 1.4em;
-            font-weight: 300;
+          .card-header {
+            display: flex;
+            justify-content: space-between;
             align-items: flex-end;
-            margin: 0 !important;
-          }
+            height: 10%;
+            width: 100%;
+            padding: 0 3px;
+            // box-sizing: border-box;
 
-          .card-meal-name {
-            flex: 1 1 auto;
-            text-align: left !important;
-          }
+            h2 {
+              font-size: $headers;
+              font-weight: 300;
+              padding: 0 !important;
+              margin: 0 !important;
+            }
 
-          .card-meal.price {
-            flex: 0 1 20%;
-            text-align: right !important;
+            .card-meal-name {
+              width: 93%;
+              text-align: left !important;
+              overflow: hidden;
+              height: 1.2em;
+            }
+
+            .card-meal.price {
+              width: 7%;
+              margin-left: 1em;
+              // text-align: right !important;
+            }
           }
         }
       }
 
       .back {
-
-        .card-display{
+        .touchable-back {
+          height: 90%;
           width: 100%;
-          height: 50%;
+          margin: 0 auto;
 
           .map {
             width: 100%;
-            height: 100%;
+            height: 50%;
             border-radius: 4px;
           }
-        }
 
-        .card-actions{
-          width: 100%;
-          height: 40%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-end;
+          .card-info{
+            width: 100%;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-          h2{
-            padding: 0.5em 0 0 0;
-            text-align: left !important;
-            font-size: 1.4em;
-            font-weight: 300;
-            margin: 0 !important;
-          }
+            h2{
+              padding: 0.5em 0 0 0;
+              text-align: left !important;
+              font-size: $headers;
+              font-weight: 300;
+              margin: 0 !important;
+            }
 
-          p{
-            margin-top: 0.25  em;
-            font-weight: 300;
-            font-size: 1em;
-          }
-          .card-pay {
-            height: 10%;
-
-            .stripe-button-el span  {
-              color: $white !important;
-              border: none !important;
-              background-color: $secondary !important;
-              background-image: none !important;
-              width: 100% !important;
-
-              background-attachment: none !important;
-              background-clip: border-box;
-              background-image: none !important;
-              background-origin: none !important;
-              background-position: 0% 0%;
-              background-position-x: 0%;
-              background-position-y: 0%;
-              background-repeat: none !important;
-              background-size: auto auto;
-              border: none !important;
-              border-radius: 4px !important;
-
-
-              box-shadow: none !important;
-              box-sizing: border-box;
-              cursor: pointer;
-              display: inline-block;
-              font-feature-settings: normal;
-              font-kerning: auto;
-              font-language-override: normal;
-              font-size: 18px;
-              font-size-adjust: none;
-              font-stretch: normal;
-              font-style: normal;
-              font-variant: normal;
-              font-weight: 400;
-              line-height: 25.7167px;
-              list-style-image: none;
-              list-style-position: outside;
-              list-style-type: none;
-              margin: 0px !important;
-              outline-color: transparent !important;
-              outline-style: none;
-              outline-width: 0px;
-              overflow: hidden;
-              overflow-x: hidden;
-              overflow-y: hidden;
-              padding: 1em 2em !important;
-              text-align: center;
-              text-decoration: none;
-              text-decoration-color: none !important;
-              text-decoration-line: none;
-              text-decoration-style: solid;
-              text-transform: none;
-              visibility: visible;
-              -moz-user-select: none;
+            p{
+              margin-top: 0.25em;
+              font-weight: 300;
+              font-size: $text;
             }
           }
         }
 
+        .card-button {
+          height: 10%;
+          width: 100%;
+          box-sizing: border-box;
+
+          button{
+            font-size: $sub;
+            width: 100%;
+            height: 100%;
+            background-color: $secondary;
+            border-radius: 4px;
+            color: $white;
+            font-weight: 600;
+            transition: 0.5s ease;
+          }
+
+          button:hover{
+            background-color: $secondary-dark;
+          }
+        }
+      }
+    }
+
+    #tutorial-card{
+      .front {
+        .touchable-front{
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .card-instructions{
+            h2{
+            font-weight: 300 ;
+            font-size: $headers;
+            margin: 0 auto;
+
+            span{
+              font-weight: 400;
+            }
+            }
+          }
+        }
+      }
+
+      .back {
+        .touchable-front{
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          height: 100%;
+
+          .card-instructions{
+            h2{
+            font-weight: 300 ;
+            font-size: $headers;
+            margin: 0 auto;
+
+            span{
+              font-weight: 400;
+            }
+            }
+          }
+        }
       }
     }
   }
-
-
 }
 
 
@@ -242,10 +250,9 @@
 .flip-container {
   perspective: 1000px;
 }
-.hover-active {
+.turn {
   transform: rotateY(180deg);
   transform-style: preserve-3d;
-  z-index: 999 !important;
 }
   /* flip the pane when hovered */
   /*.flip-container:hover .flipper, .flip-container.hover .flipper {
@@ -286,6 +293,26 @@
   transform: rotateY(180deg);
 }
 
+
+
+// HISTORY OF ORDERS FOR USERS
+
+.current-user-orders-summary {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 30px;
+
+}
+
+.current-user-without-order {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 30px;
+}
 
 
 
