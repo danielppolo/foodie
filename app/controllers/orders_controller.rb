@@ -10,17 +10,13 @@ class OrdersController < ApplicationController
     @order = Order.new
     @lat = cookies[:lat]
     @lng = cookies[:lng]
-<<<<<<< HEAD
+    @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
+    @time_to = ((@distance_to*60) / 4.5).round(0)
   end
 
   def show
     @meal = Meal.find(params[:meal_id])
     @order.meal = @meal
-
-=======
-    @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
-    @time_to = ((@distance_to*60) / 4.5).round(0)
->>>>>>> 655929e348382dfe033637fbc746da8e1eae4c30
   end
 
   def create
@@ -47,12 +43,7 @@ class OrdersController < ApplicationController
     # @order.order_status = :pending
     # @order.payment_status =
     @order.save
-<<<<<<< HEAD
-
-    redirect_to meal_order_path(current_user)
-=======
     redirect_to user_path(current_user)
->>>>>>> 655929e348382dfe033637fbc746da8e1eae4c30
   end
 
 
