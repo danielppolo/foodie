@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+   before_action :authenticate_user!
 
   def index
     @order = current_user.orders.where(state: 1).find(params[:id])
@@ -11,6 +12,11 @@ class OrdersController < ApplicationController
     @lng = cookies[:lng]
     @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
     @time_to = ((@distance_to*60) / 4.5).round(0)
+  end
+
+  def show
+    @meal = Meal.find(params[:meal_id])
+    @order.meal = @meal
   end
 
   def create
