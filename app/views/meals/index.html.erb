@@ -19,13 +19,13 @@
 
         <div class="back">
           <div class="touchable-back">
-              <div class ="map" id="map-<%= m.id %>"
-                data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
-                ></div>
               <div class="card-info">
                 <h2><%= m.name %></h2>
                 <p><%= m.description %></p>
               </div>
+              <div class ="map" id="map-<%= m.id %>"
+                data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
+                ></div>
               </div>
             <div class="card-button">
               <form action="/meals/<%= m.id %>/orders/new">
@@ -51,7 +51,8 @@
           <div class="back">
             <div class="touchable-front">
               <div class="card-instructions">
-                <h2>Don't like it? Just <span>swipe</span> to discard</h2>
+                <h2>Don't like it?</h2>
+                <h2>Just <span>swipe left</span> to discard</h2>
               </div>
             </div>
           </div>
