@@ -204,7 +204,7 @@ input[type="radio"]:checked + label {
 
 
 
-// DIV for SEARCH BUTTONS at the bottom of the USER page
+// DIV for BUTTONS at the bottom of the USER page
 
 .buttons-edit-logout-search {
   border: 0px solid;
@@ -212,4 +212,23 @@ input[type="radio"]:checked + label {
   padding: 10px 0px;
   margin-top: 20px
 }
+
+
+// DIV FOR RADIUS SLIDER
+
+.slider-radious-search-bar {
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  width: 75px;
+}
+
+.div-radius-search {
+
+}
+
 
