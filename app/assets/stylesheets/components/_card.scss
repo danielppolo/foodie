@@ -274,6 +274,7 @@
 /* hide back of pane during swap */
 .front, .back {
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
   position: absolute;
   top: 0;
@@ -284,22 +285,13 @@
 .front {
   z-index: 2;
   /* for firefox 31 */
-
-  -ms-transform: translateY(0deg);
-  -webkit-transform: translateY(0deg);
-  -moz-transform: translateY(0deg);
-  -o-transform: translateY(0deg);
-  transform: translateY(0deg);
+  transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
   z-index: 2;
-  -ms-transform: translateY(180deg);
-  -webkit-transform: translateY(180deg);
-  -moz-transform: translateY(180deg);
-  -o-transform: translateY(180deg);
-  transform: translateY(180deg);
+  transform: rotateY(180deg);
 }
 
 
