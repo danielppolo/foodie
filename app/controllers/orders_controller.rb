@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @lat = cookies[:lat].to_f #I did not have lat either lng that why I did this, able to delete
     @lng = cookies[:lng].to_f #I did not have lat either lng that why I did this, able to delete
+   #if comes because I did not have lat lgn to see the changes in the order view, able to delete if necessary
     if @meal.restaurant.latitude
       @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
       @time_to = ((@distance_to*60) / 4.5).round(0)
