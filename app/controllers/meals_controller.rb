@@ -21,7 +21,8 @@ class MealsController < ApplicationController
     if cookies[:lat] && cookies[:lng]
       @meals = Meal.filter(params, cookies, radius_search).first(20)
     else
-      @meals = Meal.all.shuffle.first(10)
+    	return redirect_to root_path
+      # @meals = Meal.all.shuffle.first(10)
     end
   end
 
