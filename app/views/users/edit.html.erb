@@ -5,15 +5,10 @@
   <%= f.input :first_name, placeholder: "Paolo" %>
   <%= f.input :last_name, placeholder: "Rossi" %>
   <%= f.input :email, placeholder: "paolo.rossi@gmail.com" %>
-  <%= f.input :age, placeholder: 28 %>
-  <%= f.input :gender, as: :radio_buttons, collection: [["Male", "male"], ["Female", "female"], ["Other", "other"]] %>
+  <%= f.input :age, input_html: {min: 0,  max: 300 }, placeholder: 28 %>
+  <%= f.input :gender, as: :radio_buttons, collection: [["Male", :male], ["Female", :female], ["Other", :other]] %>
   <!-- Radius min 1 km, maz 30 km -->
-  <div class="range-slider">
-  <%= f.input :radius_search, as: :range, input_html: {min: 2,  max: 30 },  class: "range-slider-range", placehoder: current_user.radius_search %>
-
-</div>
-
-<%= current_user.radius_search  %>
+<%= f.input :radius_search, as: :radio_buttons, collection: [["2km", 2], ["5km", 5], ["10km", 10], ["15km", 15], ["30km", 30]] %>
 
 
 <!--     <div class="range-slider">
