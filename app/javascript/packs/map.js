@@ -1,6 +1,9 @@
 import GMaps from 'gmaps/gmaps.js';
 
-const mapElements = document.querySelectorAll(".map");
+document.addEventListener("DOMContentLoaded", function(event) {
+
+const mapElements = document.querySelectorAll(".map")
+// const mapElements = [];
 
 mapElements.forEach(function(mapElement) {
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
@@ -18,7 +21,22 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.fitLatLngBounds(markers);
   }
 }
-})
+});
+
+
+setTimeout(function() {
+	var selectorImage = "data-background-image";
+	var imageBlock = document.querySelectorAll("["+selectorImage+"]");
+	imageBlock.forEach(function(element) {
+		element.style.backgroundImage = 'url("' + element.dataset.backgroundImage + '")';
+	});
+});
+
+
+});
+
+
+
 // import GMaps from 'gmaps/gmaps.js';
 
 // const mapElement = document.getElementById('map');
