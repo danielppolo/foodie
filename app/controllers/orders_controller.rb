@@ -8,10 +8,12 @@ class OrdersController < ApplicationController
   def new
     @meal = Meal.find(params[:meal_id])
     @order = Order.new
-    @lat = cookies[:lat]
-    @lng = cookies[:lng]
-    @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
-    @time_to = ((@distance_to*60) / 4.5).round(0)
+    @lat = cookies[:lat].to_f #I did not have lat either lng that why I did this, able to delete
+    @lng = cookies[:lng].to_f #I did not have lat either lng that why I did this, able to delete
+    if @meal.restaurant.latitude
+      @distance_to = @meal.restaurant.distance_from([@lat, @lng]).round(2)
+      @time_to = ((@distance_to*60) / 4.5).round(0)
+    end
   end
 
   def show
