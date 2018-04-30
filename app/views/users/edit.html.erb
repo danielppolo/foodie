@@ -26,3 +26,6 @@
 
 
 
+<%= link_to "Destroy your account", destroy_user_session_path,
+      method: :delete,
+      data: { confirm: "Are you sure you want to delete your account?" } %>
