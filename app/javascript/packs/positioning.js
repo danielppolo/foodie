@@ -1,38 +1,3 @@
-window.onload = function() {
-  $(".navbar-wagon").hide();
-}
-
-var options = {
-	enableHighAccuracy: true,
-	timeout: 5000,
-	maximumAge: 0
-};
-
-function success(pos) {
-  // alert("lat: " + pos.coords.latitude + " lng: " + pos.coords.longitude);
-  setCookie("lat", pos.coords.latitude);
-  setCookie("lng", pos.coords.longitude);
-  $(".navbar-wagon").show();
-  $(".spinnerdiv").hide();
-  console.log(pos.coords.latitude);
-  console.log(pos.coords.longitude);
-
-  //CLOSE POPUP
-};
-
-function error(err) {
-console.warn('ERROR(' + err.code + '): ' + err.message);
- document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
-   $(".spinner").hide();
-  $(".navbar-wagon").hide();
-
-
-};
-
-window.navigator.geolocation.getCurrentPosition(success, error, options);
-
-//OPEN POPUP
-
 function setCookie(name,value,days) {
 	var expires = "";
 	if (days) {
@@ -42,3 +7,61 @@ function setCookie(name,value,days) {
 	}
 	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
+
+
+
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(
+		function(position) {
+
+
+			positionCords = {lat: position.coords.latitude, lng: position.coords.longitude};
+			setCookie("lat", positionCords.lat);
+			setCookie("lng", positionCords.lng);
+			console.log(positionCords.lat);
+			console.log(positionCords.lng);
+			$(".navbar-wagon").show();
+			$(".spinnerdiv").hide();
+		},
+		function(error) {
+			console.warn('ERROR(' + error.code + '): ' + error.message);
+			document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
+			$(".spinner").hide();
+			$(".navbar-wagon").hide();
+		},
+		{timeout: 15000, enableHighAccuracy: true, maximumAge: 100000}
+		);
+
+}
+
+// function success(pos) {
+// 	setCookie("lat", pos.coords.latitude);
+// 	setCookie("lng", pos.coords.longitude);
+// 	console.log(pos.coords.latitude);
+// 	console.log(pos.coords.longitude);
+// 	$(".navbar-wagon").show();
+// 	$(".spinnerdiv").hide();
+
+//   //CLOSE POPUP
+// };
+
+
+// function error(err) {
+
+// 	console.warn('ERROR(' + err.code + '): ' + err.message);
+// 	document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
+// 	$(".spinner").hide();
+// 	$(".navbar-wagon").hide();
+
+// };
+
+
+
+
+
+//OPEN POPUP
+
+
+
+
+
