@@ -26,8 +26,9 @@ class Meal < ApplicationRecord
   end
 
   def self.by_location(cookies, search_radius) # => Returns array of nearby Meals
+  	search_radius = 10
     nearby_meals = []
-    r = Restaurant.near([cookies[:lat].to_f, cookies[:lng].to_f], search_radius)
+    r = Restaurant.where("latitude != 0 AND longitude != 0").near([cookies[:lat].to_f, cookies[:lng].to_f], search_radius)
     r.each { |r| r.meals.each { |m| nearby_meals << m } }
     nearby_meals
   end
