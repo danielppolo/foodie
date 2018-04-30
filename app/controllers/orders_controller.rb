@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
     )
 
     @order.payment = charge.to_json
+    @order.date = Time.now
     # @order.order_status = :pending
     # @order.payment_status =
     @order.save
