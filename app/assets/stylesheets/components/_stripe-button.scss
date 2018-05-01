@@ -9,13 +9,15 @@ form {
     height: 100% !important;
     background-image: none !important;
     background: none;
+    background-color: red;
     border: none;
     box-shadow: none;
+    display: flex;
 
     span  {
       vertical-align: middle;
       // color: $white !important;
-      background-color: $secondary;
+      background-color: transparent;
       // border: none !important;
       background-image: none !important;
       width: 100% !important;
@@ -30,7 +32,7 @@ form {
       // background-position-y: 0%;
       // background-repeat: none !important;
       // background-size: auto auto;
-      // border: none !important;
+      border: none !important;
       border-radius: 0 4px 4px 0 !important;
 
 

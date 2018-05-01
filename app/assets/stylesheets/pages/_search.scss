@@ -5,8 +5,8 @@
   // align-self: flex-start;
 
   .search-header {
-    color: $white;
-    font-weight: 600;
+    color: $secondary;
+    font-weight: 700;
     font-size: $sub;
     text-align: center;
     margin-bottom: 0.7em;
@@ -20,7 +20,7 @@
       align-content: center;
 
       p{
-        color: $white;
+        color: $secondary;
       }
     }
   }
