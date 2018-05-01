@@ -15,8 +15,9 @@
 @import "components/index";
 @import "pages/index";
 
-
-
+.navbar{
+margin-bottom: 5px;
+}
 //TEMP
 html,
 body,
@@ -53,16 +54,24 @@ input {
 
 .foodie-wrapper{
   display: flex;
-  height: 100vh;
+  // height: 100vh;
 }
 
 
 #viewport {
-  width: 50vh;
-  height: 75vh;
+  // width: 50vh;
+  // height: 75vh;
+  width: 85vw;
+height: 80vh;
   margin: 0 auto;
   position: relative;
-  align-self: center;
+  // align-self: center;
+}
+
+@media screen and (min-width: 768px){
+	#viewport{
+		width: 50vh !important;
+	}
 }
 
 ::-moz-selection { /* Code for Firefox */
