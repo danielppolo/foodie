@@ -16,7 +16,6 @@
 @import "pages/index";
 
 
-
 //TEMP
 html,
 body,
@@ -27,8 +26,11 @@ li {
 }
 
 body {
-    background: $primary;
-    font: $body-font
+  // background: $primary;
+  font: $body-font;
+  background-color: #f2b54c;
+  background-image: linear-gradient(0deg, #f2b54c 0%, #f2c94c 100%);
+
 }
 
 button,
@@ -58,12 +60,30 @@ input {
 
 
 #viewport {
-  width: 50vh;
-  height: 75vh;
+  // width: 50vh;
+  // height: 75vh;
+  width: 85vw;
+  height: 80vh;
   margin: 0 auto;
   position: relative;
   align-self: center;
 }
+
+@media screen and (min-width: 768px){
+	#viewport{
+		width: 50vh !important;
+	}
+}
+
+
+@media only screen and (max-width: 720px) {
+  #viewport {
+    width: 85vw;
+  }
+}
+
+
+
 
 ::-moz-selection { /* Code for Firefox */
     color: $white;

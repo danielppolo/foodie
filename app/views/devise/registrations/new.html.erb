@@ -9,16 +9,17 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <%= f.input :name, placeholder: 'your name',  label: false, required: false, autofocus: true %>
           <%= f.input :email, placeholder: 'your email',  label: false, required: true, autofocus: true %>
-          <%= f.input :password, placeholder: 'password', label: false, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+          <%= f.input :password, placeholder: 'password', label: false, required: true %>
           <%= f.input :password_confirmation, placeholder: 'password ... again', label: false,required: true %>
           <%= f.button :submit, "Sign up" %>
         </div>
         <% end %>
-
-        <div class="login-links">
-          <%= render "devise/shared/links" %>
-        </div>
+         <!-- hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) -->
+        <!-- <div class="login-links">
+          %= render "devise/shared/links" %>
+        </div> -->
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
   justify-content: space-around;
 
   .login-form {
-    position:relative;
+    position:absolute;
     .form-inputs {
       position: relative;
 
@@ -15,6 +15,11 @@
         color: $white;
       }
       input{
+        text-align: center;
+        font-size: $text;
+        height: 6vh;
+        color: $black;
+        opacity: 1;
         border-radius: 4px;
         outline: none;
         border: none;
@@ -27,14 +32,15 @@
       }
       input::placeholder{
         text-align: center;
-        opacity: 0.5;
+        color: $black;
+        opacity: 0.3;
       }
 
       input[type="submit"]{
         width: 100%;
+        height: 6vh;
         background-color: $secondary;
         color: $white;
-        padding: 0.5em 1em;
         font-size: $text;
         transition: 0.5s ease;
       }
@@ -58,18 +64,51 @@
       }
     }
     .login-links{
-      position:relative;
-      top: 1vh;
+      position:absolute;
+      top: 23vh;
       text-align: center !important;
+      width: 100%;
 
+      p{
+        font-size: $text;
+        color: $secondary;
+        margin: 1vh;
+      }
       a{
         margin: 0 auto !important;
-        font-size: $mini;
+        font-size: $text;
+        width: 100%;
+        color: $white;
+
       }
 
-      .signup-btn{
+    }
+    .signup-btn{
+      width: 100%;
+      height: 6vh;
+      background-color: transparent;
+      font-size: $text;
+      transition: 0.5s ease;
+      text-align: center;
+      font-size: $text;
+      border-radius: 4px;
+      outline: none;
+      border: 2px solid $secondary;
+
+      a{
+        color: $secondary;
+        text-decoration: none;
+        width: 100%;
       }
     }
+
+    .signup-btn:hover{
+      background-color: $secondary;
+    }
+
+    .signup-btn:hover a{
+        color: $white;
+      }
   }
 }
 

@@ -1,13 +1,13 @@
 .search-container {
   width: 50vw;
   margin: 0 auto;
-  padding-top: $navbar-h;
+  align-self:center;
   // align-self: flex-start;
 
   .search-header {
     color: $white;
-    font-weight: 700;
-    font-size: 4vh;
+    font-weight: 600;
+    font-size: $sub;
     text-align: center;
     margin-bottom: 0.7em;
   }
