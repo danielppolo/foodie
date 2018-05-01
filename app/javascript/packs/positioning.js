@@ -18,7 +18,7 @@ if (navigator.geolocation) {
 			positionCords = {lat: position.coords.latitude, lng: position.coords.longitude};
 			setCookie("lat", positionCords.lat);
 			setCookie("lng", positionCords.lng);
-			alert("Position found! :)");
+			// alert("Position found! :)");
 			$(".navbar-wagon").show();
 			$(".spinnerdiv").hide();
 		},
