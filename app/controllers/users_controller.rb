@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
+    @orders = Order.where(user_id: current_user)
+    @meals = Meal.all
   end
 
   def edit
