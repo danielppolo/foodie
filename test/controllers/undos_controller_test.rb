@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UndoControllerTest < ActionDispatch::IntegrationTest
+class UndosControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

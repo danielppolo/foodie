@@ -6,6 +6,7 @@ class Meal < ApplicationRecord
   validates :photo, presence: true
   monetize :price_cents
 
+
   def available?
     self.restaurant.open?
   end
@@ -85,9 +86,12 @@ class Meal < ApplicationRecord
     categories.each { |word| counts[word] += 1 }
     counts.sort_by { |_key, value| value }.reverse.to_h.keys.first(number_of_results)
   end
+  #UNDO Juan
+  private
+  def undo_link
+    view_context.link_to("undo", revert_version_path(@meal.versions.scoped.last), :method => :post)
+  end
 end
-
-
 
 
 
