@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427094234) do
+ActiveRecord::Schema.define(version: 20180430143349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180427094234) do
     t.string "name"
     t.integer "age"
     t.integer "gender"
-    t.integer "radius_search", default: 2
+    t.integer "radius_search", default: 5
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"

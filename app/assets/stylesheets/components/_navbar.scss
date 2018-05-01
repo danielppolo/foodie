@@ -29,6 +29,14 @@
 .navbar-item {
   cursor: pointer;
   padding: 0 20px;
+  color: $white;
+  font-weight: 600;
+  transition: 0.5s ease;
+  color: $secondary;
+  text-decoration: none;
+}
+.navbar-item:hover {
+  text-decoration: underline;
 }
 
 /* Navbar link */
@@ -37,6 +45,7 @@
   opacity: .7;
   font-size: 24px;
   transition: 0.5s ease;
+
 }
 .navbar-link:hover {
   color: $complementary;

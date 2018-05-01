@@ -19,13 +19,20 @@
 
         <div class="back">
           <div class="touchable-back">
-              <div class="card-info">
-                <h2><%= m.name %></h2>
-                <p><%= m.description %></p>
-              </div>
-              <div class ="map" id="map-<%= m.id %>"
-                data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
-                ></div>
+
+            <%
+            base_link = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(#{@lng},#{@lat}),pin-s-b+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+f44-0.5(#{@paths[m.id]})" if @paths[m.id]}/auto/600x600?access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
+
+            final_url = base_link
+            %>
+
+              <div class="map" id="" style="background-image: url('<%= final_url %>'); background-repeat: no-repeat;">
+
+                </div>
+                  <div class="card-map-details">
+                    <h3><%= m.name %></h3>
+                    <p><%= m.description %></p>
+                  </div>
               </div>
             <div class="card-button">
               <form action="/meals/<%= m.id %>/orders/new">
@@ -65,3 +72,7 @@
   <%= javascript_pack_tag 'swing' %>
 
 
+<!-- <div class ="map" id="map-%= m.id %>"
+                data-markers="%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
+                >
+                </div> -->
