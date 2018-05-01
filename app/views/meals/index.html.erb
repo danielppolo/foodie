@@ -8,7 +8,7 @@
 
         <div class="front">
           <div class="touchable-front">
-            <div class="card-photo" data-background-image="<%= m.photo.gsub(/http\:\/\//, "https://") %>" ></div>
+            <div class="card-photo" style="background-image: url('<%= m.photo %>');" ></div>
 
             <div class="card-header">
               <h2 class="card-meal-name"><%= m.name.split(" ").first(3).join(" ") %></h2>
