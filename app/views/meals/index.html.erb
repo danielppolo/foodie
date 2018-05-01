@@ -8,8 +8,7 @@
 
         <div class="front">
           <div class="touchable-front">
-            <div class="card-photo" style="background-image: url('<%= m.photo %>');" ></div>
-
+            <div class="card-photo" data-background-image="<%= m.photo.gsub(/http\:\/\//, "https://") %>" ></div>
             <div class="card-header">
               <h2 class="card-meal-name"><%= m.name.split(" ").first(3).join(" ") %></h2>
               <h2 class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></h2>
@@ -19,10 +18,9 @@
 
         <div class="back">
           <div class="touchable-back">
-            <%
-            base_link = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(#{@lng},#{@lat}),pin-s-b+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+f44-0.5(#{@paths[m.id]})" if @paths[m.id]}/auto/600x600?access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
 
-            final_url = base_link
+            <%
+            final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-a+9ed4bd(#{@lng},#{@lat}),pin-s-b+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x600?access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
             %>
 
               <div class="map" id="" style="background-image: url('<%= final_url %>'); background-repeat: no-repeat;">

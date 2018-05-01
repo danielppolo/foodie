@@ -2,8 +2,8 @@ import GMaps from 'gmaps/gmaps.js';
 
 document.addEventListener("DOMContentLoaded", function(event) {
 
-const mapElements = document.querySelectorAll(".map")
-// const mapElements = [];
+// const mapElements = document.querySelectorAll(".map")
+const mapElements = [];
 
 mapElements.forEach(function(mapElement) {
 if (mapElement) { // don't try to build a map if there's no div#map to inject in

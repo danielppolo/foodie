@@ -14,7 +14,18 @@
           <%= f.input :password, placeholder: 'password', label: false, required: true %>
           <%= f.input :password_confirmation, placeholder: 'password ... again', label: false,required: true %>
           <%= f.button :submit, "Sign up" %>
+          <div class="login-links">
+          <p>or</p>
+          <div class="fb-btn">
+          <%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end -%>
+<% end -%>
         </div>
+        </div>
+        </div>
+
         <% end %>
          <!-- hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) -->
         <!-- <div class="login-links">

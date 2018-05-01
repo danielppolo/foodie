@@ -64,14 +64,12 @@
       }
     }
     .login-links{
-      position:absolute;
-      top: 23vh;
       text-align: center !important;
       width: 100%;
 
       p{
         font-size: $text;
-        color: $secondary;
+        color: $white;
         margin: 1vh;
       }
       a{
@@ -88,11 +86,13 @@
       height: 6vh;
       background-color: transparent;
       font-size: $text;
-      transition: 0.5s ease;
+      transition: 1s ease;
       text-align: center;
       font-size: $text;
       border-radius: 4px;
       outline: none;
+      display: media;
+      padding-top: 2px;
       border: 2px solid $secondary;
 
       a{
@@ -103,11 +103,43 @@
     }
 
     .signup-btn:hover{
+      border: 2px solid transparent;
       background-color: $secondary;
     }
 
     .signup-btn:hover a{
         color: $white;
+      }
+
+
+    .fb-btn{
+      width: 100%;
+      height: 6vh;
+      background-color: $blue;
+      font-size: $text;
+      transition: 1s ease;
+      text-align: center;
+      font-size: $text;
+      border-radius: 4px;
+      outline: none;
+      display: media;
+      padding-top: 2px;
+      border: 2px solid transparent;
+
+      a{
+        color: $white;
+        text-decoration: none;
+        width: 100%;
+      }
+    }
+
+    .fb-btn:hover{
+      border: 2px solid $blue;
+      background-color: $blue;
+    }
+
+    .fb-btn:hover a{
+        // color: $white;
       }
   }
 }
@@ -125,8 +157,8 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
-  background-color: white;
-  -webkit-text-fill-color: green;
+  background-color: $white !important;
+  -webkit-text-fill-color: $black;
   -webkit-box-shadow: 0 0 0px 1000px #000 inset;
   transition: background-color 5000s ease-in-out 0s;
 }
