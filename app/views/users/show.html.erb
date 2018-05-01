@@ -10,10 +10,13 @@
   </div>
 
   <% if current_user.orders != []%>
+      <%= javascript_pack_tag 'notify' %>
+
     <p>Your orders are:<p>
       <ul>
         <% current_user.orders.to_enum.with_index.reverse_each do |current_user_order, i| %>
         <div class="current-user-orders-summary">
+
         <!-- CSS IS IN _CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
           <% if i == current_user.orders.count - 1 %>
             <p><strong> LAST ORDER </strong></p>

@@ -8,15 +8,24 @@
           <%= f.input :email, placeholder: 'your email',  label: false, required: false, autofocus: true %>
           <%= f.input :password, placeholder: 'password', label: false, required: false %>
           <%= f.button :submit, "Log in" %>
-        </div>
-        <div class="form-remember">
-          <!-- %= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %-->
-        </div>
         <% end %>
+
         <div class="login-links">
-          <%= render "devise/shared/links" %>
+          <p>or</p>
+          <div class="signup-btn">
+          <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <%= link_to "Sign up", new_registration_path(resource_name) %>
+          <% end -%>
+          </div>
+          <!--%= render "devise/shared/links" %-->
+        </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+        <!-- <div class="form-remember">
+           %= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %
+        </div> -->
