@@ -7,7 +7,9 @@
     "flipper-js": "^1.0.2",
     "gmaps": "^0.4.24",
     "jquery": "^3.3.1",
-    "localtunnel": "^1.9.0"
+    "localtunnel": "^1.9.0",
+    "npm": "^6.0.0",
+    "sweetalert": "^2.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

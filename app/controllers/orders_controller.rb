@@ -15,13 +15,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @meal = Meal.find(params[:meal_id])
-    @order.meal = @meal
+    # update
+    # redirect_to root_path
   end
 
   def create
     @meal = Meal.find(params[:meal_id])
-    @time = Time.now
     @order = Order.new
     @order.meal = @meal
     @order.user = current_user
@@ -47,36 +46,22 @@ class OrdersController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def update
+    @meal = Meal.find(params[:meal_id])
+    @order = Order.find(params[:id])
+    @order.update(order_status: params[:order_status])
+
+    # @order.update(order_params)
+    redirect_to user_path(current_user)
+  end
 
 
-    # create_table "orders", force: :cascade do |t|
-    # t.date "date"
-    # t.integer "order_status", default: 0, null: false
-    # t.bigint "user_id"
-    # t.bigint "meal_id"
-    # t.datetime "created_at", null: false
-    # t.datetime "updated_at", null: false
-    # t.jsonb "payment"
-    # t.integer "payment_status", default: 0, null: false
 
+  private
 
-#   def new
-#     @order = Order.new
-#     @meal = Meal.find(params[:meal_id])
-#   end
-
-#   def create
-#   @order = Order.new #Damian's tecnique
-#   @order.meal = Meal.find(params[:meal_id])
-#   @order.user = current_user
-#   @order.save
-# end
-# def edit
-#   @order = Order.find(params[:id])
-
-# end
-# def update
-#   @order = Order.find(params[:id])
+  # def order_params
+  #   params.require(:order).permit(:order_status)
+  # end
 
 end
 
