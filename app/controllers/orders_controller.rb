@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
   def create
     @meal = Meal.find(params[:meal_id])
-
+    @time = Time.now
     @order = Order.new
     @order.meal = @meal
     @order.user = current_user

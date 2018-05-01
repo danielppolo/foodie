@@ -28,8 +28,11 @@ li {
 }
 
 body {
-    background: $primary;
-    font: $body-font
+  // background: $primary;
+  font: $body-font;
+  background-color: #f2b54c;
+  background-image: linear-gradient(0deg, #f2b54c 0%, #f2c94c 100%);
+
 }
 
 button,
@@ -73,6 +76,17 @@ height: 80vh;
 		width: 50vh !important;
 	}
 }
+
+
+@media only screen and (max-width: 720px) {
+  #viewport {
+    width: 85vw;
+    height: 80vh;
+  }
+}
+
+
+
 
 ::-moz-selection { /* Code for Firefox */
     color: $white;

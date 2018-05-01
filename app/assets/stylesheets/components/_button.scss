@@ -1,20 +1,21 @@
-// .cat-btn {
-//   margin: 3px; ;
-//   padding: 10px 20px;
-//   width: auto;
-//   background-color: $primary !important;
-//   border: 2px solid $white;
-//   border-radius: 5px;
-//   color: $white;
-//   font-weight: 600;
-//   transition: 0.75s ease;
-// }
+.cat-btn {
+  margin: 3px; ;
+  padding: 10px 20px;
+  width: auto;
+  background-color: transparent;
+  border: 2px solid $white;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 600;
+  transition: 0.75s ease;
+  font-size: $text;
+}
 
-// .cat-btn:hover {
-//   background-color: $white !important;
-//   color: $primary !important;
-//   border: 2px solid $primary !important;
-// }
+.cat-btn:hover {
+  background-color: $white !important;
+  color: $primary !important;
+  border: 2px solid transparent !important;
+}
 
 
 
@@ -62,19 +63,19 @@ label {
   padding: 10px 20px;
   margin: 6px 3px !important;
   width: auto;
-  background-color: $primary;
+  background-color: transparent;
   border: 2px solid $white;
   border-radius: 5px;
   color: $white;
   font-weight: 600;
-  font-size: 3vh;
+  font-size: $text;
   transition: 0.75s ease;
 }
 
 label:hover {
   background-color: $white;
   color: $primary;
-  border: 2px solid $primary;
+  border: 2px solid transparent;
   border-radius: 5px;
 }
 

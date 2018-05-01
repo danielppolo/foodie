@@ -18,6 +18,8 @@
           <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
           <label for="<%= tag %>"><%= tag.capitalize %></label>
         <% end %>
+           <input type="radio" id="randomize" name="randomize" value="true">
+          <label for="randomize">Surprise me! <i class="fas fa-magic"></i></label>
       </div>
     </div>
 
@@ -25,30 +27,23 @@
     <div class="price-container">
      <h1 class="search-header">Select your budget</h1>
      <div class="price-btns">
-      <input type="radio" id="low" name="max_price" value="3">
-      <label for="low">3€</label>
-      <input type="radio" id="med" name="max_price" value="5">
-      <label for="med">5€</label>
-      <input type="radio" id="med-high" name="max_price" value="10">
-      <label for="med-high">10€</label>
-      <input type="radio" id="high" name="max_price" value="20">
-      <label for="high">20€</label>
+        <button class="cat-btn" type="submit" name="max_price" value="3">3€</button>
+        <button class="cat-btn" type="submit" name="max_price" value="5">5€</button>
+        <button class="cat-btn" type="submit" name="max_price" value="10">10€</button>
+        <button class="cat-btn" type="submit" name="max_price" value="15">15€</button>
     </div>
   </div>
 
 
   <!-- RANDOM -->
-  <div class="lucky-container">
+  <!-- <div class="lucky-container">
     <button type="submit" id="randomize" name="randomize" value="true">
     <i class="fas fa-magic"></i>
    </button>
-   <!-- <p>Feeling lucky?</p> -->
- </div>
+   <p>Feeling lucky?</p>
+ </div> -->
 </form>
 </div>
-</div>
-<div class="foodie-wrapper" id="home">
-
 </div>
 <%= javascript_pack_tag 'positioning' %>
 
@@ -61,3 +56,12 @@
       <input type="radio" id="lucky-btn" name="randomize" value="true">
       <label for="lucky-btn">Make magic <i class="fas fa-magic"></i></label> -->
 
+<!--  RADIO BUTTONS FOR PRICE
+      <input type="radio" id="low" name="max_price" value="3">
+      <label for="low">3€</label>
+      <input type="radio" id="med" name="max_price" value="5">
+      <label for="med">5€</label>
+      <input type="radio" id="med-high" name="max_price" value="10">
+      <label for="med-high">10€</label>
+      <input type="radio" id="high" name="max_price" value="20">
+      <label for="high">20€</label> -->
