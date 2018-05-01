@@ -9,6 +9,8 @@
   <% end %>
  </div>
   <% if current_user.orders != []%>
+  <%= javascript_pack_tag 'notify' %>
+
   <p>Your orders are:<p>
     <ul>
 <!--       <% current_user_reversed_array = current_user.orders.reverse %>
