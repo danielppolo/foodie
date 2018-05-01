@@ -65,9 +65,9 @@ input {
   // width: 50vh;
   // height: 75vh;
   width: 85vw;
-height: 80vh;
+  height: 80vh;
   margin: 0 auto;
-  position: relative;
+  // position: relative;
   align-self: center;
 }
 
@@ -81,7 +81,6 @@ height: 80vh;
 @media only screen and (max-width: 720px) {
   #viewport {
     width: 85vw;
-    height: 80vh;
   }
 }
 
