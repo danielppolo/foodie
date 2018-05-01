@@ -97,26 +97,25 @@
 
           .map {
             width: 100%;
-            height: 100%;
+            height: 50%;
             border-radius: 4px;
             margin-bottom: 10px solid $white;
             box-sizing: box-border;
             position: relative;
+            // background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
 
           }
-            .card-map-details{
-              background-color: $white;
-              position: absolute;
-              top: 1.5vh;
-              right: 1.5vh;
-              left: 1.5vh;
-              z-index: 10;
-              border-radius: 4px;
 
-              *{
-                margin: 0;
-              }
+          .card-map-details{
+            background-color: $white;
+            border-radius: 4px;
+
+            *{
+              margin: 0;
             }
+          }
 
           .card-info{
             width: 100%;

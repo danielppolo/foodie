@@ -34,7 +34,7 @@
           <li>You paid: <%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
           <li>In the restaurant: <%= current_user_order.meal.restaurant.name %></li>
           <li>Located at: <%= current_user_order.meal.restaurant.address %></li>
-          <li><%= current_user_order.date.strftime("At %d/%m/%Y") %> </li>
+          <li><%= current_user_order.created_at .strftime("At %d/%m/%Y") %> </li>
           <li>"See location in the map"</li>
         <% end %>
       </div>

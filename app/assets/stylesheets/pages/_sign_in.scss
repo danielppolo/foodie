@@ -66,11 +66,12 @@
     .login-links{
       text-align: center !important;
       width: 100%;
+      padding-top: 2vh;
 
       p{
         font-size: $text;
         color: $white;
-        margin: 1vh;
+        padding-top: 1vh;
       }
       a{
         margin: 0 auto !important;

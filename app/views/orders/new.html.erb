@@ -31,7 +31,7 @@
       </div>
       <div class="order-pay">
         <%= form_tag meal_orders_path(@meal, @order) do %>
-        <script src="https://checkout.stripe.com/checkout.js" class=" stripe-button"
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
         data-label="Pay <%=humanized_money_with_symbol(@meal.price) %>"
         data-name="My Table for <%= @meal.name %>"
