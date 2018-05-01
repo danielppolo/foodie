@@ -22,15 +22,9 @@ class MealsController < ApplicationController
     @lat = cookies[:lat]
     @lng = cookies[:lng]
     radius_search = user_signed_in? ? current_user.radius_search : 5
-    # if cookies[:lat] && cookies[:lng]
-    #   @meals = Meal.filter(params, cookies, radius_search).first(10)
-    # else
-      # @meals = Meal.all.shuffle.first(3)
-    # end
-    # TESTING ROUTE ON STATIC MAP
-    @meals = Restaurant.find(357).meals.first(1)
     @paths = {}
-    if @lat && @lng
+    if cookies[:lat] && cookies[:lng]
+      @meals = Restaurant.find(357).meals.first(1)
       @meals.each do |m|
         url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + @lat.to_s + ',' + @lng.to_s + '&destination=' + m.restaurant.latitude.to_s + ',' + m.restaurant.longitude.to_s + '&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk'
         route_serialized = open(url).read
@@ -40,8 +34,9 @@ class MealsController < ApplicationController
           link = URI.escape(points, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
           @paths[m.id] = link
         end
+      else
+        return redirect_to root_path
       end
-      # raise
     end
   end
 
