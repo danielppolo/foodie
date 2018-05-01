@@ -20,14 +20,12 @@ element.querySelectorAll(".touchable-front").forEach(function(toucharea){
 toucharea.addEventListener("click", function( event ) {
     event.preventDefault();
     element.classList.toggle("turn");
-    console.log("Clicked")
   });
 });
 element.querySelectorAll(".touchable-back").forEach(function(toucharea){
 toucharea.addEventListener("click", function( event ) {
     event.preventDefault();
     element.classList.toggle("turn");
-    console.log("Clicked")
   });
 });
 });
@@ -67,15 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     stack.on('throwout', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown out of the stack to the', e.throwDirection, 'direction.');
-
         e.target.classList.remove('in-deck');
         e.target.remove()
     });
 
     stack.on('throwin', function (e) {
-        console.log(e.target.innerText || e.target.textContent, 'has been thrown into the stack from the', e.throwDirection, 'direction.');
-
         e.target.classList.add('in-deck');
     });
 });

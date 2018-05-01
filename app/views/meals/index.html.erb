@@ -8,7 +8,7 @@
 
         <div class="front">
           <div class="touchable-front">
-            <div class="card-photo" style= "background-image: url('<%= m.photo %>'); "></div>
+            <div class="card-photo" data-background-image="<%= m.photo.gsub(/http\:\/\//, "https://") %>" ></div>
 
             <div class="card-header">
               <h2 class="card-meal-name"><%= m.name.split(" ").first(3).join(" ") %></h2>
@@ -19,9 +19,11 @@
 
         <div class="back">
           <div class="touchable-back">
+          	<% if @lat && @lng %>
               <div class ="map" id="map-<%= m.id %>"
                 data-markers="<%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
                 ></div>
+          	<% end %>
               <div class="card-info">
                 <h2><%= m.name %></h2>
                 <p><%= m.description %></p>

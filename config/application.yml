@@ -3,7 +3,11 @@ production:
   FB_ID: "212169366043011"
   STRIPE_PUBLISHABLE_KEY: "pk_test_LE2sFUPuGOnxsuQXTU1Qrs2v"
   STRIPE_SECRET_KEY:  "sk_test_rkDpjxAzkk25bjFfUHJV6aY7"
+<<<<<<< HEAD
   GOOGLE_PLACES_KEY: "AIzaSyCHxiWiFyZgIPAzwZOa2eYTFTrEGu6Sn8w"
+=======
+  GOOGLE_PLACES_KEY: "AIzaSyAKb0ljZqJ7aHL_XwB8kqobd679C9Rly9o"
+>>>>>>> 2935304d8aa83f71ead40cdb9651fcbd504cfddb
 
 development:
   STRIPE_PUBLISHABLE_KEY: "pk_test_LE2sFUPuGOnxsuQXTU1Qrs2v"
