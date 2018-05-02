@@ -173,30 +173,7 @@ input[type="radio"]:checked + label {
 }
 
 
-// EDIT PROFILE AND DELETE PROFILE BUTTON
 
-.edit-delete-profile-buttons {
-
-  padding: 10px;
-  width: auto;
-  background-color: $primary;
-  border: 2px solid $secondary;
-  border-radius: 5px;
-  color: $secondary;
-  font-weight: 600;
-  width: 75px;
-}
-
-.edit-delete-profile-buttons:hover {
-  padding: 10px;
-  width: auto;
-  background-color: $secondary;
-  border: 2px solid $primary;
-  border-radius: 5px;
-  color: $primary;
-  font-weight: 600;
-  width: 75px;
-}
 
 // SEARCH BUTTON
 
@@ -223,33 +200,5 @@ input[type="radio"]:checked + label {
   box-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
-
-
-// DIV for BUTTONS at the bottom of the USER page
-
-.buttons-edit-logout-search {
-  border: 0px solid;
-  width: auto;
-  padding: 10px 0px;
-  margin-top: 20px
-}
-
-
-// DIV FOR RADIUS SLIDER
-
-.slider-radious-search-bar {
-  padding: 10px;
-  width: auto;
-  background-color: $primary;
-  border: 2px solid $secondary;
-  border-radius: 5px;
-  color: $secondary;
-  font-weight: 600;
-  width: 75px;
-}
-
-.div-radius-search {
-
-}
 
 

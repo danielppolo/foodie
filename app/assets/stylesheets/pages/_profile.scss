@@ -1,0 +1,297 @@
+.user-info{
+  h1{
+    text-align: center;
+    color: $secondary;
+    font-size: $headers;
+    font-weight: 700;
+  }
+}
+
+.user-orders{
+
+  .order-item{
+    background-color: $white;
+    border-radius: 4px;
+    padding: 2vh;
+    box-sizing: box-border;
+    margin-bottom: 2vh;
+    opacity: 0.75;
+
+    *{
+      margin: 0;
+    }
+
+    h2{
+      font-size: $sub;
+      font-weight: 600;
+    }
+    p{
+      font-size: $text;
+    }
+
+    .order-item-header{
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .order-item:nth-of-type(1) {
+    // box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    opacity: 1;
+  }
+}
+
+// -------------------- EDIT PROFILE
+
+.form-container{
+  input{
+    text-align: center;
+    font-size: $text;
+    height: 6vh;
+    color: $black;
+    opacity: 1;
+    border-radius: 4px;
+    outline: none;
+    border: none !important;
+    background-color: $white;
+    box-shadow: 0 0 10px rgba(0,0,0,0);
+    transition: 0.5s ease;
+  }
+  input:focus{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    outline: none;
+  }
+  input::placeholder{
+    text-align: center;
+    color: $black;
+    opacity: 0.4;
+  }
+
+  input[type="submit"]{
+    width: 100%;
+    height: 6vh;
+    background-color: $secondary;
+    color: $white;
+    font-size: $text;
+    transition: 0.5s ease;
+  }
+  input[type="submit"]:hover{
+    background-color: $secondary-dark;
+  }
+
+  .user_gender {
+
+    legend{
+      margin: 0;
+      border: none;
+    }
+
+    input[type="radio"] {
+      display: none;
+      margin: 0;
+      &:not(:disabled) ~ label {
+        cursor: pointer;
+      }
+      &:disabled ~ label {
+        color: $secondary;
+        cursor: not-allowed;
+      }
+    }
+    label {
+      border-radius: 0 !important;
+      background-color: $white;
+      width: 100%;
+      color: rgba(0,0,0,0.4);
+      margin: 0 !important;
+      text-align: center;
+      font-weight: 400;
+      font-size: $text;
+      height: 6vh;
+      padding: 0.5vh;
+      box-sizing: border-box;
+      transition: 0.5s;
+    }
+
+
+    label:hover {
+      color: $black;
+      font-weight: 600;
+
+    }
+
+    input[type="radio"]:checked + label {
+      color: $black;
+    }
+  }
+
+  .user_radius_search {
+
+    legend{
+      margin: 0;
+      border: none;
+      background-color: $secondary;
+      color: $white;
+      font-size: $text;
+      text-align: center;
+      width: 100%;
+      font-weight: 600;
+      padding: 1vh 0;
+    }
+
+    input[type="radio"] {
+      display: none;
+      margin: 0;
+      &:not(:disabled) ~ label {
+        cursor: pointer;
+      }
+      &:disabled ~ label {
+        color: $secondary;
+        cursor: not-allowed;
+      }
+    }
+    label {
+      border-radius: 0 !important;
+      background-color: $white;
+      width: 100%;
+      color: rgba(0,0,0,0.4);
+      margin: 0 !important;
+      text-align: center;
+      font-weight: 400;
+      font-size: $text;
+      height: 6vh;
+      padding: 0.5vh;
+      box-sizing: border-box;
+      transition: 0.5s;
+    }
+
+
+    label:hover {
+      color: $black;
+      font-weight: 600;
+
+    }
+
+    input[type="radio"]:checked + label {
+      color: $black;
+    }
+  }
+}
+
+.update-links{
+  width: 100%;
+
+  .signup-btn{
+    width: 100%;
+    height: 6vh;
+    background-color: $secondary;
+    font-size: $text;
+    transition: 1s ease;
+    text-align: center;
+    border-radius: 4px;
+    outline: none;
+    display: media;
+    padding-top: 2px;
+    border: 2px solid transparent;
+    color: $white;
+  }
+
+  .signup-btn:hover{
+    background-color: $secondary-dark;
+  }
+
+  .signup-btn:hover a{
+      color: $white;
+  }
+
+  .destroy-btn{
+    width: 100%;
+    height: 6vh;
+    background-color: transparent;
+    font-size: $text;
+    transition: 1s ease;
+    text-align: center;
+    font-size: $text;
+    border-radius: 4px;
+    outline: none;
+    display: media;
+    padding-top: 2px;
+    border: 2px solid $secondary;
+
+    a{
+      color: $secondary;
+      text-decoration: none;
+      width: 100%;
+    }
+  }
+
+  .destroy-btn:hover{
+    border: 2px solid transparent;
+    background-color: $secondary;
+  }
+
+  .destroy-btn:hover a{
+      color: $white;
+  }
+
+}
+// -----------------------------------
+
+.current-user-orders-summary {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: auto;
+  padding: 10px 30px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.current-user-without-order {
+  border: 2px solid;
+  border-color: $white;
+  border-radius: 5px;
+  width: auto;
+  padding: 10px 30px;
+  margin-top: 5px;
+}
+  .current-user-orders-summary:first-child {
+  border: 4px solid;
+  border-color: $secondary;
+  border-radius: 5px;
+  width: auto;
+  padding: 10px 30px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;  // box-shadow: 0 1px 0;
+}
+
+// DIV for BUTTONS at the bottom of the USER page
+
+.buttons-edit-logout-search {
+  border: 0px solid;
+  width: auto;
+  padding: 10px 0px;
+  margin-top: 20px
+}
+
+
+// DIV FOR RADIUS SLIDER
+
+.slider-radious-search-bar {
+  padding: 10px;
+  width: auto;
+  background-color: $primary;
+  border: 2px solid $secondary;
+  border-radius: 5px;
+  color: $secondary;
+  font-weight: 600;
+  width: 75px;
+}
+
+.div-radius-search {
+
+}
+
+

@@ -69,6 +69,20 @@ input {
   align-self: center;
 }
 
+.foodie-container {
+  width: 50vw;
+  margin: 0 auto;
+  align-self:center;
+  // align-self: flex-start;
+}
+.foodie-container-sm {
+  width: 50vh;
+  margin: 0 auto;
+  padding: 10vh 0;
+}
+.navbar-padding{
+  padding-top: 8vh;
+}
 @media screen and (min-width: 768px){
 	#viewport{
 		width: 50vh !important;
@@ -78,6 +92,10 @@ input {
 
 @media only screen and (max-width: 720px) {
   #viewport {
+    width: 85vw;
+  }
+
+  .foodie-container{
     width: 85vw;
   }
 }

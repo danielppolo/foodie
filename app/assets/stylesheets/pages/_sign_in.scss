@@ -29,11 +29,12 @@
       }
       input:focus{
         box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        outline: none;
       }
       input::placeholder{
         text-align: center;
         color: $black;
-        opacity: 0.3;
+        opacity: 0.4;
       }
 
       input[type="submit"]{
@@ -89,7 +90,6 @@
       font-size: $text;
       transition: 1s ease;
       text-align: center;
-      font-size: $text;
       border-radius: 4px;
       outline: none;
       display: media;

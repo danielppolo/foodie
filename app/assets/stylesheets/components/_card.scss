@@ -278,56 +278,12 @@ button:hover{
   z-index: 2;
   /* for firefox 31 */
   -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
 .back {
   z-index: 2;
   -webkit-transform: rotateY(180deg);
-}
-
-
-
-// HISTORY OF ORDERS FOR USERS
-
-.current-user-orders-summary {
-  border: 2px solid;
-  border-color: $white;
-  border-radius: 5px;
-  width: auto;
-  padding: 10px 30px;
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.current-user-without-order {
-  border: 2px solid;
-  border-color: $white;
-  border-radius: 5px;
-  width: auto;
-  padding: 10px 30px;
-  margin-top: 5px;
-}
-
-#________________________________________
-
-.front {
-  z-index: 2;
-  transform: rotateY(0deg);
-}
-
-/* back, initially hidden pane */
-.back {
-  transform: rotateY(-180deg);
-}
-  .current-user-orders-summary:first-child {
-  border: 4px solid;
-  border-color: $secondary;
-  border-radius: 5px;
-  width: auto;
-  padding: 10px 30px;
-  margin-top: 5px;
-  margin-right: 5px;
-  margin-left: 5px;  // box-shadow: 0 1px 0;
+  transform: rotateY(180deg);
 }

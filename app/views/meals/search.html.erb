@@ -8,7 +8,7 @@
 </div>
 
 <div class="foodie-wrapper">
-  <div class="search-container">
+  <div class="foodie-container">
     <!-- CATEGORIES -->
     <form action="/meals" method="get">
       <div class="cat-container">
@@ -18,8 +18,8 @@
           <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
           <label for="<%= tag %>"><%= tag.capitalize %></label>
         <% end %>
-         <!--   <input type="radio" id="randomize" name="randomize" value="true">
-          <label for="randomize">Surprise me! <i class="fas fa-magic"></i></label> -->
+           <input type="radio" id="randomize">
+          <label for="randomize">Surprise me! </label>
       </div>
     </div>
 
@@ -69,3 +69,5 @@
       <label for="med-high">10€</label>
       <input type="radio" id="high" name="max_price" value="20">
       <label for="high">20€</label> -->
+
+<!-- <i class="fas fa-magic"></i> -->

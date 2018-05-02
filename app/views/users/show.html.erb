@@ -1,81 +1,60 @@
-<div class="viewport">
-  <!-- CSS IS IN _CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
+    <div class="foodie-container navbar-padding">
+      <div class="user-info">
+        <% if current_user.first_name != "" %>
+        <h1>Welcome <%=  current_user.first_name %></h1>
+        <% else %>
+        <h1>Welcome</h1>
+        <% end %>
+      </div>
 
-  <div class="div-welcome-user">
-    <% if current_user.first_name != "" %>
-    <p>Welcome to your profile <%=  current_user.first_name %></p>
-    <% else %>
-    <p>Welcome to your profile <%=  current_user.email %></p>
-    <% end %>
-  </div>
+      <% if current_user.orders != []%>
+      <div class="user-orders">
+        <p>Your orders are:</p>
+        <!-- <p><strong> LAST ORDER </strong></p> -->
+          <% current_user.orders.reverse.each do |order| %>
 
-  <% if current_user.orders != []%>
-      <%= javascript_pack_tag 'notify' %>
-
-    <p>Your orders are:<p>
-      <ul>
-        <% current_user.orders.to_enum.with_index.reverse_each do |current_user_order, i| %>
-        <div class="current-user-orders-summary">
-
-        <!-- CSS IS IN _CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
-          <% if i == current_user.orders.count - 1 %>
-            <p><strong> LAST ORDER </strong></p>
-            <li> You ordered: <%= current_user_order.meal.name %></li>
-            <li>You paid: <%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
-            <li>In the restaurant: <%= current_user_order.meal.restaurant.name %></li>
-            <li>Located at: <%= current_user_order.meal.restaurant.address %></li>
-            <li><%= current_user_order.date.strftime("At %d/%m/%Y") %> </li>
-            <li>"See location in the map"</li>
-            <% if current_user_order.within_five? %>
-              <% if current_user_order.order_status == 'canceled' %>
-                <%= "you already updated this order" %>
-              <% else %>
-                <%= simple_form_for [current_user_order.meal, current_user_order] do |f| %>
-                <%= hidden_field_tag 'order_status', 'canceled' %>
-                <%= f.button :submit %>
-                <% end %>
-              <% end %>
-            <% elsif current_user_order.order_status == 'canceled' %>
-                <li> You already updated this order </li>
+          <div class="order-item">
+            <div class="order-item-header">
+            <h2><%= order.meal.name %></h2>
+            <p><%= order.created_at.strftime("%d/%m/%Y") %> </p>
+            </div>
+            <p>Order no.<%= order.id %></p>
+            <p>You paid: <%= humanized_money_with_symbol(order.meal.price) %></p>
+            <p>In the restaurant: <%= order.meal.restaurant.name %></p>
+            <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><%= order.meal.restaurant.address %></a>
+            <% if order.within_five? %>
+            <% if order.order_status == 'canceled' %>
+            <%= "you already updated this order" %>
             <% else %>
-              <li> I am sorry, 5 minutes have passed, you cannot change your order anymore </li>
-            <% end %>
-          </div>
-          <% else %>
-            <p><strong> <%= (i+1).ordinalize %> ORDER </strong></p>
-            <li>You ordered: <%= current_user_order.meal.name %></li>
-            <li>You paid: <%= humanized_money_with_symbol(current_user_order.meal.price) %></li>
-            <li>In the restaurant: <%= current_user_order.meal.restaurant.name %></li>
-            <li>Located at: <%= current_user_order.meal.restaurant.address %></li>
-            <li><%= current_user_order.date.strftime("At %d/%m/%Y") %> </li>
-            <li>"See location in the map"</li>
-
-            <% if current_user_order.within_five? %>
-            <%= simple_form_for [current_user_order.meal, current_user_order] do |f| %>
+            <%= simple_form_for [order.meal, order] do |f| %>
             <%= hidden_field_tag 'order_status', 'canceled' %>
             <%= f.button :submit %>
             <% end %>
-
-            <% else %>
-              <li> I am sorry, 5 minutes have passed, you cannot change your order anymore</li>
             <% end %>
-          <% end %>
-        </div>
-        <% end %>
-      </ul>
-  <% else %>
-    <div class="current-user-without-order"></div>
-    <!-- CSS IS IN _CARDS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
-      <p>You have 0 orders, start ordering now with Foodie! </p>
-    </div>
-  <% end %>
+            <% elsif order.order_status == 'canceled' %>
+            <p> You already updated this order </p>
+            <% else %>
+            <p> I am sorry, 5 minutes have passed, you cannot change your order anymore </p>
+            <% end %>
 
-  <div class="buttons-edit-logout-search">
-    <!-- DIV CSS IS IN _BUTTONS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
-    <%= link_to "Edit your profile", edit_user_path(current_user), class: "edit-delete-profile-buttons"%>
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-    <% end %>
-    <%= link_to "Go to search!", root_path, class: "search-link-to-buttons" %>
+      </div>
+      <% end %>
+      <% else %>
+      <div class="">
+        <p>You have 0 orders, start ordering now with Foodie! </p>
+      </div>
+      <% end %>
+
+
+      <div class="">
+        <%= link_to "Edit your profile", edit_user_path(current_user), class: ""%>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <% end %>
+        <%= link_to "Go to search!", root_path, class: "" %>
+      </div>
+    </div>
   </div>
-</div>
+
+
+<!--%= javascript_pack_tag 'notify' %-->
