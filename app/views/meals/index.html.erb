@@ -1,27 +1,27 @@
 <div class="foodie-wrapper">
-<div id="viewport">
+  <div id="viewport">
 
-  <ul class="stack">
-    <% @meals.each do |m| %>
-    <li class="flip-container" >
-      <div class="flipper">
+    <ul class="stack">
+      <% @meals.each do |m| %>
+      <li class="flip-container" >
+        <div class="flipper">
 
-        <div class="front">
-          <div class="touchable-front">
-            <div class="card-photo" data-background-image="<%= m.photo.gsub(/http\:\/\//, "https://") %>" ></div>
-            <div class="card-header">
-              <h2 class="card-meal-name"><%= m.name.split(" ").first(3).join(" ") %></h2>
-              <h2 class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></h2>
+          <div class="front">
+            <div class="touchable-front">
+              <div class="card-photo" data-background-image="<%= m.photo.gsub(/http\:\/\//, "https://") %>" ></div>
+              <div class="card-header">
+                <h2 class="card-meal-name"><%= m.name.split(" ").first(3).join(" ") %></h2>
+                <h2 class=" card-meal-price"><%=humanized_money_with_symbol(m.price) %></h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="back">
-          <div class="touchable-back">
+          <div class="back">
+            <div class="touchable-back">
 
-            <%
-            final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-l+9ed4bd(#{@lng},#{@lat}),pin-l+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x400?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
-            %>
+              <%
+              final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-l+9ed4bd(#{@lng},#{@lat}),pin-l+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x400?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
+              %>
 
               <div class="map" data-background-image="<%= final_url %>">
               </div>
@@ -61,14 +61,23 @@
           </div>
         </div>
       </li>
+       <a href="/">
+      <div class="end-card">
+        <div class="finish-cards">
+          <h2><span>Click</span> to search again</h2>
+          <!-- <h2>Not what you were looking for? </h2> -->
+          <!-- <h2>Go back to search</h2> -->
+        </div>
+      </div>
+     </a>
     </ul>
   </div>
 </div>
-  <%= javascript_pack_tag 'card-stack' %>
-  <%= javascript_pack_tag 'swing' %>
+<%= javascript_pack_tag 'card-stack' %>
+<%= javascript_pack_tag 'swing' %>
 
 
 <!-- <div class ="map" id="map-%= m.id %>"
                 data-markers="%= [{ lat: @lat, lng: @lng }, { lat: "#{m.restaurant.latitude}", lng: "#{m.restaurant.longitude}" }].to_json %>"
                 >
-                </div> -->
+              </div> -->
