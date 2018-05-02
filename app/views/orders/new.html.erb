@@ -34,9 +34,9 @@
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
         data-label="Pay <%=humanized_money_with_symbol(@meal.price) %>"
-        data-name="My Table for <%= @meal.name %>"
+        data-name="<%= @meal.name %>"
         data-email="<%= current_user.email %>"
-        data-description="Booking the table for meal with id: <%= @meal.id %>"
+        data-description="Your are paying for meal with id: <%= @meal.id %>"
         data-amount="<%= @meal.price_cents %>"
         data-currency="EUR"></script>
         <% end %>

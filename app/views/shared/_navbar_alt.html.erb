@@ -1,12 +1,13 @@
-<div class="navbar">
-  <!-- Right Navigation -->
-  <div class="navbar-right hidden-xs hidden-sm">
-    <% if user_signed_in? %>
-      <!-- Links when logged in -->
-      <%= link_to icon('fas', 'user'), user_path(current_user), class: "navbar-item navbar-link" %>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-item navbar-wagon-link" %>
-    <% end %>
-  </div>
-</div>
+<label class="hamburger-menu" for="">
+  <input type="checkbox">
+  <span class="menu">
+    <span class="hamburger">
+      <ul>
+        <li><%= link_to "Search", root_path %></li>
+        <li><%= link_to "Profile", edit_user_path(current_user) %></li>
+        <li><%= link_to "Orders", user_path(current_user) %></li>
+      </ul>
+    </span>
+  </span>
+  </input>
+</label>

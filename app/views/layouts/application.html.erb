@@ -7,7 +7,7 @@
 
     <%= tag :meta, :name=> 'stripe-key', :content => Rails.configuration.stripe[:publishable_key] %>
 
-    <title>Foodie | Food at hand</title>
+    <title>Foodi | Food at hand</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -20,11 +20,8 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag "timeout" %>
 
-    <!-- BY Francesco -->
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAA9IHmxRimlkxjzSxOr_PkNsHYMe9NGb8" %>
-    <%= javascript_include_tag "application" %>
-    <%= javascript_pack_tag "map" %>
 
   </body>
 </html>

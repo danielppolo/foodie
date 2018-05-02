@@ -15,7 +15,8 @@
     padding: 2vh;
     box-sizing: box-border;
     margin-bottom: 2vh;
-    opacity: 0.75;
+    opacity: 0.6;
+    transition: 1s ease;
 
     *{
       margin: 0;
@@ -31,14 +32,39 @@
 
     .order-item-header{
       display:flex;
-      justify-content: space-between;
       align-items: center;
+
+      h2{
+        text-align: left;
+      }
+
+      p{
+        text-align: right;
+      }
     }
+
+    .test{
+      display: none;
+      border-radius: 4px;
+      height: 400px;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .order-item:hover{
+    opacity: 1;
   }
 
   .order-item:nth-of-type(1) {
     // box-shadow: 0 0 20px rgba(0,0,0,0.4);
     opacity: 1;
+
+    .test{
+      display: block;
+      width: 100%;
+      min-height: 100px;
+    }
   }
 }
 

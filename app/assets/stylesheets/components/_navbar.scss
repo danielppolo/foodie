@@ -2,11 +2,12 @@
 .navbar {
   background: transparent;
   transition: all 0.3s ease;
-  height: 8vh;
+  height: 10vh;
+  width: 100%;
   padding: 0px 30px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-end;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,6 +15,22 @@
 }
 
 /* Logo */
+.logo{
+  font-family: $logo;
+  color: $white;
+  font-size: 6vh;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(50,50,50,0.1);
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.items-nav{
+
+}
 .navbar-brand img {
   height: 50px;
 }
