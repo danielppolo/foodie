@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     @meal = Meal.find(params[:meal_id])
     @order = Order.find(params[:id])
     @order.update(order_status: params[:order_status])
-
+    flash[:notice] = "Your order has been canceled"
     # @order.update(order_params)
     redirect_to user_path(current_user)
   end
