@@ -1,2 +1,2 @@
 import swal from 'sweetalert';
-swal ( "Payment successfully completed!" ,  "Your meals is on it's way!" ,  "success" )
+swal ( "The order has been placed!" ,  "Your meal will be waiting for you!" ,  "success" )

@@ -62,6 +62,4 @@
 
 
 
-      <% if current_user.orders.last.within_3sec? %>
-      <%= javascript_pack_tag 'notify' %>
-      <% end %>
+<%= javascript_pack_tag 'notify' %>
