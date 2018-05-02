@@ -14,6 +14,11 @@ class Order < ApplicationRecord
       end
   end
 
-
+  def within_3sec?
+    time_difference = (Time.now.to_i - self.created_at.to_i)
+    if self.order_status == "active"
+      time_difference < 3
+      end
+  end
 
 end

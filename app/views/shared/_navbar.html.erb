@@ -1,9 +1,9 @@
 <div class="navbar">
   <!-- Right Navigation -->
-  <div class="navbar-left">
-    <%= link_to "foodie", root_path, class: "navbar-item navbar-link" %>
+  <div class="logo">
+    <%= link_to "foodie", root_path, class: "logo" %>
   </div>
-  <div class="navbar-right ">
+  <div class="items-nav">
     <% if user_signed_in? %>
       <!-- Links when logged in -->
       <%= link_to icon('fas', 'user'), user_path(current_user), class: "navbar-item navbar-link" %>
