@@ -131,7 +131,7 @@
             h3{
               padding: 0.5em 0 0 0;
               font-size: $sub;
-              font-weight: 300;
+              font-weight: 400;
               margin: 0 !important;
             }
 
@@ -264,11 +264,8 @@
   color: #C7433E;
 }
 
-a{
-  text-decoration: none;
-
-  .end-card{
-    position: relative;
+a .end-card{
+    position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
@@ -291,7 +288,7 @@ a{
       }
     }
   }
-}
+
 
 .end-card:hover .finish-cards h2 {
   text-decoration: none !important;

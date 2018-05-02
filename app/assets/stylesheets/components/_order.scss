@@ -6,19 +6,21 @@
 
   * {
     margin: 0;
+    font-weight: 300;
   }
 
   .order-info{
   padding: 4vh;
   height:85%;
   overflow: hidden;
+  text-align: left;
 
   h1 {
     font-size: $headers;
     font-weight: 400;
   }
   p{
-    font-size: 4vh;
+    font-size: $sub;
   }
   .order-meal{
 
@@ -27,9 +29,9 @@
 
   }
   .order-restaurant{
-
   }
   .order-address{
+    font-size: $text;
 
   }
   .order-distance{
