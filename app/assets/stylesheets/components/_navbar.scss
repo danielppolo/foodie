@@ -3,6 +3,7 @@ $blackColor: #020304;
 
 .navbar2 {
   background: $blackColor;
+  padding-bottom:50px;
   h1 {
     position: fixed;
     // top: 40px;
@@ -36,7 +37,7 @@ $blackColor: #020304;
         margin-top: -1px;
         left: 0;
         display: block;
-        background: $blackColor;
+        background: #FFF;
         transition: .5s;
       }
       span:first-child {
@@ -48,6 +49,7 @@ $blackColor: #020304;
     }
     label:hover {
       cursor: pointer;
+      background:none;
     }
     input:checked + label {
       span {
@@ -64,7 +66,7 @@ $blackColor: #020304;
       }
     }
     input ~ nav {
-      background: $primary;
+      background: #F2B54C;
       position: fixed;
       top: 0;
       left: 0;
@@ -88,7 +90,7 @@ $blackColor: #020304;
           > a {
             text-decoration: none;
             text-transform: uppercase;
-            color: $blackColor;
+            color: #FFF;
             font-weight: 700;
             font-family: sans-serif;
             display: block;
