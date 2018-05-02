@@ -285,5 +285,5 @@ button:hover{
 .back {
   z-index: 2;
   -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+  transform: rotateY(-180deg);
 }
