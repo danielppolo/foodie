@@ -6,7 +6,6 @@
         <h1>Welcome</h1>
         % end %>
       </div> -->
-
       <% if current_user.orders != []%>
       <div class="user-orders">
         <p>Your orders are:</p>
@@ -62,4 +61,7 @@
     </div>
 
 
-    <!--%= javascript_pack_tag 'notify' %-->
+
+      <% if current_user.orders.last.within_3sec? %>
+      <%= javascript_pack_tag 'notify' %>
+      <% end %>
