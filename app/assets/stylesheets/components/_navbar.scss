@@ -1,18 +1,28 @@
-
-$blackColor: #020304;
-
 .navbar2 {
-  background: $blackColor;
-  padding-bottom:50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  .logo{
+  font-family: $logo;
+  color: $white;
+  font-size: 6vh;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(50,50,50,0.1);
+  z-index: 10;
+  position: relative;
+  padding: 0 0 0 3vh;
+  margin: 0;
+}
+
   h1 {
-    position: fixed;
     // top: 40px;
     left: 40px;
     z-index: 6;
-    font-size: 20px;
-    font-weight: 900;
-    font-family: sans-serif;
-    text-transform: uppercase;
+    font-size: $text;
+    font-weight: 600;
+    height: $navbar-h;
     > span {
       text-transform: none;
       opacity: .5;
@@ -20,10 +30,21 @@ $blackColor: #020304;
       font-size: 12px;
     }
   }
+
+    #burger {
+    display: none;
+    &:not(:disabled) ~ label {
+      cursor: pointer;
+    }
+    &:disabled ~ label {
+      color: $secondary;
+      cursor: not-allowed;
+    }}
+
     input + label {
       position: fixed;
-      top: 40px;
-      right: 40px;
+      top: $navbar-h/2;
+      right: $navbar-h/2;
       height: 20px;
       width: 15px;
       z-index: 5;
@@ -66,12 +87,12 @@ $blackColor: #020304;
       }
     }
     input ~ nav {
-      background: #F2B54C;
+      background: $primary;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: $navbar-h;
       z-index: 3;
       transition: .5s;
       transition-delay: .5s;
@@ -83,16 +104,15 @@ $blackColor: #020304;
         left: 20%;
         right: 20%;
         > li {
-        	        	list-style-type: none !important;
+        	list-style-type: none !important;
           opacity: 0;
-          transition: .5s;
+          // TIME OF LINKS TO APPEAR
+          transition: .3s;
           transition-delay: 0s;
           > a {
             text-decoration: none;
-            text-transform: uppercase;
             color: #FFF;
             font-weight: 700;
-            font-family: sans-serif;
             display: block;
             padding: 30px;
           }
@@ -153,13 +173,7 @@ $blackColor: #020304;
 }
 
 /* Logo */
-.logo{
-  font-family: $logo;
-  color: $white;
-  font-size: 6vh;
-  text-decoration: none;
-  text-shadow: 0 0 10px rgba(50,50,50,0.1);
-}
+
 
 .logo:hover {
   text-decoration: none;

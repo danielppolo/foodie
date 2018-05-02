@@ -1,37 +1,24 @@
 <div class="navbar2">
+  <input id="burger" type="checkbox" />
 
-  <h1>  <%= link_to "foodie", root_path, class: "logo" %></h1>
-
-
-<input id="burger" type="checkbox" />
-
-<label for="burger">
+  <label for="burger">
     <span></span>
     <span></span>
     <span></span>
-</label>
+  </label>
 
-<nav>
-  <ul>
-    <% if user_signed_in? %>
+  <nav>
+    <%= link_to "foodie", root_path, class: "logo" %>
+    <ul>
+      <% if user_signed_in? %>
       <!-- Links when logged in -->
       <li><%= link_to t('Profile'), edit_user_path(current_user) %></li>
       <li><%= link_to t('Orders'), user_path(current_user) %></li>
       <li><%= link_to t('Logout'), destroy_user_session_path %></li>
-    <% else %>
+      <% else %>
       <li><%= link_to t('Login'), new_user_session_path %></li>
       <li><%= link_to t('Sign up'), new_user_registration_path %></li>
-    <% end %>
-  </ul>
-</nav>
+      <% end %>
+    </ul>
+  </nav>
 </div>
-
-<!-- IF LOGGED
--Profile
--Orders
--Search
--Logout
-
-IF NOT LOGGED
--Login
--Signup (edited) -->

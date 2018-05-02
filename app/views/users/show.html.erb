@@ -29,7 +29,7 @@
               <%= "you already updated this order" %>
               <% else %>
               <%= simple_form_for [order.meal, order] do |f| %>
-              <%= hidden_field_tag 'order_status', 'canceled' %>
+              <%= hidden_field_tag 'order_status', 'canceled', id: 'cancel-order' %>
               <%= f.button :submit %>
               <% end %>
               <% end %>
@@ -62,4 +62,4 @@
 
 
 
-<%= javascript_pack_tag 'notify' %>
+<%= javascript_pack_tag 'notify' if current_user.orders.last.within_3sec? %>
