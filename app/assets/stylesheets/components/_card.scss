@@ -264,21 +264,34 @@
   color: #C7433E;
 }
 
-.end-card{
+a .end-card{
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 
   .finish-cards{
     margin: 0;
     text-align: center;
     padding: 1em;
+
     h2{
-      font-size: $sub;
+      color:$complementary;
       font-weight: 300;
+      font-size: $headers;
+
+      span{
+        font-weight: 400;
+      }
     }
   }
+}
+
+
+.end-card:hover .finish-cards h2 {
+  text-decoration: none !important;
 }
 
 
