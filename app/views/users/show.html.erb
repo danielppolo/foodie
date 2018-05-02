@@ -8,9 +8,10 @@
     <p>Welcome to your profile <%=  current_user.email %></p>
     <% end %>
   </div>
-
-  <% if current_user.orders != []%>
+            <% if current_user.orders.last.within_3sec? %>
       <%= javascript_pack_tag 'notify' %>
+<% end %>
+  <% if current_user.orders != []%>
 
     <p>Your orders are:<p>
       <ul>
