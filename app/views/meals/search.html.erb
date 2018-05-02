@@ -8,7 +8,7 @@
 </div>
 
 <div class="foodie-wrapper">
-  <div class="search-container">
+  <div class="foodie-container">
     <!-- CATEGORIES -->
     <form action="/meals" method="get">
       <div class="cat-container">
@@ -18,8 +18,8 @@
           <input type="radio" id="<%= tag %>" name="category" value="<%= tag %>">
           <label for="<%= tag %>"><%= tag.capitalize %></label>
         <% end %>
-           <input type="radio" id="randomize" name="randomize" value="true">
-          <label for="randomize">Surprise me! <i class="fas fa-magic"></i></label>
+           <input type="radio" id="randomize">
+          <label for="randomize">Surprise me! </label>
       </div>
     </div>
 
@@ -27,21 +27,25 @@
     <div class="price-container">
      <h1 class="search-header">Select your budget</h1>
      <div class="price-btns">
-        <button class="cat-btn" type="submit" name="max_price" value="3">3€</button>
-        <button class="cat-btn" type="submit" name="max_price" value="5">5€</button>
-        <button class="cat-btn" type="submit" name="max_price" value="10">10€</button>
-        <button class="cat-btn" type="submit" name="max_price" value="15">15€</button>
+        <input type="radio" id="low" name="max_price" value="5">
+      <label for="low">5€</label>
+      <input type="radio" id="med" name="max_price" value="10">
+      <label for="med">15€</label>
+      <input type="radio" id="med-high" name="max_price" value="15">
+      <label for="med-high">10€</label>
+      <input type="radio" id="high" name="max_price" value="20">
+      <label for="high">20€</label>
     </div>
   </div>
 
 
   <!-- RANDOM -->
-  <!-- <div class="lucky-container">
-    <button type="submit" id="randomize" name="randomize" value="true">
-    <i class="fas fa-magic"></i>
+  <div class="lucky-container ">
+    <button type="submit" class="search-btn" name="randomize" value="true">
+    Show me the food!
    </button>
-   <p>Feeling lucky?</p>
- </div> -->
+   <!-- <p>Feeling lucky?</p> -->
+ </div>
 </form>
 </div>
 </div>
@@ -65,3 +69,5 @@
       <label for="med-high">10€</label>
       <input type="radio" id="high" name="max_price" value="20">
       <label for="high">20€</label> -->
+
+<!-- <i class="fas fa-magic"></i> -->

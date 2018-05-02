@@ -1,15 +1,18 @@
-<div class="viewport">
-
-
-  <%= simple_form_for current_user, url: user_path, method: :put do |f| %>
-  <%= f.input :first_name, placeholder: "Paolo" %>
-  <%= f.input :last_name, placeholder: "Rossi" %>
-  <%= f.input :email, placeholder: "paolo.rossi@gmail.com" %>
-  <%= f.input :age, input_html: {min: 0,  max: 300 }, placeholder: 28 %>
-  <%= f.input :gender, as: :radio_buttons, collection: [["Male", :male], ["Female", :female], ["Other", :other]] %>
-  <!-- Radius min 1 km, maz 30 km -->
-<%= f.input :radius_search, as: :radio_buttons, collection: [["2km", 2], ["5km", 5], ["10km", 10], ["15km", 15], ["30km", 30]] %>
-
+  <div class="foodie-wrapper">
+    <div id="viewport">
+      <div class="form-container">
+        <%= simple_form_for current_user, url: user_path, method: :put do |f| %>
+        <%= f.input :first_name, placeholder: "name", label: false %>
+        <%= f.input :email, placeholder: "email" , label: false %>
+        <%= f.input :age, as: :integer, input_html: {min: 0,  max: 100 }, placeholder: 28, label: false %>
+        <div class="form-gender">
+          <%= f.input :gender, as: :radio_buttons, label: "",collection: [["Male", :male], ["Female", :female], ["Other", :other]] %>
+        </div>
+        <!-- Radius min 1 km, maz 30 km -->
+        <div class="form-radius">
+          <%= f.input :radius_search, as: :radio_buttons, collection: [["2km", 2], ["5km", 5], ["10km", 10], ["15km", 15]] %>
+        </div>
+      </div>
 
 <!--     <div class="range-slider">
       <input class="range-slider-range" type="range" placeholder="<%= current_user.radius_search %>" min="1" max="30" >
@@ -17,26 +20,21 @@
     </div> -->
 
 
-  <div class="buttons-edit-logout-search">
-    <!-- DIV CSS IS IN _BUTTONS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
-    <%= f.submit "Update profile", class: "edit-delete-profile-buttons" %>
-  <% end %>
+    <div class="update-links">
+      <!-- DIV CSS IS IN _BUTTONS.SCSS IN "HISTORY OF ORDERS FOR USERS" -->
+      <%= f.submit "Update profile", class: "signup-btn" %>
+      <% end %>
 
-    <%= link_to destroy_user_session_path, method: :delete do %>
-    <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-    <% end %>
+      <!--%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fa fa-sign-out"></i>  %= t(".sign_out", default: "Log out") %>
+      % end %-->
 
-    <%= link_to "Go to search!", root_path, class: "search-link-to-buttons" %>
-  </div>
-
-  <%= javascript_pack_tag 'radius-slider' %>
-
-
-
+      <!--%= link_to "Go to search!", root_path, class: "search-link-to-buttons" %-->
+      <!-- <class class="destroy-btn">
+    %= link_to "Destroy your account", destroy_user_session_path,
+    method: :delete,
+    data: { confirm: "Are you sure you want to delete your account?" } %>
+  </class> -->
 </div>
-
-
-
-<%= link_to "Destroy your account", destroy_user_session_path,
-      method: :delete,
-      data: { confirm: "Are you sure you want to delete your account?" } %>
+</div>
+</div>
