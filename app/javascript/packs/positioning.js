@@ -1,3 +1,6 @@
+window.onload = function() {
+			$(".navbar2").hide();
+};
 function setCookie(name,value,days) {
 	var expires = "";
 	if (days) {
@@ -8,8 +11,6 @@ function setCookie(name,value,days) {
 	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
 }
 
-
-
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(
 		function(position) {
@@ -19,14 +20,14 @@ if (navigator.geolocation) {
 			setCookie("lat", positionCords.lat);
 			setCookie("lng", positionCords.lng);
 			// alert("Position found! :)");
-			$(".navbar-wagon").show();
+			$(".navbar2").show();
 			$(".spinnerdiv").hide();
 		},
 		function(error) {
 			console.warn('ERROR(' + error.code + '): ' + error.message);
 			document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
 			$(".spinner").hide();
-			$(".navbar-wagon").hide();
+			$(".navbar2").hide();
 		},
 		{timeout: 15000, enableHighAccuracy: true, maximumAge: 100000}
 		);
