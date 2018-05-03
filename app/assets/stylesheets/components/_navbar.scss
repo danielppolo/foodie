@@ -1,12 +1,13 @@
 .navbar2 {
-  position: absolute;
-  top: 0px;
+  position: fixed;
+  top: 0;
   right: 0;
   left: 0;
   height: $navbar-h;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: &navbar-h;
 
   .logo{
   font-family: $logo;
@@ -17,7 +18,6 @@
   text-shadow: 0 0 10px rgba(50,50,50,0.1);
   z-index: 10;
   position: absolute;
-  padding: 0 0 0 3vh;
   margin: 0;
 }
 
@@ -125,6 +125,10 @@
             font-size: $headers;
             display: block;
             padding: 30px;
+            transition: 0.5s ease;
+          }
+          > a:hover {
+            color: $complementary;
           }
         }
       }
