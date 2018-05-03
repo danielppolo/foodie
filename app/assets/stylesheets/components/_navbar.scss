@@ -35,7 +35,7 @@
     }
   }
 
-    #burger {
+    #burger-menu {
     display: none;
     &:not(:disabled) ~ label {
       cursor: pointer;
