@@ -14,33 +14,41 @@
     height:85%;
     overflow: hidden;
     text-align: left;
-
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
     h1 {
       font-size: $headers;
       font-weight: 400;
+      padding-bottom: 0.5em;
+    }
+    h2{
+      font-size: $headers;
+      font-weight: 300;
+      // text-transform: capitalize;
     }
     p{
       font-size: $sub;
     }
-
-    .order-meal{
-      font-size: $headers;
-      color: red;
+    .order-meal-box{
+      padding: 1em 0;
+      .order-meal{
+        font-size: $sub;
+        font-weight: 300;
+        display: flex;
+        justify-content: space-between;
+      }
     }
-    .order-price{
 
-    }
-    .order-restaurant{
-    }
-    .order-address{
-      font-size: $text;
+    .order-restaurant-box{
+      padding: 1em 0;
 
-    }
-    .order-distance{
-
-    }
-    .order-time{
-
+      .order-address{
+        font-size: $text;
+        i{
+          font-size: 2.5vh;
+        }
+      }
     }
   }
 
