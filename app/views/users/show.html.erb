@@ -27,7 +27,7 @@
               <p>You paid: <%= humanized_money_with_symbol(order.meal.price) %></p>
               <p>In the restaurant: <%= order.meal.restaurant.name %></p>
               <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><%= order.meal.restaurant.address %></a>
-              <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><img class="test col-sm-12" data-background-image="<%= @final_url %>" ></a>
+              <!--a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><img class="test col-sm-12" data-background-image="<%= @final_url %>" ></a-->
               <% if order.within_five? %>
               <% if order.order_status == 'canceled' %>
               <%= "you already updated this order" %>
