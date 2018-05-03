@@ -61,11 +61,6 @@
     </div>
 
 
-<<<<<<< HEAD
 <% if @orders != []%>
 <%= javascript_pack_tag 'notify' if @orders.last.within_3sec? %>
 <% end %>
-=======
-
-<%= javascript_pack_tag 'notify' if current_user.orders.last.within_3sec? %>
->>>>>>> parent of 51f1ffd... Navbar wout logo
