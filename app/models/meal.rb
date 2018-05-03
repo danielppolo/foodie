@@ -12,7 +12,7 @@ class Meal < ApplicationRecord
 
   def self.filter(params, cookies, search_radius) # => Returns array of Display Meals
     # available = by_location(cookies, search_radius)
-    available = by_time(by_location(cookies))
+    available = by_time(by_location(cookies, search_radius))
     if params[:max_price]
       available = by_price(available, params)
     end
