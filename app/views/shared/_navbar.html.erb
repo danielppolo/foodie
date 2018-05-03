@@ -1,8 +1,6 @@
 <div class="navbar2">
-  <%= link_to "foodi", root_path, class: "logo" %>
   <input id="burger" type="checkbox" />
 
-  <!-- BURGER ICON -->
   <label for="burger">
     <span></span>
     <span></span>
@@ -10,6 +8,7 @@
   </label>
 
   <nav>
+    <%= link_to "foodie", root_path, class: "logo" %>
     <ul>
       <% if user_signed_in? %>
       <!-- Links when logged in -->

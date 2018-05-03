@@ -1,7 +1,3 @@
-  <% if flash[:notice] %>
-      <%=  javascript_pack_tag 'notify-order-deleted' %>
-   <% end %>
-
     <div class="foodie-container navbar-padding">
      <!--  <div class="user-info">
         % if current_user.first_name != "" %>
@@ -14,7 +10,8 @@
       <div class="user-orders">
         <p>Your orders are:</p>
         <!-- <p><strong> LAST ORDER </strong></p> -->
-        <% current_user.orders.reverse.each_with_index do |order,i| %>
+        <% current_user.orders.reverse.each do |order| %>
+
         <div class="order-item">
           <div class="container-flex">
             <div class="row">
@@ -22,7 +19,7 @@
               <h2><%= order.meal.name %></h2>
               <p><%= order.created_at.strftime("%d/%m/%Y") %> </p>
               </div>
-              <p>Order no.<%= current_user.orders.count - i  %></p>
+              <p>Order no.<%= order.id %></p>
               <p>You paid: <%= humanized_money_with_symbol(order.meal.price) %></p>
               <p>In the restaurant: <%= order.meal.restaurant.name %></p>
               <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><%= order.meal.restaurant.address %></a>
@@ -64,6 +61,11 @@
     </div>
 
 
+<<<<<<< HEAD
 <% if @orders != []%>
 <%= javascript_pack_tag 'notify' if @orders.last.within_3sec? %>
 <% end %>
+=======
+
+<%= javascript_pack_tag 'notify' if current_user.orders.last.within_3sec? %>
+>>>>>>> parent of 51f1ffd... Navbar wout logo
