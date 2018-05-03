@@ -1,4 +1,5 @@
 <div class="navbar2">
+  <%= link_to "foodi", root_path, class: "logo" %>
   <input id="burger" type="checkbox" />
 
   <!-- BURGER ICON -->
@@ -9,10 +10,10 @@
   </label>
 
   <nav>
-    <!--%= link_to "foodie", root_path, class: "logo" %-->
     <ul>
       <% if user_signed_in? %>
       <!-- Links when logged in -->
+      <li><%= link_to t('Search'), root_path %></li>
       <li><%= link_to t('Profile'), edit_user_path(current_user) %></li>
       <li><%= link_to t('Orders'), user_path(current_user) %></li>
       <li><%= link_to t('Logout'), destroy_user_session_path %></li>

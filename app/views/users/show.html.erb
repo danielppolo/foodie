@@ -64,6 +64,6 @@
     </div>
 
 
-
-<%= javascript_pack_tag 'notify' if current_user.orders.last.within_3sec? %>
-
+<% if @orders != []%>
+<%= javascript_pack_tag 'notify' if @orders.last.within_3sec? %>
+<% end %>
