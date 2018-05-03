@@ -1,8 +1,8 @@
 .order-box{
-  background-color: $white;
   height: 100%;
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  background-color: $white;
 
   * {
     margin: 0;
@@ -10,36 +10,38 @@
   }
 
   .order-info{
-  padding: 4vh;
-  height:85%;
-  overflow: hidden;
-  text-align: left;
+    padding: 4vh;
+    height:85%;
+    overflow: hidden;
+    text-align: left;
 
-  h1 {
-    font-size: $headers;
-    font-weight: 400;
-  }
-  p{
-    font-size: $sub;
-  }
-  .order-meal{
+    h1 {
+      font-size: $headers;
+      font-weight: 400;
+    }
+    p{
+      font-size: $sub;
+    }
 
-  }
-  .order-price{
+    .order-meal{
+      font-size: $headers;
+      color: red;
+    }
+    .order-price{
 
-  }
-  .order-restaurant{
-  }
-  .order-address{
-    font-size: $text;
+    }
+    .order-restaurant{
+    }
+    .order-address{
+      font-size: $text;
 
-  }
-  .order-distance{
+    }
+    .order-distance{
 
-  }
-  .order-time{
+    }
+    .order-time{
 
-  }
+    }
   }
 
   .order-pay{
