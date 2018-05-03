@@ -1,18 +1,33 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: $navbar-h;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: &navbar-h;
 
-$blackColor: #020304;
+  .logo{
+  font-family: $logo;
+  color: $white;
+  font-size: $headers;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(50,50,50,0.1);
+  z-index: 10;
+  position: absolute;
+  margin: 0 !important;
+}
 
-.navbar2 {
-  background: $blackColor;
-  padding-bottom:50px;
   h1 {
-    position: fixed;
     // top: 40px;
     left: 40px;
     z-index: 6;
-    font-size: 20px;
-    font-weight: 900;
-    font-family: sans-serif;
-    text-transform: uppercase;
+    font-size: $text;
+    font-weight: 600;
+    height: $navbar-h;
     > span {
       text-transform: none;
       opacity: .5;
@@ -20,15 +35,27 @@ $blackColor: #020304;
       font-size: 12px;
     }
   }
+
+    #burger {
+    display: none;
+    &:not(:disabled) ~ label {
+      cursor: pointer;
+    }
+    &:disabled ~ label {
+      color: $secondary;
+      cursor: not-allowed;
+    }}
+
     input + label {
       position: fixed;
-      top: 40px;
-      right: 40px;
-      height: 20px;
-      width: 15px;
+      top: $navbar-h/4;
+      right: $navbar-h/4;
+      height: $navbar-h/4;
+      width: $navbar-h/4;
       z-index: 5;
       padding: 10px !important;
       border: none;
+      background-color: transparent !important;
       span {
         position: absolute;
         width: 100%;
@@ -37,7 +64,7 @@ $blackColor: #020304;
         margin-top: -1px;
         left: 0;
         display: block;
-        background: #FFF;
+        background: $white;
         transition: .5s;
       }
       span:first-child {
@@ -66,16 +93,19 @@ $blackColor: #020304;
       }
     }
     input ~ nav {
-      background: #F2B54C;
+      background: $primary;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: $navbar-h;
       z-index: 3;
       transition: .5s;
       transition-delay: .5s;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       > ul {
         text-align: center;
         position: absolute;
@@ -83,18 +113,23 @@ $blackColor: #020304;
         left: 20%;
         right: 20%;
         > li {
-        	        	list-style-type: none !important;
+        	list-style-type: none !important;
           opacity: 0;
-          transition: .5s;
+          // TIME OF LINKS TO APPEAR
+          transition: .3s;
           transition-delay: 0s;
           > a {
             text-decoration: none;
-            text-transform: uppercase;
-            color: #FFF;
-            font-weight: 700;
-            font-family: sans-serif;
-            display: block;
+            color: $white;
+            font-weight: 600;
+            font-size: $headers;
+            display: none;
             padding: 30px;
+            transition: 0.5s ease;
+          }
+          > a:hover {
+            color: $complementary;
+
           }
         }
       }
@@ -108,6 +143,9 @@ $blackColor: #020304;
           opacity: 1;
           transition-delay: .5s;
         }
+          a{
+            display: block;
+          }
       }
     }
 }
@@ -128,113 +166,3 @@ $blackColor: #020304;
 
 
 
-
-
-
-
-
-
-
-
-/* Main navbar */
-.navbar {
-  background: transparent;
-  transition: all 0.3s ease;
-  height: 10vh;
-  width: 100%;
-  padding: 0px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* Logo */
-.logo{
-  font-family: $logo;
-  color: $white;
-  font-size: 6vh;
-  text-decoration: none;
-  text-shadow: 0 0 10px rgba(50,50,50,0.1);
-}
-
-.logo:hover {
-  text-decoration: none;
-  color: white;
-}
-
-.items-nav{
-
-}
-.navbar-brand img {
-  height: 50px;
-}
-
-/* Right section */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Basic navbar item */
-.navbar-item {
-  cursor: pointer;
-  padding: 0 20px;
-  color: $white;
-  font-weight: 400;
-  transition: 0.5s ease;
-  color: $secondary;
-  text-decoration: none;
-}
-.navbar-item:hover {
-  text-decoration: underline;
-}
-
-/* Navbar link */
-.navbar-link {
-  color: $complementary;
-  opacity: .7;
-  font-size: 24px;
-  transition: 0.5s ease;
-
-}
-.navbar-link:hover {
-  color: $complementary;
-  text-decoration: none;
-  opacity: 1;
-}
-
-/* Dropdown menu */
-.navbar-dropdown-menu {
-  margin-top: 15px;
-  box-shadow: 1px 1px 4px #E6E6E6;
-  border-color: #E6E6E6;
-}
-.navbar-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
-  padding: 10px 20px;
-}
-.navbar-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
-}
-.navbar-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
-}
