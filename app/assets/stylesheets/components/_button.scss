@@ -83,26 +83,26 @@ label {
   padding: 10px 20px;
   margin: 6px 3px !important;
   width: auto;
-  background-color: $white;
+  background-color: transparent;
   border: 2px solid $white;
   border-radius: 5px;
-  color: $secondary;
+  color: $white;
   font-weight: 600;
   font-size: $text;
   transition: 0.75s ease;
 }
 
 label:hover {
-  background-color: $secondary;
-  color: $white;
+  background-color: $white;
+  color: $primary;
   border: 2px solid transparent;
   border-radius: 5px;
 }
 
 input[type="radio"]:checked + label {
   background-color: $white;
-  color: $secondary;
-  border: 2px solid $secondary;
+  color: $primary;
+  border: 2px solid $white;
 }
 
 

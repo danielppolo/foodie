@@ -2,13 +2,19 @@
   <div id="viewport">
     <div class="order-box">
       <div class="order-info">
-        <h1>Your order is:</h1>
-        <p class="order-meal"><%= @meal.name %></p>
-        <p class="order-price"><%=humanized_money_with_symbol(@meal.price) %></p>
-        <p class="order-restaurant"><%= @meal.restaurant.name %></p>
-        <p class="order-address"><%= @meal.restaurant.address %></p>
-        <p class="order-distance"><%= @distance_to %>km</p>
-        <p class="order-time"><%= @time_to %>min</p>
+        <h1>Order summary:</h1>
+        <div class="order-meal-box">
+          <h2>Your meal</h2>
+          <div class="order-meal">
+            <p>1x <%= @meal.name %> </p>
+            <p><%=humanized_money_with_symbol(@meal.price) %></p>
+          </div>
+        </div>
+        <div class="order-restaurant-box">
+          <h2>Pick up at</h2>
+          <p class="order-restaurant"><%= @meal.restaurant.name %></p>
+          <p class="order-address"><i class="material-icons">place</i> <%= @meal.restaurant.address.gsub(/\d{5}/, "") %> (<%= @distance_to %>km)</p>
+        </div>
 <!--
         <div class="div-time-buttons">
           <form action="">
@@ -27,22 +33,22 @@
                     <label for="45min"> = tag.capitalize %></label>
                     <input type="radio" id="60min" name="pickup-in" value="60">
                     <label for="60min"> = tag.capitalize %></label>
-        </div> -->
-      </div>
-      <div class="order-pay">
-        <%= form_tag meal_orders_path(@meal, @order) do %>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-        data-label="Total <%=humanized_money_with_symbol(@meal.price) %>"
-        data-name="<%= @meal.name %>"
-        data-email="<%= current_user.email %>"
-        data-description="Your are paying for meal with id: <%= @meal.id %>"
-        data-amount="<%= @meal.price_cents %>"
-        data-currency="EUR"></script>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+                  </div> -->
+                </div>
+                <div class="order-pay">
+                  <%= form_tag meal_orders_path(@meal, @order) do %>
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+                  data-label="Total <%=humanized_money_with_symbol(@meal.price) %>"
+                  data-name="<%= @meal.name %>"
+                  data-email="<%= current_user.email %>"
+                  data-description="Your are paying for meal with id: <%= @meal.id %>"
+                  data-amount="<%= @meal.price_cents %>"
+                  data-currency="EUR"></script>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
 
 

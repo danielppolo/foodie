@@ -1,8 +1,8 @@
 .order-box{
-  background-color: $white;
   height: 100%;
   border-radius: 4px;
   box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  background-color: $white;
 
   * {
     margin: 0;
@@ -10,36 +10,46 @@
   }
 
   .order-info{
-  padding: 4vh;
-  height:85%;
-  overflow: hidden;
-  text-align: left;
+    padding: 4vh;
+    height:85%;
+    overflow: hidden;
+    text-align: left;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    h1 {
+      font-size: $headers;
+      font-weight: 400;
+      padding-bottom: 0.5em;
+    }
+    h2{
+      font-size: $headers;
+      font-weight: 300;
+      // text-transform: capitalize;
+    }
+    p{
+      font-size: $sub;
+    }
+    .order-meal-box{
+      padding: 1em 0;
+      .order-meal{
+        font-size: $sub;
+        font-weight: 300;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
 
-  h1 {
-    font-size: $headers;
-    font-weight: 400;
-  }
-  p{
-    font-size: $sub;
-  }
-  .order-meal{
+    .order-restaurant-box{
+      padding: 1em 0;
 
-  }
-  .order-price{
-
-  }
-  .order-restaurant{
-  }
-  .order-address{
-    font-size: $text;
-
-  }
-  .order-distance{
-
-  }
-  .order-time{
-
-  }
+      .order-address{
+        font-size: $text;
+        i{
+          font-size: 2.5vh;
+        }
+      }
+    }
   }
 
   .order-pay{
