@@ -3,6 +3,7 @@
     <div class="order-box">
       <div class="order-info">
         <h1>Your order is:</h1>
+        <h2><%= @meal.category %></h2>
         <p class="order-meal"><%= @meal.name %></p>
         <p class="order-price"><%=humanized_money_with_symbol(@meal.price) %></p>
         <p class="order-restaurant"><%= @meal.restaurant.name %></p>
