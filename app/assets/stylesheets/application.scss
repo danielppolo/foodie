@@ -14,7 +14,7 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
-
+@import "animate";
 
 //TEMP
 html,
@@ -29,9 +29,9 @@ body {
   // background: $primary;
   font: $body-font;
   background-color: $primary;
-  padding-bottom: 50px;
   // background-image: linear-gradient(0deg, #f2b54c 0%, #f2c94c 100%);
   // background-repeat: no-repeat;
+  padding: $navbar-h + 2vh 0;
 
 }
 
@@ -58,7 +58,6 @@ input {
 .foodie-wrapper{
   display: flex;
   // height: 100vh ;
-  margin-top: $navbar-h;
 }
 
 
@@ -117,4 +116,13 @@ input {
 ::selection {
     color: $white;
     background: $secondary;
+}
+
+
+// TUTORIAL CARD ANIMATION SETTINGS
+
+#tut-card {
+  -webkit-animation-duration: 2.5s;
+  -webkit-animation-delay: 1s;
+  // -webkit-animation-iteration-count: infinite;
 }
