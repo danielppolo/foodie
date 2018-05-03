@@ -20,17 +20,22 @@
             <div class="touchable-back">
 
               <%
-              final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-l+9ed4bd(#{@lng},#{@lat}),pin-l+000(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x400?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
+              final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-pitch+4A3899(#{@lng},#{@lat}),pin-l-restaurant+4A3899(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x300?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
               %>
-
-              <div class="map" data-background-image="<%= final_url %>">
-              </div>
               <div class="card-info">
+                <div class="card-description-info">
 
-                <h3><%= m.name %></h3>
-                <p><%= m.description %></p>
-                <p><%= distance = m.restaurant.distance_from([@lat, @lng]).round(2) %>km</p>
-                <p><%= ((distance*60) / 5 ).round(0) %>min</p>
+                  <h1><%= m.name %></h1>
+                  <p><%= m.description %></p>
+                </div>
+                <div class="card-restaurant-info">
+                  <h3><%= m.restaurant.name %></h3>
+                  <p><%= m.restaurant.address %></p>
+                  <h1>Reachable in <%= ((m.restaurant.distance_from([@lat, @lng]).round(2)*60) / 6 ).round(0) %> min <i class="material-icons">directions_walk</i></h1>
+                </div>
+
+              </div>
+              <div class="map" data-background-image="<%= final_url %>">
               </div>
             </div>
             <div class="card-button">
@@ -44,7 +49,7 @@
       </li>
       <% end %>
       <!-- TUTORIAL -->
-      <li class="flip-container" >
+      <!-- <li class="flip-container" >
         <div class="flipper" id="tutorial-card">
           <div class="front">
             <div class="touchable-front card-centered-content">
@@ -63,16 +68,16 @@
             </div>
           </div>
         </div>
-      </li>
+      </li> -->
       <a href="/">
-      <div class="end-card">
-        <div class="finish-cards">
-          <h2><span>Click</span> to search again</h2>
-          <!-- <h2>Not what you were looking for? </h2> -->
-          <!-- <h2>Go back to search</h2> -->
+        <div class="end-card">
+          <div class="finish-cards">
+            <h2><span>Click</span> to search again</h2>
+            <!-- <h2>Not what you were looking for? </h2> -->
+            <!-- <h2>Go back to search</h2> -->
+          </div>
         </div>
-      </div>
-     </a>
+      </a>
     </ul>
   </div>
 </div>
