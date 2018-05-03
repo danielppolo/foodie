@@ -2,7 +2,7 @@ require 'open-uri'
 require 'pry'
 
 Order.delete_all
-User.delete_all
+# User.delete_all
 Meal.delete_all
 Restaurant.delete_all
 
@@ -110,7 +110,10 @@ restaurants_links.each do |suffix|
         # puts "Photo"
         if meal.xpath("picture").any?
           photo_values = meal.search('.photo').attribute('data-src').value
+
           photo_url = photo_values.match(/(http:.+)/)[1]
+          photo_url = "https://lewagon.gumlet.com/#{URI::encode(photo_url)}?width=800"
+          # photo_url = photo_values.gsub("https://euvolo-image", "http://euvolo-image")
           meal_i.photo = photo_url
         end
 
