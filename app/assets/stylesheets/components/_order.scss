@@ -12,15 +12,14 @@
   .order-info{
     padding: 4vh;
     height:85%;
-    overflow: hidden;
+    // overflow: hidden;
     text-align: left;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     h1 {
       font-size: $headers;
       font-weight: 400;
-      padding-bottom: 0.5em;
     }
     h2{
       font-size: $headers;
@@ -31,7 +30,7 @@
       font-size: $sub;
     }
     .order-meal-box{
-      padding: 1em 0;
+      // padding: 1em 0;
       .order-meal{
         font-size: $sub;
         font-weight: 300;
@@ -41,8 +40,10 @@
     }
 
     .order-restaurant-box{
-      padding: 1em 0;
-
+      // padding: 1em 0;
+      .order-restaurant{
+        font-size: $text;
+      }
       .order-address{
         font-size: $text;
         i{
@@ -52,6 +53,21 @@
     }
   }
 
+  .div-time-buttons{
+    p{
+      font-size: $text;
+    }
+    select{
+      border: none;
+      outline: none;
+      color: $secondary;
+      background-color: $white;
+      width: 100%;
+      text-align: center;
+      font-size: $text;
+      font-weight: 400;
+    }
+  }
   .order-pay{
   height: 15%;
   }

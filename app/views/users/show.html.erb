@@ -17,17 +17,14 @@
         <% current_user.orders.reverse.each_with_index do |order,i| %>
 
         <div class="order-item">
-          <div class="container-flex">
-            <div class="row">
-              <div class="order-item-header col-sm-12">
+              <div class="order-item-header">
               <h2><%= order.meal.name %></h2>
               <p><%= order.created_at.strftime("%d/%m/%Y") %> </p>
               </div>
-              <p>Order no.<%= current_user.orders.count-i %></p>
+              <p>Order no.<%= current_user.orders.count - i %></p>
               <p>You paid: <%= humanized_money_with_symbol(order.meal.price) %></p>
               <p>In the restaurant: <%= order.meal.restaurant.name %></p>
-              <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><%= order.meal.restaurant.address %></a>
-              <!--a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><img class="test col-sm-12" data-background-image="<%= @final_url %>" ></a-->
+              <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><i class="material-icons">directions</i><%= order.meal.restaurant.address %></a>
               <% if order.within_five? %>
               <% if order.order_status == 'canceled' %>
               <%= "you already updated this order" %>
@@ -43,8 +40,6 @@
               <% else %>
               <p> I am sorry, 5 minutes have passed, you cannot change your order anymore </p>
               <% end %>
-            </div>
-          </div>
         </div>
         <% end %>
         <% else %>
