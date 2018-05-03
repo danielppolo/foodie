@@ -56,7 +56,8 @@ input {
 
 .foodie-wrapper{
   display: flex;
-  height: 100vh ;
+  // height: 100vh ;
+  margin-top: $navbar-h;
 }
 
 
@@ -72,7 +73,7 @@ input {
 
 .foodie-container {
   width: 50vw;
-  margin: $navbar-h auto;
+  margin: 0 auto;
   align-self:center;
   // padding: $navbar-h 0;
   // align-self: flex-start;
