@@ -24,7 +24,7 @@ class MealsController < ApplicationController
     search_radius = user_signed_in? ? current_user.radius_search : 5
     @paths = {}
     if cookies[:lat] && cookies[:lng]
-      @meals = Meal.filter(params, cookies, search_radius).first(2)
+      @meals = Meal.filter(params, cookies, search_radius)
       @meals.each do |m|
         url = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + @lat.to_s + ',' + @lng.to_s + '&destination=' + m.restaurant.latitude.to_s + ',' + m.restaurant.longitude.to_s + '&key=AIzaSyBsCPWcOcjt6XbMm6MOsRretGjkgclnWZk'
         route_serialized = open(url).read
