@@ -26,8 +26,11 @@
               <div class="map" data-background-image="<%= final_url %>">
               </div>
               <div class="card-info">
+
                 <h3><%= m.name %></h3>
                 <p><%= m.description %></p>
+                <p><%= distance = m.restaurant.distance_from([@lat, @lng]).round(2) %>km</p>
+                <p><%= ((distance*60) / 5 ).round(0) %>min</p>
               </div>
             </div>
             <div class="card-button">
@@ -61,7 +64,7 @@
           </div>
         </div>
       </li>
-       <a href="/">
+      <a href="/">
       <div class="end-card">
         <div class="finish-cards">
           <h2><span>Click</span> to search again</h2>
