@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         link = URI.escape(points, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
         @path[@orders.last.meal.id] = link
       end
-      @final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-l+9ed4bd(#{@lng},#{@lat}),pin-l+000(#{@last_restaurant.longitude},#{@last_restaurant.latitude})#{",path-5+4A3899-1(#{@path[@orders.last.meal.id]})" if @path[@orders.last.meal.id]}/auto/600x400?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
+      @final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-pitch+4A3899(#{@lng},#{@lat}),pin-l-restaurant+4A3899(#{@last_restaurant.longitude},#{@last_restaurant.latitude})#{",path-5+4A3899-1(#{@path[@orders.last.meal.id]})" if @path[@orders.last.meal.id]}/auto/600x400?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
     end
   end
 

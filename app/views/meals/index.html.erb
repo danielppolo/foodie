@@ -20,15 +20,12 @@
             <div class="touchable-back">
 
               <%
-              final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-l+4A3899(#{@lng},#{@lat}),pin-l+4A3899(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x300?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
+              final_url = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/pin-s-pitch+4A3899(#{@lng},#{@lat}),pin-l-restaurant+4A3899(#{m.restaurant.longitude},#{m.restaurant.latitude})#{",path-5+4A3899-1(#{@paths[m.id]})" if @paths[m.id]}/auto/600x300?logo=false&attribution=false&access_token=pk.eyJ1Ijoib2Rwb2xvIiwiYSI6ImNqOXQ0YzY3NTNuOGYzM2xnMTMzN3AwMWgifQ.pylpAlDnFVGkJPfl5-N-ng"
               %>
               <div class="card-info">
-                <div class="card-name-info">
-                  <h1><%= m.name %></h1>
-                </div>
                 <div class="card-description-info">
 
-                  <h3>Description</h3>
+                  <h1><%= m.name %></h1>
                   <p><%= m.description %></p>
                 </div>
                 <div class="card-restaurant-info">
