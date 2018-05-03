@@ -26,7 +26,7 @@ class MealsController < ApplicationController
     @paths_by_restaurant = {}
 
     if cookies[:lat] && cookies[:lng]
-      @meals = Meal.filter(params, cookies, search_radius)
+      @meals = Meal.filter(params, cookies, search_radius).first(10)
       @meals.each do |m|
 
         if not @paths_by_restaurant[m.restaurant.id]
