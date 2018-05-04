@@ -8,49 +8,134 @@
 }
 
 .user-orders{
+    .your-orders{
+      font-size: $text;
+      font-weight: 700;
+      color: $complementary;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0 0 0.5em 0;
+    }
 
+  .order-date{
+    font-size: $text;
+    font-weight: 600;
+    color: $complementary;
+    padding-left: 1vh;
+    text-align: center;
+  }
   .order-item{
     background-color: $white;
     border-radius: 4px;
-    padding: 2vh;
     box-sizing: box-border;
     margin-bottom: 2vh;
     opacity: 0.6;
     transition: 1s ease;
+    border: none;
 
     *{
       margin: 0;
     }
 
-    h2{
-      font-size: $sub;
-      font-weight: 600;
-    }
     p{
       font-size: $text;
+      font-size: 300;
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+      font-size: $headers;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+    h6{
+      font-size: $sub;
+      font-weight: 400;
+      text-align: center;
+      padding: 0.25em 0;
     }
 
-    .order-item-header{
-      display:flex;
-      align-items: center;
+    .order-content{
+      padding: 2vh;
 
-      h2{
-        text-align: left;
-      }
+      .order-item-header{
+        width: 100%;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
 
-      p{
-        text-align: right;
+        h6{
+          font-size: $text;
+          font-weight: 600;
+          text-align: left;
+          padding: 0.25em 0;
+        }
+        p {
+          text-align: right;
+        }
+
+        .order-item-status{
+        }
       }
-    }
 
     .test{
       display: none;
       border-radius: 4px;
-      height: 400px;
+      height: 300px;
       background-position: center;
       background-size: cover;
     }
+    }
 
+    .order-item-cancel{
+      width: 100%;
+      #cancel-order{
+        background-color: $secondary !important;
+        color: $white !important;
+        margin: 0 !important;
+        font-size: $text;
+        font-weight: 600;
+        text-align: center;
+        width:100%;
+        border-radius: 0 !important;
+        padding: 0.5em 0 !important;
+      }
+
+      .order-item-cancel:hover #cancel-order{
+        color: $white !important;
+        background-color: $secondary !important;
+      }
+    }
+
+    .order-get-directions{
+      text-decoration: none;
+      div{
+        text-align: center !important;
+        width:100% !important;
+        border-radius: 0 !important;
+        background-color: $secondary;
+
+        p{
+        margin: 0 !important;
+        font-size: $text;
+        font-weight: 600;
+        padding: 0.5em 0 !important;
+        color: $white !important;
+        }
+
+      }
+    }
+    .order-actions{
+      margin-top: 0.5em;
+    }
+  }
+
+  .badge-foodie{
+    color: $secondary;
+    font-size: $mini;
+    font-weight: 600;
   }
 
   .order-item:hover{

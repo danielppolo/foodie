@@ -35,25 +35,12 @@ body {
 
 }
 
-button,
-input,
-code {
-    display: inline-block;
-    outline: none;
-    font: inherit;
-    border: none;
-    background: #FDE991;
-    padding: 0;
-}
+
 
 button {
-    color: #C7433E;
     cursor: pointer;
 }
 
-input {
-    width: 50px;
-}
 
 .foodie-wrapper{
   display: flex;
