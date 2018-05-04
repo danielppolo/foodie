@@ -15,14 +15,44 @@
           <p class="order-restaurant"><%= @meal.restaurant.name %></p>
           <p class="order-address"><i class="material-icons">place</i> <%= @meal.restaurant.address.gsub(/\d{5}/, "") %> (<%= @distance_to %>km)</p>
         </div>
-<!--
+
         <div class="div-time-buttons">
+          <p>Select your time of arrival</p>
+          <select name="pick-up">
+            <option value="15">in 15 minutes</option>
+            <option value="30">in 30 minutes</option>
+            <option value="45">in 45 minutes</option>
+            <option value="60">in 60 minutes</option>
+          </select>
+        </div>
+      </div>
+      <div class="order-pay">
+        <%= form_tag meal_orders_path(@meal, @order) do %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+        data-label="Total <%=humanized_money_with_symbol(@meal.price) %>"
+        data-name="<%= @meal.name %>"
+        data-email="<%= current_user.email %>"
+        data-description="Your are paying for meal with id: <%= @meal.id %>"
+        data-amount="<%= @meal.price_cents %>"
+        data-currency="EUR"></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--
           <form action="">
             <input id="button-15-min" class="time-buttons" type="button" name="time" value="15">
             <input id="button-30-min" class="time-buttons" type="button" name="time" value="30">
             <input id="button-45-min" class="time-buttons" type="button" name="time" value="45">
             <input id="button-60-min" class="time-buttons" type="button" name="time" value="60">
           </form>
+
+
 
           <form action="/meals/ = m.id %>/orders/new">
                     <input type="radio" id="15min" name="pickup-in" value="15">
@@ -33,22 +63,4 @@
                     <label for="45min"> = tag.capitalize %></label>
                     <input type="radio" id="60min" name="pickup-in" value="60">
                     <label for="60min"> = tag.capitalize %></label>
-                  </div> -->
-                </div>
-                <div class="order-pay">
-                  <%= form_tag meal_orders_path(@meal, @order) do %>
-                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-                  data-label="Total <%=humanized_money_with_symbol(@meal.price) %>"
-                  data-name="<%= @meal.name %>"
-                  data-email="<%= current_user.email %>"
-                  data-description="Your are paying for meal with id: <%= @meal.id %>"
-                  data-amount="<%= @meal.price_cents %>"
-                  data-currency="EUR"></script>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
+ -->

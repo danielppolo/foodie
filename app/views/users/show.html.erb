@@ -1,8 +1,8 @@
 <% if flash[:notice] %>
-      <%=  javascript_pack_tag 'notify-order-deleted' %>
+<%=  javascript_pack_tag 'notify-order-deleted' %>
 <% end %>
 
-    <div class="foodie-container navbar-padding">
+<div class="foodie-container">
      <!--  <div class="user-info">
         % if current_user.first_name != "" %>
         <h1>Welcome %=  current_user.first_name %></h1>
@@ -12,59 +12,67 @@
       </div> -->
       <% if current_user.orders != []%>
       <div class="user-orders">
-        <p>Your orders are:</p>
+        <!-- <h2 class="your-orders">Order history</h2> -->
         <!-- <p><strong> LAST ORDER </strong></p> -->
         <% current_user.orders.reverse.each_with_index do |order,i| %>
 
+        <p class="order-date"><%= order.created_at.strftime("%B %e") %> </p>
         <div class="order-item">
-          <div class="container-flex">
-            <div class="row">
-              <div class="order-item-header col-sm-12">
-              <h2><%= order.meal.name %></h2>
-              <p><%= order.created_at.strftime("%d/%m/%Y") %> </p>
+          <div class="order-content">
+            <div class="order-item-header">
+              <h6>Order <%= current_user.orders.count - i %></h6>
+              <div class="order-item-status">
+                <% if order.within_five? &&  order.active? %>
+                <p class="badge-foodie">Cooking</p>
+                <% elsif order.canceled? %>
+                <p class="badge-foodie">Canceled</p>
+                <% else %>
+                <p class="badge-foodie">Delivered</p>
+                <% end %>
               </div>
-              <p>Order no.<%= current_user.orders.count-i %></p>
-              <p>You paid: <%= humanized_money_with_symbol(order.meal.price) %></p>
-              <p>In the restaurant: <%= order.meal.restaurant.name %></p>
-              <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><%= order.meal.restaurant.address %></a>
-              <!--a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>"><img class="test col-sm-12" data-background-image="<%= @final_url %>" ></a-->
-              <% if order.within_five? %>
-              <% if order.order_status == 'canceled' %>
-              <%= "you already updated this order" %>
-              <% else %>
-              <%= simple_form_for [order.meal, order] do |f| %>
-              <%= hidden_field_tag 'order_status', 'canceled', id: 'cancel-order' %>
-              <%= f.button :submit %>
-              <% end %>
-              <% end %>
-              <% elsif order.order_status == 'canceled' %>
-              <p> You already updated this order </p>
+            </div>
+            <h2><%= order.meal.name %></h2>
 
-              <% else %>
-              <p> I am sorry, 5 minutes have passed, you cannot change your order anymore </p>
+            <!-- <h6>You paid</h6> -->
+            <h6><%= humanized_money_with_symbol(order.meal.price) %>.00</h6>
+            <p>in</p>
+            <h6><%= order.meal.restaurant.name %></h6>
+            <div class="order-directions">
+            <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude%>" >Get directions to <%= order.meal.restaurant.address.gsub(/\d{5}/, "") %></a>
+          </div>
+          <div class="order-actions">
+            <div class="order-item-cancel">
+              <% if order.within_five? && order.active? %>
+              <%= simple_form_for [order.meal, order] do |f| %>
+              <%= hidden_field_tag 'order_status', 'canceled' %>
+              <%= f.button :submit, 'Cancel order', id: 'cancel-order' %>
+              <% end %>
               <% end %>
             </div>
           </div>
+          </div>
         </div>
         <% end %>
+
         <% else %>
-        <div class="">
-          <p>You have 0 orders, start ordering now with Foodie! </p>
+        <div class="orders-zero-message">
+          <a href="/">You have 0 orders, start ordering now with Foodie! </a>
         </div>
         <% end %>
-
-
-        <div class="">
-          <%= link_to "Edit your profile", edit_user_path(current_user), class: ""%>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-          <% end %>
-          <%= link_to "Go to search!", root_path, class: "" %>
-        </div>
       </div>
     </div>
 
 
-<% if @orders != []%>
-<%= javascript_pack_tag 'notify' if @orders.last.within_3sec? %>
-<% end %>
+    <% if @orders != []%>
+    <%= javascript_pack_tag 'notify' if @orders.last.within_3sec? %>
+    <% end %>
+
+
+<!--
+<div class="">
+>%= link_to "Edit your profile", edit_user_path(current_user), class: ""%>
+>%= link_to destroy_user_session_path, method: :delete do %>
+<i class="fa fa-sign-out"></i>  >%= t(".sign_out", default: "Log out") %>
+>% end %>
+>%= link_to "Go to search!", root_path, class: "" %>
+</div> -->

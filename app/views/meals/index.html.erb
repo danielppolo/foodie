@@ -29,7 +29,7 @@
                 </div>
                 <div class="card-restaurant-info">
                   <h3><%= m.restaurant.name %></h3>
-                  <p><%= m.restaurant.address %></p>
+                  <p><%= m.restaurant.address.gsub(/\d{5}/, "") %></p>
                   <h1>Reachable in <%= ((m.restaurant.distance_from([@lat, @lng]).round(2)*60) / 6 ).round(0) %> min <i class="material-icons">directions_walk</i></h1>
                 </div>
 
@@ -48,7 +48,7 @@
       </li>
       <% end %>
       <!-- TUTORIAL -->
-      <li class="flip-container" >
+      <li class="flip-container animated bounce" id=tut-card >
         <div class="flipper" id="tutorial-card">
           <div class="front">
             <div class="touchable-front card-centered-content">
@@ -82,6 +82,7 @@
 </div>
 <%= javascript_pack_tag 'card-stack' %>
 <%= javascript_pack_tag 'swing' %>
+<%= javascript_pack_tag 'animate-tut' %>
 
 
 <!-- <div class ="map" id="map-%= m.id %>"

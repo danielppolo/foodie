@@ -141,7 +141,7 @@
 
               h2{
                 font-size: $sub;
-                font-weight: 300;
+                font-weight: 400;
                 margin: 0 !important;
               }
               h3{
@@ -156,7 +156,7 @@
                 font-size: $text;
                 text-align: center;
                 margin: 0;
-                max-height: 2.6em;
+                max-height: 3em;
                 overflow: hidden
               }
             }
@@ -204,6 +204,7 @@
             color: $white;
             font-weight: 600;
             transition: 0.5s ease;
+            border: none !important;
           }
           button:hover{
             background-color: $secondary-dark;
