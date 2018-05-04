@@ -31,7 +31,7 @@ body {
   background-color: $primary;
   // background-image: linear-gradient(0deg, #f2b54c 0%, #f2c94c 100%);
   // background-repeat: no-repeat;
-  padding: $navbar-h + 2vh 0;
+  padding: $navbar-h + 2vh 0 2*$navbar-h 0;
 
 }
 
