@@ -20,7 +20,7 @@
         <div class="order-item">
           <div class="order-content">
             <div class="order-item-header">
-              <h6>Order <%= i + 1 %></h6>
+              <h6>Order <%= current_user.orders.count - i %></h6>
               <div class="order-item-status">
                 <% if order.within_five? &&  order.active? %>
                 <p class="badge-foodie">Cooking</p>
@@ -37,19 +37,10 @@
             <h6><%= humanized_money_with_symbol(order.meal.price) %>.00</h6>
             <p>in</p>
             <h6><%= order.meal.restaurant.name %></h6>
-            <p><%= order.meal.restaurant.address.gsub(/\d{5}/, "") %></p>
+            <div class="order-directions">
+            <a href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude%>" >Get directions to <%= order.meal.restaurant.address.gsub(/\d{5}/, "") %></a>
           </div>
           <div class="order-actions">
-            <a class="order-get-directions" href="http://maps.google.com/maps?q=<%= order.meal.restaurant.latitude %>,<%= order.meal.restaurant.longitude %>">
-              <div>
-                <p>Get directions</p>
-              </div>
-            </a>
-            <a class="order-get-directions" href="">
-              <div>
-                <p>Call restaurant</p>
-              </div>
-            </a>
             <div class="order-item-cancel">
               <% if order.within_five? && order.active? %>
               <%= simple_form_for [order.meal, order] do |f| %>
@@ -58,6 +49,7 @@
               <% end %>
               <% end %>
             </div>
+          </div>
           </div>
         </div>
         <% end %>
