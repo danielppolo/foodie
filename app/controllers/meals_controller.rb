@@ -19,13 +19,14 @@ class MealsController < ApplicationController
   end
 
   def index
+    puts "index"
     @lat = cookies[:lat]
     @lng = cookies[:lng]
     search_radius = user_signed_in? ? current_user.radius_search : 5
     @paths = {}
     @paths_by_restaurant = {}
 
-    if cookies[:lat] && cookies[:lng]
+    if !cookies[:lat] && !cookies[:lng]
       @meals = Meal.filter(params, cookies, search_radius).first(10)
       # @meals = Meal.all.shuffle.first(2)
       @meals.each do |m|

@@ -1,38 +1,38 @@
-window.onload = function() {
-			$(".navbar2").hide();
-};
-function setCookie(name,value,days) {
-	var expires = "";
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime() + (days*24*60*60*1000));
-		expires = "; expires=" + date.toUTCString();
-	}
-	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
+// window.onload = function() {
+// 			$(".navbar2").hide();
+// };
+// function setCookie(name,value,days) {
+// 	var expires = "";
+// 	if (days) {
+// 		var date = new Date();
+// 		date.setTime(date.getTime() + (days*24*60*60*1000));
+// 		expires = "; expires=" + date.toUTCString();
+// 	}
+// 	document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+// }
 
-if (navigator.geolocation) {
-	navigator.geolocation.getCurrentPosition(
-		function(position) {
+// if (navigator.geolocation) {
+// 	navigator.geolocation.getCurrentPosition(
+// 		function(position) {
 
 
-			positionCords = {lat: position.coords.latitude, lng: position.coords.longitude};
-			setCookie("lat", positionCords.lat);
-			setCookie("lng", positionCords.lng);
-			// alert("Position found! :)");
-			$(".navbar2").show();
-			$(".spinnerdiv").hide();
-		},
-		function(error) {
-			console.warn('ERROR(' + error.code + '): ' + error.message);
-			document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
-			$(".spinner").hide();
-			$(".navbar2").hide();
-		},
-		{timeout: 15000, enableHighAccuracy: true, maximumAge: 100000}
-		);
+// 			positionCords = {lat: position.coords.latitude, lng: position.coords.longitude};
+// 			setCookie("lat", positionCords.lat);
+// 			setCookie("lng", positionCords.lng);
+// 			// alert("Position found! :)");
+// 			$(".navbar2").show();
+// 			$(".spinnerdiv").hide();
+// 		},
+// 		function(error) {
+// 			console.warn('ERROR(' + error.code + '): ' + error.message);
+// 			document.getElementById("positiontext").innerHTML = "Sorry, you can't use this app without enabling geolocation";
+// 			$(".spinner").hide();
+// 			$(".navbar2").hide();
+// 		},
+// 		{timeout: 15000, enableHighAccuracy: true, maximumAge: 100000}
+// 		);
 
-}
+// }
 
 // function success(pos) {
 // 	setCookie("lat", pos.coords.latitude);
