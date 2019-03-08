@@ -29,7 +29,8 @@ Todo:
     ☐ Like model (join table)
     ☐ like_id in User => Stats of users tastes
     ☐ like_id in Meal => Most liked meal of all time
-  ☐ Calculate ETA serverside. Based on coordinates.
+  ☐ Calculate ETA server-side. Based on coordinates.
+
 Features:
   ☐ Table booking
   ☐ Restaurant User Flow
