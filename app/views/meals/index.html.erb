@@ -30,7 +30,7 @@
                 <div class="card-restaurant-info">
                   <h3><%= m.restaurant.name %></h3>
                   <p><%= m.restaurant.address.gsub(/\d{5}/, "") %></p>
-                  <h1>Reachable in <%= ((m.restaurant.distance_from([@lat, @lng]).round(2)*60) / 6 ).round(0) %> min <i class="material-icons">directions_walk</i></h1>
+                  <!-- <h1>Reachable in  ((m.restaurant.distance_from([@lat, @lng]).round(2)*60) / 6 ).round(0) %> min <i class="material-icons">directions_walk</i></h1> -->
                 </div>
 
               </div>

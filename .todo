@@ -1,0 +1,40 @@
+
+Todo:
+  ☐ Create API
+    ☐ GET categories/?lat=0.00&lng=0.00
+    ☐ GET meals/?lat=0.00&lng=0.00&cat=tacos&restaurant=:id&start_at=:meal_id
+    ☐ POST orders/
+    ☐ POST meals/liked => {users, meal}
+    ☐ POST users { password, email }
+    ☐ POST auth => JWT
+  ☐ Implement pagination! 
+  ☐ Clean dependencies
+  ☐ Manage API auth through JWT
+  ☐ Add more meaningful data to the meal model 
+    ☐ Carbs (int)
+    ☐ Ingredients (arr) => Faker::Food.ingredient 
+    ☐ Halal (bool)
+    ☐ Kosher (bool)
+    ☐ Vegan (bool)
+  ☐ Flexible seeds.
+    ☐ CDMX
+    ☐ London
+    ☐ Milan
+    ☐ Berlin?
+    ☐ Paris?
+  ☐ Improve order (Model + UI)
+  ☐ FB auth
+  ☐ Try GraphQl for the API, if needed(gem 'graphql')
+  ☐ Like history for all users
+    ☐ Like model (join table)
+    ☐ like_id in User => Stats of users tastes
+    ☐ like_id in Meal => Most liked meal of all time
+  ☐ Calculate ETA serverside. Based on coordinates.
+Features:
+  ☐ Table booking
+  ☐ Restaurant User Flow
+    ☐ Dashboard UI
+    ☐ POST restaurants/  
+    ☐ PATCH restaurants/:id
+    ☐ POST meals/
+    ☐ PATCH meals/:id
